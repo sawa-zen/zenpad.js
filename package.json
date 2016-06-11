@@ -1,0 +1,30 @@
+{
+  "name": "zenpad.js",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "npm run watch & npm run lite",
+    "lite": "lite-server",
+    "build": "browserify src/Zenpad.ts -p [tsify] -o build/zenpad.js -v -d",
+    "watch": "watchify src/Zenpad.ts -p [tsify] -o build/zenpad.js -v -d",
+    "typings:install": "typings install --global --save",
+    "postinstall": "typings install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sawa-zen/zenpad.js.git"
+  },
+  "keywords": [
+    "gamepad"
+  ],
+  "author": "sawa-zen",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "lite-server": "^2.2.0",
+    "tsify": "^0.16.0",
+    "typescript": "^1.8.10",
+    "typings": "^1.0.5",
+    "watchify": "^3.7.0"
+  }
+}
