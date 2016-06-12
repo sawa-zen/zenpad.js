@@ -1,14 +1,21 @@
-class Zenpad {
+/**
+ * Zenpadのメインクラスです。
+ */
+class Zenpad extends createjs.EventDispatcher {
+
+  /** canvasのid */
+  private _canvasId:string;
 
   /**
    * コンストラクター
    * @constructor
+   * @param {string} dpmId
    */
-  constructor() {
-  }
+  constructor(canvasId:string) {
+    super();
 
-  hoge() {
-    console.info("aaaaaa");
+    this._canvasId = canvasId;
+
   }
 
 }

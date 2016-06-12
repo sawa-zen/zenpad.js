@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>zenpad.js</title>
+  <script src="./libs/createjs.min.js"></script>
   <script src="../build/zenpad.js"></script>
   <link rel="stylesheet" href="./css/index.css">
   <script>
-    var zenpad = new Zenpad();
+    var zenpad = new Zenpad('myZenpad');
     zenpad.hoge();
   </script>
 </head>
 <body>
-  <canvas id="zenpad"></canvas>
+  <canvas id="myZenpad"></canvas>
 </body>
 </html>
