@@ -15,7 +15,10 @@ class Zenpad extends createjs.EventDispatcher {
     super();
 
     this._canvasId = canvasId;
+  }
 
+  hoge() {
+    console.info("aaaaa");
   }
 
 }
