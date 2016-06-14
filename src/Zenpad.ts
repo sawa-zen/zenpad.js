@@ -45,7 +45,7 @@ class Zenpad extends createjs.EventDispatcher {
 
     // Aボタン
     let aButton = new Button();
-    aButton.x = 140;
+    aButton.x = 150;
     aButton.y = 80;
     aButton.addEventListener("click", () => this._onClickA());
     this._rightButtons.addChild(aButton);
@@ -53,7 +53,7 @@ class Zenpad extends createjs.EventDispatcher {
     // Bボタン
     let bButton = new Button();
     bButton.x = 80;
-    bButton.y = 130;
+    bButton.y = 110;
     bButton.addEventListener("click", () => this._onClickB());
     this._rightButtons.addChild(bButton);
 
