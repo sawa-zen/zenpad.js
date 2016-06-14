@@ -3,7 +3,7 @@ import Button from './botton/Button';
 /**
  * Zenpadのメインクラスです。
  */
-class Zenpad {
+class Zenpad extends createjs.EventDispatcher {
 
   /** canvasのid */
   private _canvasId:string;
@@ -23,6 +23,7 @@ class Zenpad {
    * @param {string} dpmId
    */
   constructor(canvasId:string) {
+    super();
 
     // ステージを作成
     this._canvasId = canvasId;
@@ -38,14 +39,23 @@ class Zenpad {
 
     // 右側
     this._rightButtons = new createjs.Container();
-    this._rightButtons.regX = 200;
+    this._rightButtons.regX = 190;
+
     this._stage.addChild(this._rightButtons);
 
-    // ボタン
-    let button = new Button();
-    button.x = 120;
-    button.y = 30;
-    this._rightButtons.addChild(button);
+    // Aボタン
+    let aButton = new Button();
+    aButton.x = 140;
+    aButton.y = 80;
+    aButton.addEventListener("click", () => this._onClickA());
+    this._rightButtons.addChild(aButton);
+
+    // Bボタン
+    let bButton = new Button();
+    bButton.x = 80;
+    bButton.y = 130;
+    bButton.addEventListener("click", () => this._onClickB());
+    this._rightButtons.addChild(bButton);
 
     // アニメーション
     createjs.Ticker.addEventListener("tick", () => this._tick());
@@ -74,6 +84,20 @@ class Zenpad {
 
     // 右側グループを右隅に
     this._rightButtons.x = this._canvas.clientWidth;
+  }
+
+  /**
+   * Aボタン押下時のハンドラーです。
+   */
+  private _onClickA() {
+    this.dispatchEvent("aClick");
+  }
+
+  /**
+   * Bボタン押下時のハンドラーです。
+   */
+  private _onClickB() {
+    this.dispatchEvent("bClick");
   }
 }
 

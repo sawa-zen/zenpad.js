@@ -11,6 +11,14 @@
     window.addEventListener('load', init);
     function init() {
       var zenpad = new Zenpad('myZenpad');
+      // Aボタン
+      zenpad.addEventListener('aClick', function() {
+        console.info('dispatch aClick');
+      });
+      // Bボタン
+      zenpad.addEventListener('bClick', function() {
+        console.info('dispatch bClick');
+      });
     }
   </script>
 </head>
