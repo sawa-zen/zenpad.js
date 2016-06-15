@@ -1,4 +1,5 @@
 import Button from './botton/Button';
+import Pad from './pad/Pad';
 
 /**
  * Zenpadのメインクラスです。
@@ -37,11 +38,16 @@ class Zenpad extends createjs.EventDispatcher {
     this._leftButtons = new createjs.Container();
     this._stage.addChild(this._leftButtons);
 
-    // 右側
+    // 右側グループ
     this._rightButtons = new createjs.Container();
     this._rightButtons.regX = 190;
-
     this._stage.addChild(this._rightButtons);
+
+    // アナログパッド
+    let pad = new Pad();
+    pad.x = 80;
+    pad.y = 90;
+    this._leftButtons.addChild(pad);
 
     // Aボタン
     let aButton = new Button();
