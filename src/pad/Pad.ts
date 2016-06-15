@@ -46,6 +46,8 @@ export default class Pad extends createjs.Container {
     let x = event.localX,
         y = event.localY;
     let vec = new Victor(x, y);
+
+    // 枠外に出ていれば枠内に収める
     if(vec.length() > this._radius - this._stickRadius) {
       let v = vec.normalize().multiplyScalar(this._radius - this._stickRadius);
       this._stick.x = v.x;
@@ -53,6 +55,18 @@ export default class Pad extends createjs.Container {
     } else {
       this._stick.x = event.localX;
       this._stick.y = event.localY;
+    }
+
+    // 十字のどちらを向いているか判定
+    let angle = vec.angle() * 180 / Math.PI;
+    if(angle >= -45 && angle <= 45) {
+      console.info('右');
+    } else if(angle > 45 && angle < 135) {
+      console.info('下');
+    } else if(angle < -45 && angle > -135) {
+      console.info('上');
+    } else {
+      console.info('左');
     }
   }
 

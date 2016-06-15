@@ -1,5 +1,7 @@
 import Button from './botton/Button';
 import Pad from './pad/Pad';
+import EventManager from './event/EventManager';
+import EventName from './event/EventName';
 
 /**
  * Zenpadのメインクラスです。
@@ -12,6 +14,8 @@ class Zenpad extends createjs.EventDispatcher {
   private _canvas:HTMLElement;
   /** stage */
   private _stage:createjs.Stage;
+  /** イベントマネージャー */
+  private _eventManager:EventManager;
 
   /** 左側グループ */
   private _leftButtons:createjs.Container;
@@ -34,6 +38,10 @@ class Zenpad extends createjs.EventDispatcher {
     this._stage = new createjs.Stage(this._canvasId);
     createjs.Touch.enable(this._stage);
 
+    // イベントマネージャー
+    this._eventManager = EventManager.getInstance();
+    this._eventManager.addEventListener(EventName.CLICK_A, this._onCatchEvent);
+
     // 左側グループ
     this._leftButtons = new createjs.Container();
     this._stage.addChild(this._leftButtons);
@@ -53,21 +61,21 @@ class Zenpad extends createjs.EventDispatcher {
     let aButton = new Button();
     aButton.x = 150;
     aButton.y = 80;
-    aButton.addEventListener("click", () => this._onClickA());
     this._rightButtons.addChild(aButton);
 
     // Bボタン
     let bButton = new Button();
     bButton.x = 80;
     bButton.y = 110;
-    bButton.addEventListener("click", () => this._onClickB());
     this._rightButtons.addChild(bButton);
 
     // アニメーション
-    createjs.Ticker.addEventListener("tick", () => this._tick());
+    this._tick = this._tick.bind(this);
+    createjs.Ticker.addEventListener("tick", this._tick);
 
     // リサイズ
-    window.addEventListener("resize", () => this._resize());
+    this._resize = this._resize.bind(this);
+    window.addEventListener("resize", this._resize);
 
     // 初回リサイズ処理
     this._resize();
@@ -76,14 +84,14 @@ class Zenpad extends createjs.EventDispatcher {
   /**
    * 毎フレーム毎のアニメーション
    */
-  private _tick() {
+  private _tick():void {
     this._stage.update();
   }
 
   /**
    * リサイズ
    */
-  private _resize() {
+  private _resize():void {
     // canvasサイズを合わせる
     this._canvas.setAttribute('width', String(this._canvas.clientWidth));
     this._canvas.setAttribute('height', String(this._canvas.clientHeight));
@@ -93,18 +101,11 @@ class Zenpad extends createjs.EventDispatcher {
   }
 
   /**
-   * Aボタン押下時のハンドラーです。
+   * イベントキャッチ時のハンドラーです。
    */
-  private _onClickA() {
-    this.dispatchEvent("aClick");
+  private _onCatchEvent(event:any):void {
   }
 
-  /**
-   * Bボタン押下時のハンドラーです。
-   */
-  private _onClickB() {
-    this.dispatchEvent("bClick");
-  }
 }
 
 (<any>window).Zenpad = Zenpad;
