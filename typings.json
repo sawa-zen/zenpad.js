@@ -3,6 +3,7 @@
     "createjs": "registry:dt/createjs#0.0.0+20160316155526",
     "createjs-lib": "registry:dt/createjs-lib#0.0.0+20160317120654",
     "easeljs": "registry:dt/easeljs#0.8.0+20160326124359",
-    "tweenjs": "registry:dt/tweenjs#0.6.0+20160317120654"
+    "tweenjs": "registry:dt/tweenjs#0.6.0+20160317120654",
+    "victor": "registry:dt/victor#0.2.5+20160316155526"
   }
 }

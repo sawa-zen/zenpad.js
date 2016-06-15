@@ -7,6 +7,7 @@
     "lite": "lite-server",
     "build": "browserify src/Zenpad.ts -p [tsify] -o build/zenpad.js -v -d",
     "watch": "watchify src/Zenpad.ts -p [tsify] -o build/zenpad.js -v -d",
+    "typings": "typings",
     "typings:install": "typings install --global --save",
     "postinstall": "typings install"
   },
