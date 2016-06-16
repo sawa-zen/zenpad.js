@@ -3,6 +3,7 @@ import Pad from './pad/Pad';
 import EventManager from './event/EventManager';
 import EventName from './event/EventName';
 import EventCatchEvent from './event/EventCatchEvent';
+import PublicEventName from './event/PublicEventName';
 
 /**
  * Zenpadのメインクラスです。
@@ -60,13 +61,13 @@ class Zenpad extends createjs.EventDispatcher {
     this._leftButtons.addChild(pad);
 
     // Aボタン
-    let aButton = new Button();
+    let aButton = new Button(PublicEventName.CLICK_A);
     aButton.x = 150;
     aButton.y = 80;
     this._rightButtons.addChild(aButton);
 
     // Bボタン
-    let bButton = new Button();
+    let bButton = new Button(PublicEventName.CLICK_B);
     bButton.x = 80;
     bButton.y = 110;
     this._rightButtons.addChild(bButton);

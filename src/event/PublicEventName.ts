@@ -4,6 +4,7 @@
 export default class PublicEventName {
 
   public static CLICK_A:string      = 'clickA';
+  public static CLICK_B:string      = 'clickB';
   public static PUSH_TOP:string     = 'pushTop';
   public static PUSH_LEFT:string    = 'pushLeft';
   public static PUSH_RIGHT:string   = 'pushRight';

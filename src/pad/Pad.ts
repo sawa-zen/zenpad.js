@@ -92,6 +92,7 @@ export default class Pad extends createjs.Container {
   private _onMouseUp() {
     this._stick.x = 0;
     this._stick.y = 0;
+    this._currentDirection = null;
     this._eventManager.dispatch(PublicEventName.RELEASE_PAD);
   }
 
