@@ -3,6 +3,6 @@
  */
 export default class EventName {
 
-  public static CLICK_A:string = 'clickA';
+  public static CHATCH_EVENT:string = 'change_event';
 
 }

@@ -1,3 +1,6 @@
+import EventCatchEvent from './EventCatchEvent';
+import EventName from './EventName';
+
 /**
  * イベント管理クラス
  */
@@ -21,6 +24,15 @@ export default class EventManager extends createjs.EventDispatcher {
   constructor() {
     super();
     EventManager._instance = this;
+  }
+
+  /**
+   * 発火させます。
+   * @param {string} eventName
+   */
+  public dispatch(eventName:string):void {
+    // イベントキャッチイベント発火
+    this.dispatchEvent(new EventCatchEvent(EventName.CHATCH_EVENT, eventName));
   }
 
 }

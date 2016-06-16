@@ -1,3 +1,6 @@
+import EventManager from '../event/EventManager';
+import PublicEventName from '../event/PublicEventName';
+
 /**
  * アナログパッドクラスです。
  */
@@ -10,8 +13,11 @@ export default class Pad extends createjs.Container {
 
   /** スティック */
   private _stick:createjs.Shape;
-  /** 操作中 */
-  private _isTouching:boolean = false;
+  /** 現在倒している方向 */
+  private _currentDirection:string;
+
+  /** イベントマネージャー */
+  private _eventManager:EventManager;
 
   /**
    * コンストラクター
@@ -19,6 +25,9 @@ export default class Pad extends createjs.Container {
    */
   constructor() {
     super();
+
+    // イベント発火
+    this._eventManager = EventManager.getInstance();
 
     // 背景
     let bg = new createjs.Shape();
@@ -59,14 +68,21 @@ export default class Pad extends createjs.Container {
 
     // 十字のどちらを向いているか判定
     let angle = vec.angle() * 180 / Math.PI;
+    let direction:string;
     if(angle >= -45 && angle <= 45) {
-      console.info('右');
+      direction = PublicEventName.PUSH_RIGHT;
     } else if(angle > 45 && angle < 135) {
-      console.info('下');
+      direction = PublicEventName.PUSH_BOTTOM;
     } else if(angle < -45 && angle > -135) {
-      console.info('上');
+      direction = PublicEventName.PUSH_TOP;
     } else {
-      console.info('左');
+      direction = PublicEventName.PUSH_LEFT;
+    }
+
+    // 方向が変わったらイベントを発火させる
+    if(this._currentDirection != direction) {
+      this._currentDirection = direction;
+      this._eventManager.dispatch(direction);
     }
   }
 
@@ -74,9 +90,9 @@ export default class Pad extends createjs.Container {
    * マウスアップ時のハンドラーです。
    */
   private _onMouseUp() {
-    console.info("asdfads");
     this._stick.x = 0;
     this._stick.y = 0;
+    this._eventManager.dispatch(PublicEventName.RELEASE_PAD);
   }
 
 }
