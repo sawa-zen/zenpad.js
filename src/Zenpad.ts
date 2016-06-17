@@ -107,7 +107,7 @@ class Zenpad extends createjs.EventDispatcher {
    * イベントキャッチ時のハンドラーです。
    */
   private _onCatchEvent(event:EventCatchEvent):void {
-    console.info(event.getEventName());
+    this.dispatchEvent(event.getEventName());
   }
 
 }
