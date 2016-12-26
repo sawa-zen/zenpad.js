@@ -32,7 +32,7 @@ export default class EventManager extends createjs.EventDispatcher {
    */
   public dispatch(eventName:string):void {
     // イベントキャッチイベント発火
-    this.dispatchEvent(new EventCatchEvent(EventName.CHATCH_EVENT, eventName));
+    this.dispatchEvent(new EventCatchEvent(EventName.CATCH_EVENT, eventName));
   }
 
 }

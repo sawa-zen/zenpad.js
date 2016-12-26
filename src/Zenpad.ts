@@ -43,7 +43,7 @@ class Zenpad extends createjs.EventDispatcher {
     // イベントマネージャー
     this._eventManager = EventManager.getInstance();
     this._onCatchEvent = this._onCatchEvent.bind(this);
-    this._eventManager.addEventListener(EventName.CHATCH_EVENT, this._onCatchEvent);
+    this._eventManager.addEventListener(EventName.CATCH_EVENT, this._onCatchEvent);
 
     // 左側グループ
     this._leftButtons = new createjs.Container();
