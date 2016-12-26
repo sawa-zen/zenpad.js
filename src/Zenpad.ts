@@ -64,7 +64,7 @@ class Zenpad extends createjs.EventDispatcher {
     bButton.y = 110;
     this._rightButtons.addChild(bButton);
 
-    // アニメーション
+    // フレーム毎の更新
     this._tick = this._tick.bind(this);
     createjs.Ticker.addEventListener("tick", this._tick);
 
