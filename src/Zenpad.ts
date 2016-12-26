@@ -1,6 +1,5 @@
-import Button from './botton/Button';
+import Button from './button/Button';
 import Pad from './pad/Pad';
-import EventManager from './event/EventManager';
 import EventName from './event/EventName';
 import EventCatchEvent from './event/EventCatchEvent';
 import PublicEventName from './event/PublicEventName';
@@ -16,8 +15,6 @@ class Zenpad extends createjs.EventDispatcher {
   private _canvas:HTMLElement;
   /** stage */
   private _stage:createjs.Stage;
-  /** イベントマネージャー */
-  private _eventManager:EventManager;
 
   /** 左側グループ */
   private _leftButtons:createjs.Container;
@@ -39,11 +36,6 @@ class Zenpad extends createjs.EventDispatcher {
     // ステージ
     this._stage = new createjs.Stage(this._canvasId);
     createjs.Touch.enable(this._stage);
-
-    // イベントマネージャー
-    this._eventManager = EventManager.getInstance();
-    this._onCatchEvent = this._onCatchEvent.bind(this);
-    this._eventManager.addEventListener(EventName.CATCH_EVENT, this._onCatchEvent);
 
     // 左側グループ
     this._leftButtons = new createjs.Container();
@@ -102,14 +94,6 @@ class Zenpad extends createjs.EventDispatcher {
     // 右側グループを右隅に
     this._rightButtons.x = this._canvas.clientWidth;
   }
-
-  /**
-   * イベントキャッチ時のハンドラーです。
-   */
-  private _onCatchEvent(event:EventCatchEvent):void {
-    this.dispatchEvent(event.getEventName());
-  }
-
 }
 
 (<any>window).Zenpad = Zenpad;

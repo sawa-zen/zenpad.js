@@ -1,4 +1,3 @@
-import EventManager from '../event/EventManager';
 import PublicEventName from '../event/PublicEventName';
 
 /**
@@ -16,18 +15,12 @@ export default class Pad extends createjs.Container {
   /** 現在倒している方向 */
   private _currentDirection:string;
 
-  /** イベントマネージャー */
-  private _eventManager:EventManager;
-
   /**
    * コンストラクター
    * @constructor
    */
   constructor() {
     super();
-
-    // イベント発火
-    this._eventManager = EventManager.getInstance();
 
     // 背景
     let bg = new createjs.Shape();
@@ -82,7 +75,6 @@ export default class Pad extends createjs.Container {
     // 方向が変わったらイベントを発火させる
     if(this._currentDirection != direction) {
       this._currentDirection = direction;
-      this._eventManager.dispatch(direction);
     }
   }
 
@@ -93,7 +85,5 @@ export default class Pad extends createjs.Container {
     this._stick.x = 0;
     this._stick.y = 0;
     this._currentDirection = null;
-    this._eventManager.dispatch(PublicEventName.RELEASE_PAD);
   }
-
 }
