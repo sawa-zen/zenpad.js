@@ -1,5 +1,5 @@
-import Button from './button/Button';
-import Pad from './pad/Pad';
+import Button from './component/Button';
+import Pad from './component/Pad';
 import EventName from './event/EventName';
 import EventCatchEvent from './event/EventCatchEvent';
 import PublicEventName from './event/PublicEventName';
