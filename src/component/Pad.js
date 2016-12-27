@@ -59,7 +59,7 @@ export default class Pad extends createjs.Container {
 
     // 十字のどちらを向いているか判定
     let angle = vec.angle() * 180 / Math.PI;
-    let direction:string;
+    let direction = "";
     if(angle >= -45 && angle <= 45) {
       // 右
       direction = PublicEventName.PUSH_RIGHT;

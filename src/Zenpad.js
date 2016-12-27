@@ -83,4 +83,4 @@ class Zenpad extends createjs.EventDispatcher {
   }
 }
 
-(<any>window).Zenpad = Zenpad;
+window.Zenpad = Zenpad;
