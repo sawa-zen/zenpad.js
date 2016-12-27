@@ -1,5 +1,4 @@
 import EventName from '../event/EventName';
-import EventManager from '../event/EventManager';
 
 /**
  * ボタンクラスです。
@@ -18,8 +17,6 @@ export default class Button extends createjs.Container {
 
     // イベント名
     this._eventName = eventName;
-    // イベントマネージャー
-    this._eventManager = EventManager.getInstance();
 
     this._onClick = this._onClick.bind(this);
 
@@ -36,6 +33,5 @@ export default class Button extends createjs.Container {
    * ボタン押下時のハンドラーです。
    */
   _onClick(event) {
-    this._eventManager.dispatch(this._eventName);
   }
 }

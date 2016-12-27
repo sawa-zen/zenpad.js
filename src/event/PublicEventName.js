@@ -2,14 +2,12 @@
  * 外部で使用するイベント名一覧
  */
 export default class PublicEventName {
-
-  public static CLICK_A:string      = 'clickA';
-  public static CLICK_B:string      = 'clickB';
-  public static PUSH_TOP:string     = 'pushTop';
-  public static PUSH_LEFT:string    = 'pushLeft';
-  public static PUSH_RIGHT:string   = 'pushRight';
-  public static PUSH_BOTTOM:string  = 'pushBottom';
-  public static PULL_DOWN:string    = 'pull_down';
-  public static RELEASE_PAD:string  = 'releasePad';
-
+  static get CLICK_A()      { return 'clickA'; };
+  static get CLICK_B()      { return 'clickB'; };
+  static get PUSH_TOP()     { return 'pushTop'; };
+  static get PUSH_LEFT()    { return 'pushLeft'; };
+  static get PUSH_RIGHT()   { return 'pushRight'; };
+  static get PUSH_BOTTOM()  { return 'pushBottom'; };
+  static get PULL_DOWN()    { return 'pull_down'; };
+  static get RELEASE_PAD()  { return 'releasePad'; };
 }
