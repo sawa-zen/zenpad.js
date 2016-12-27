@@ -27,6 +27,7 @@
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "lite-server": "^2.2.0",
+    "victor": "^1.1.0",
     "watchify": "^3.7.0"
   }
 }

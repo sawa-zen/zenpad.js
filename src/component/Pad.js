@@ -1,4 +1,5 @@
 import PublicEventName from '../event/PublicEventName';
+import Victor from 'victor';
 
 /**
  * アナログパッドクラスです。
