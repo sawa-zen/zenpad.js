@@ -16,11 +16,19 @@ class Zenpad extends PIXI.utils.EventEmitter {
   constructor(wrapperId, width, height) {
     super();
 
+    this._tick = this._tick.bind(this);
+
     // ラッパーを取得
     this._wrapper = document.getElementById(wrapperId);
 
     // レンダラー
-    this._renderer = PIXI.autoDetectRenderer(this._wrapper.offsetWidth, this._wrapper.offsetHeight, { transparent: true });
+    this._renderer = PIXI.autoDetectRenderer(
+      this._wrapper.offsetWidth,
+      this._wrapper.offsetHeight,
+      { transparent: true }
+    );
+
+    // canvasをラッパーに追加
     this._wrapper.append(this._renderer.view);
 
     // // 左側グループ
@@ -60,12 +68,16 @@ class Zenpad extends PIXI.utils.EventEmitter {
     //
     // // 初回リサイズ処理
     // this._resize();
+
+    // フレーム毎の更新
+    this._tick();
   }
 
   /**
    * 毎フレーム毎のアニメーション
    */
   _tick() {
+    requestAnimationFrame(this._tick);
     // this._stage.update();
   }
 
