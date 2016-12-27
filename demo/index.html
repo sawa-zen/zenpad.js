@@ -10,18 +10,10 @@
     window.addEventListener('load', init);
     function init() {
       var zenpad = new Zenpad('myZenpad');
-      // Aボタン
-      zenpad.addEventListener('clickA', function() {
-        console.info('dispatch aClick');
-      });
-      // Bボタン
-      zenpad.addEventListener('clickB', function() {
-        console.info('dispatch bClick');
-      });
     }
   </script>
 </head>
 <body>
-  <canvas id="myZenpad"></canvas>
+  <div id="myZenpad"></div>
 </body>
 </html>
