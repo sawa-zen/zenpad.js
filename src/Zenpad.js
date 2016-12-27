@@ -9,24 +9,12 @@ import PublicEventName from './event/PublicEventName';
  */
 class Zenpad extends createjs.EventDispatcher {
 
-  /** canvasのid */
-  private _canvasId:string;
-  /** canvas */
-  private _canvas:HTMLElement;
-  /** stage */
-  private _stage:createjs.Stage;
-
-  /** 左側グループ */
-  private _leftButtons:createjs.Container;
-  /** 右側グループ */
-  private _rightButtons:createjs.Container;
-
   /**
    * コンストラクター
    * @constructor
    * @param {string} dpmId
    */
-  constructor(canvasId:string) {
+  constructor(canvasId) {
     super();
 
     // ステージを作成
@@ -79,14 +67,14 @@ class Zenpad extends createjs.EventDispatcher {
   /**
    * 毎フレーム毎のアニメーション
    */
-  private _tick():void {
+  _tick() {
     this._stage.update();
   }
 
   /**
    * リサイズ
    */
-  private _resize():void {
+  _resize() {
     // canvasサイズを合わせる
     this._canvas.setAttribute('width', String(this._canvas.clientWidth));
     this._canvas.setAttribute('height', String(this._canvas.clientHeight));
