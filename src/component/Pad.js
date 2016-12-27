@@ -5,22 +5,20 @@ import PublicEventName from '../event/PublicEventName';
  */
 export default class Pad extends createjs.Container {
 
-  /** 半径 */
-  private _radius:number = 60;
-  /** スティクの半径 */
-  private _stickRadius:number = 30;
-
-  /** スティック */
-  private _stick:createjs.Shape;
-  /** 現在倒している方向 */
-  private _currentDirection:string;
-
   /**
    * コンストラクター
    * @constructor
    */
   constructor() {
     super();
+
+    // 半径
+    this._radius = 60;
+    // スティクの半径
+    this._stickRadius = 30;
+
+    this._onTouchMove = this._onTouchMove.bind(this);
+    this._onMouseUp = this._onMouseUp.bind(this);
 
     // 背景
     let bg = new createjs.Shape();
@@ -37,14 +35,14 @@ export default class Pad extends createjs.Container {
     this.addChild(this._stick);
 
     // タッチイベント
-    this.addEventListener('pressmove', (event:createjs.MouseEvent) => this._onTouchMove(event));
-    this.addEventListener('pressup', () => this._onMouseUp());
+    this.addEventListener('pressmove', this._onTouchMove);
+    this.addEventListener('pressup', this._onMouseUp);
   }
 
   /**
    * タッチムーブ時のハンドラーです。
    */
-  private _onTouchMove(event:createjs.MouseEvent) {
+  _onTouchMove(event) {
     let x = event.localX,
         y = event.localY;
     let vec = new Victor(x, y);
@@ -63,12 +61,16 @@ export default class Pad extends createjs.Container {
     let angle = vec.angle() * 180 / Math.PI;
     let direction:string;
     if(angle >= -45 && angle <= 45) {
+      // 右
       direction = PublicEventName.PUSH_RIGHT;
     } else if(angle > 45 && angle < 135) {
+      // 下
       direction = PublicEventName.PUSH_BOTTOM;
     } else if(angle < -45 && angle > -135) {
+      // 上
       direction = PublicEventName.PUSH_TOP;
     } else {
+      // 左
       direction = PublicEventName.PUSH_LEFT;
     }
 
@@ -81,7 +83,7 @@ export default class Pad extends createjs.Container {
   /**
    * マウスアップ時のハンドラーです。
    */
-  private _onMouseUp() {
+  _onMouseUp() {
     this._stick.x = 0;
     this._stick.y = 0;
     this._currentDirection = null;
