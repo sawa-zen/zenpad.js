@@ -1,8 +1,8 @@
 import * as PIXI from 'pixi.js';
-// import Button from './component/Button';
+import Button from './component/Button';
 // import Pad from './component/Pad';
 // import EventName from './event/EventName';
-//import PublicEventName from './event/PublicEventName';
+import PublicEventName from './event/PublicEventName';
 
 /**
  * Zenpadのメインクラスです。
@@ -31,43 +31,42 @@ class Zenpad extends PIXI.utils.EventEmitter {
     // canvasをラッパーに追加
     this._wrapper.append(this._renderer.view);
 
-    // // 左側グループ
-    // this._leftButtons = new createjs.Container();
-    // this._stage.addChild(this._leftButtons);
-    //
-    // // 右側グループ
-    // this._rightButtons = new createjs.Container();
-    // this._rightButtons.regX = 190;
-    // this._stage.addChild(this._rightButtons);
-    //
+    // ステージ
+    this._stage = new PIXI.Container();
+
+    // 左側グループ
+    this._leftButtons = new PIXI.Container();
+    this._stage.addChild(this._leftButtons);
+
+    // 右側グループ
+    this._rightButtons = new PIXI.Container();
+    this._stage.addChild(this._rightButtons);
+
     // // アナログパッド
     // let pad = new Pad();
     // pad.x = 80;
     // pad.y = 90;
-    // this._leftButtons.addChild(pad);
-    //
-    // // Aボタン
-    // let aButton = new Button(PublicEventName.CLICK_A);
-    // aButton.x = 150;
-    // aButton.y = 80;
-    // this._rightButtons.addChild(aButton);
-    //
-    // // Bボタン
-    // let bButton = new Button(PublicEventName.CLICK_B);
-    // bButton.x = 80;
-    // bButton.y = 110;
-    // this._rightButtons.addChild(bButton);
-    //
-    // // フレーム毎の更新
-    // this._tick = this._tick.bind(this);
-    // createjs.Ticker.addEventListener("tick", this._tick);
-    //
-    // // リサイズ
-    // this._resize = this._resize.bind(this);
-    // window.addEventListener("resize", this._resize);
-    //
-    // // 初回リサイズ処理
-    // this._resize();
+    //this._leftButtons.addChild(pad);
+    // this._stage.addChild(pad);
+
+    // Aボタン
+    let aButton = new Button(PublicEventName.CLICK_A);
+    aButton.x = 150;
+    aButton.y = 80;
+    this._rightButtons.addChild(aButton);
+
+    // Bボタン
+    let bButton = new Button(PublicEventName.CLICK_B);
+    bButton.x = 80;
+    bButton.y = 110;
+    this._rightButtons.addChild(bButton);
+
+    // リサイズ
+    this._resize = this._resize.bind(this);
+    window.addEventListener("resize", this._resize);
+
+    // 初回リサイズ処理
+    this._resize();
 
     // フレーム毎の更新
     this._tick();
@@ -77,20 +76,20 @@ class Zenpad extends PIXI.utils.EventEmitter {
    * 毎フレーム毎のアニメーション
    */
   _tick() {
+    this._renderer.render(this._stage);
     requestAnimationFrame(this._tick);
-    // this._stage.update();
   }
 
   /**
    * リサイズ
    */
   _resize() {
-    // // canvasサイズを合わせる
-    // this._canvas.setAttribute('width', String(this._canvas.clientWidth));
-    // this._canvas.setAttribute('height', String(this._canvas.clientHeight));
-    //
-    // // 右側グループを右隅に
-    // this._rightButtons.x = this._canvas.clientWidth;
+    var w = this._wrapper.offsetWidth,
+        h = this._wrapper.offsetHeight;
+    // リサイズ
+    this._renderer.resize(w, h);
+    // 右側グループを右隅に
+    this._rightButtons.x = this._wrapper.offsetWidth - this._rightButtons.width * 2;
   }
 }
 
