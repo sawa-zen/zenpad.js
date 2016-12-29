@@ -27,7 +27,10 @@ class Zenpad extends PIXI.utils.EventEmitter {
     this._renderer = PIXI.autoDetectRenderer(
       this._wrapper.offsetWidth,
       this._wrapper.offsetHeight,
-      { transparent: true }
+      {
+        transparent: true,
+        antialias: true
+      }
     );
 
     // canvasをラッパーに追加

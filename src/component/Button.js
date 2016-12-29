@@ -26,6 +26,7 @@ export default class Button extends PIXI.Container {
     this._shape.buttonMode = true;
     this.addChild(this._shape);
     this._shape.on(EventName.CLICK, this._onClick);
+    this._shape.on(EventName.TOUCH_END, this._onClick);
   }
 
   /**
