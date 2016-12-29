@@ -2,7 +2,7 @@ import * as PIXI from 'pixi.js';
 import Button from './component/Button';
 // import Pad from './component/Pad';
 import EventName from './event/EventName';
-import PublicEventName from './event/PublicEventName';
+import PublicEvent from './event/PublicEvent';
 
 /**
  * Zenpadのメインクラスです。
@@ -59,7 +59,7 @@ class Zenpad extends PIXI.utils.EventEmitter {
     aButton.on(EventName.CLICK, this._onClickA);
 
     // Bボタン
-    let bButton = new Button(PublicEventName.CLICK_B);
+    let bButton = new Button();
     bButton.x = 80;
     bButton.y = 110;
     this._rightButtons.addChild(bButton);
@@ -101,7 +101,7 @@ class Zenpad extends PIXI.utils.EventEmitter {
    */
   _onClickA() {
     // Aボタンクリックイベントを発火
-    this.emit(PublicEventName.CLICK_A);
+    this.emit(PublicEvent.CLICK_A);
   }
 
   /**
@@ -109,7 +109,7 @@ class Zenpad extends PIXI.utils.EventEmitter {
    */
   _onClickB() {
     // Bボタンクリックイベントを発火
-    this.emit(PublicEventName.CLICK_B);
+    this.emit(PublicEvent.CLICK_B);
   }
 }
 
