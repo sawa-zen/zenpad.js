@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 import Button from './component/Button';
-// import Pad from './component/Pad';
+import Pad from './component/Pad';
 import EventName from './event/EventName';
 import PublicEvent from './event/PublicEvent';
 
@@ -44,12 +44,11 @@ class Zenpad extends PIXI.utils.EventEmitter {
     this._rightButtons = new PIXI.Container();
     this._stage.addChild(this._rightButtons);
 
-    // // アナログパッド
-    // let pad = new Pad();
-    // pad.x = 80;
-    // pad.y = 90;
-    //this._leftButtons.addChild(pad);
-    // this._stage.addChild(pad);
+    // アナログパッド
+    let pad = new Pad();
+    pad.x = 80;
+    pad.y = 90;
+    this._leftButtons.addChild(pad);
 
     // Aボタン
     let aButton = new Button();
@@ -93,7 +92,7 @@ class Zenpad extends PIXI.utils.EventEmitter {
     // リサイズ
     this._renderer.resize(w, h);
     // 右側グループを右隅に
-    this._rightButtons.x = this._wrapper.offsetWidth - this._rightButtons.width * 2;
+    this._rightButtons.x = this._wrapper.offsetWidth - 190;
   }
 
   /**
