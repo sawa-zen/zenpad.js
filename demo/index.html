@@ -10,6 +10,16 @@
     window.addEventListener('load', init);
     function init() {
       var zenpad = new Zenpad('myZenpad');
+
+      // Aボタンクリック
+      zenpad.on('clickA', function() {
+        console.info('clickA');
+      });
+
+      // Bボタンクリック
+      zenpad.on('clickB', function() {
+        console.info('clickB');
+      });
     }
   </script>
 </head>
