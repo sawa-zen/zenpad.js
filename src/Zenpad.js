@@ -32,6 +32,7 @@ class Zenpad extends PIXI.utils.EventEmitter {
         antialias: true
       }
     );
+    this._renderer.plugins.interaction.moveWhenInside = true;
 
     // canvasをラッパーに追加
     this._wrapper.append(this._renderer.view);
