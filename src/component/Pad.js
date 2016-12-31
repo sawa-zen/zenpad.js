@@ -1,4 +1,5 @@
 import Victor from 'victor';
+import EventName from '../event/EventName';
 
 /**
  * アナログパッドクラスです。
@@ -62,6 +63,7 @@ export default class Pad extends PIXI.Container {
    * クリック時のハンドラーです。
    */
   _onClick() {
+    // ドラッグ中フラグを立てる
     this._isDragging = true;
   }
 
@@ -69,7 +71,6 @@ export default class Pad extends PIXI.Container {
    * タッチムーブ時のハンドラーです。
    */
   _onTouchMove(event) {
-
     // ドラッグ中でなければ処理しない
     if(!this._isDragging) {
       return;
@@ -89,6 +90,9 @@ export default class Pad extends PIXI.Container {
       this._stick.x = x;
       this._stick.y = y;
     }
+
+    // スティックムーブイベントを発火
+    this.emit(EventName.STICK_MOVE);
 
     // // 十字のどちらを向いているか判定
     // let angle = vec.angle() * 180 / Math.PI;

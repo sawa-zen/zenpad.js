@@ -19,6 +19,7 @@ class Zenpad extends PIXI.utils.EventEmitter {
     this._tick = this._tick.bind(this);
     this._onClickA = this._onClickA.bind(this);
     this._onClickB = this._onClickB.bind(this);
+    this._onStickMove = this._onStickMove.bind(this);
 
     // ラッパーを取得
     this._wrapper = document.getElementById(wrapperId);
@@ -53,6 +54,7 @@ class Zenpad extends PIXI.utils.EventEmitter {
     pad.x = 80;
     pad.y = 90;
     this._leftButtons.addChild(pad);
+    pad.on(EventName.STICK_MOVE, this._onStickMove);
 
     // Aボタン
     let aButton = new Button();
@@ -70,7 +72,7 @@ class Zenpad extends PIXI.utils.EventEmitter {
 
     // リサイズ
     this._resize = this._resize.bind(this);
-    window.addEventListener("resize", this._resize);
+    window.addEventListener('resize', this._resize);
 
     // 初回リサイズ処理
     this._resize();
@@ -113,6 +115,13 @@ class Zenpad extends PIXI.utils.EventEmitter {
   _onClickB() {
     // Bボタンクリックイベントを発火
     this.emit(PublicEvent.CLICK_B);
+  }
+
+  /**
+   * スティックが動いた時
+   */
+  _onStickMove() {
+    console.info('stick');
   }
 }
 
