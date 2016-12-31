@@ -21,60 +21,61 @@ export default class Pad extends PIXI.Container {
     this._onMouseUp = this._onMouseUp.bind(this);
 
     // 背景
-    let bg = new PIXI.Graphics();
-    bg.beginFill(0xabafb8);
-    bg.drawCircle(0, 0, this._radius);
-    bg.endFill();
-    this.addChild(bg);
+    this._bg = new PIXI.Graphics();
+    this._bg.beginFill(0xabafb8);
+    this._bg.drawCircle(0, 0, this._radius);
+    this._bg.endFill();
+    this._bg.interactive = true;
+    this.addChild(this._bg);
 
     // スティック
     this._stick = new PIXI.Graphics();
     this._stick.beginFill(0x333333);
     this._stick.drawCircle(0, 0, this._stickRadius);
     this._stick.endFill();
-    this._stick.interactive = true;
     this._stick.buttonMode = true;
     this.addChild(this._stick);
 
     // タッチイベント
-    this.on('pressmove', this._onTouchMove);
-    this.on('pressup', this._onMouseUp);
+    this._bg.on('mousemove', this._onTouchMove);
+    this._bg.on('mouseup', this._onMouseUp);
   }
 
   /**
    * タッチムーブ時のハンドラーです。
    */
   _onTouchMove(event) {
-    console.info(event);
-    // let x = event.localX,
-    //     y = event.localY;
-    // let vec = new Victor(x, y);
-    //
-    // // 枠外に出ていれば枠内に収める
-    // if(vec.length() > this._radius - this._stickRadius) {
-    //   let v = vec.normalize().multiplyScalar(this._radius - this._stickRadius);
-    //   this._stick.x = v.x;
-    //   this._stick.y = v.y;
-    // } else {
-    //   this._stick.x = event.localX;
-    //   this._stick.y = event.localY;
-    // }
-    //
+    let posision = event.data.getLocalPosition(this);
+    let x = posision.x,
+        y = posision.y;
+    console.info(x, y);
+    let vec = new Victor(x, y);
+
+    // 枠外に出ていれば枠内に収める
+    if(vec.length() > this._radius - this._stickRadius) {
+      let v = vec.normalize().multiplyScalar(this._radius - this._stickRadius);
+      this._stick.x = v.x;
+      this._stick.y = v.y;
+    } else {
+      this._stick.x = x;
+      this._stick.y = y;
+    }
+
     // // 十字のどちらを向いているか判定
     // let angle = vec.angle() * 180 / Math.PI;
     // let direction = "";
     // if(angle >= -45 && angle <= 45) {
     //   // 右
-    //   direction = PublicEventName.PUSH_RIGHT;
+    //   //direction = PublicEventName.PUSH_RIGHT;
     // } else if(angle > 45 && angle < 135) {
     //   // 下
-    //   direction = PublicEventName.PUSH_BOTTOM;
+    //   //direction = PublicEventName.PUSH_BOTTOM;
     // } else if(angle < -45 && angle > -135) {
     //   // 上
-    //   direction = PublicEventName.PUSH_TOP;
+    //   //direction = PublicEventName.PUSH_TOP;
     // } else {
     //   // 左
-    //   direction = PublicEventName.PUSH_LEFT;
+    //   //direction = PublicEventName.PUSH_LEFT;
     // }
     //
     // // 方向が変わったらイベントを発火させる
