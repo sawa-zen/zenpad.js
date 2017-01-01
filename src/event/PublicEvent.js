@@ -8,6 +8,6 @@ export default class PublicEvent {
   static get PUSH_LEFT()    { return 'pushLeft'; };
   static get PUSH_RIGHT()   { return 'pushRight'; };
   static get PUSH_BOTTOM()  { return 'pushBottom'; };
-  static get PULL_DOWN()    { return 'pull_down'; };
+  static get STICK_MOVE()   { return 'stickMove'; };
   static get RELEASE_PAD()  { return 'releasePad'; };
 }

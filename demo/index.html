@@ -20,6 +20,11 @@
       zenpad.on('clickB', function() {
         console.info('clickB');
       });
+
+      // スティックが動いた時
+      zenpad.on('stickMove', function(data) {
+        console.info('stickMove', data);
+      });
     }
   </script>
 </head>

@@ -92,7 +92,10 @@ export default class Pad extends PIXI.Container {
     }
 
     // スティックムーブイベントを発火
-    this.emit(EventName.STICK_MOVE);
+    this.emit(EventName.STICK_MOVE, {
+      x: x,
+      y: y
+    });
 
     // // 十字のどちらを向いているか判定
     // let angle = vec.angle() * 180 / Math.PI;
