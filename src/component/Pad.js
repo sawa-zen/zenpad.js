@@ -1,5 +1,6 @@
 import Victor from 'victor';
 import EventName from '../event/EventName';
+import PublicEvent from '../event/PublicEvent';
 
 /**
  * アナログパッドクラスです。
@@ -80,6 +81,7 @@ export default class Pad extends PIXI.Container {
     let x = posision.x,
         y = posision.y;
     let vec = new Victor(x, y);
+    let angle = vec.angle() * 180 / Math.PI;
 
     // 枠外に出ていれば枠内に収める
     if(vec.length() > this._radius - this._stickRadius) {
@@ -92,32 +94,7 @@ export default class Pad extends PIXI.Container {
     }
 
     // スティックムーブイベントを発火
-    this.emit(EventName.STICK_MOVE, {
-      x: x,
-      y: y
-    });
-
-    // // 十字のどちらを向いているか判定
-    // let angle = vec.angle() * 180 / Math.PI;
-    // let direction = "";
-    // if(angle >= -45 && angle <= 45) {
-    //   // 右
-    //   //direction = PublicEventName.PUSH_RIGHT;
-    // } else if(angle > 45 && angle < 135) {
-    //   // 下
-    //   //direction = PublicEventName.PUSH_BOTTOM;
-    // } else if(angle < -45 && angle > -135) {
-    //   // 上
-    //   //direction = PublicEventName.PUSH_TOP;
-    // } else {
-    //   // 左
-    //   //direction = PublicEventName.PUSH_LEFT;
-    // }
-    //
-    // // 方向が変わったらイベントを発火させる
-    // if(this._currentDirection != direction) {
-    //   this._currentDirection = direction;
-    // }
+    this.emit(EventName.STICK_MOVE, { x: x, y: y, angle: angle });
   }
 
   /**
@@ -131,6 +108,6 @@ export default class Pad extends PIXI.Container {
     this._stick.x = 0;
     this._stick.y = 0;
 
-    //this._currentDirection = null;
+    this._currentdirection = null;
   }
 }
