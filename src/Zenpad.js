@@ -57,14 +57,14 @@ class Zenpad extends PIXI.utils.EventEmitter {
     pad.on(EventName.STICK_MOVE, this._onStickMove);
 
     // Aボタン
-    let aButton = new Button();
+    let aButton = new Button('A');
     aButton.x = 150;
     aButton.y = 80;
     this._rightButtons.addChild(aButton);
     aButton.on(EventName.CLICK, this._onClickA);
 
     // Bボタン
-    let bButton = new Button();
+    let bButton = new Button('B');
     bButton.x = 80;
     bButton.y = 110;
     this._rightButtons.addChild(bButton);
