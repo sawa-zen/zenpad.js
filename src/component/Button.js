@@ -29,7 +29,8 @@ export default class Button extends PIXI.Container {
 
     // テキスト
     let text = new PIXI.Text('B', {
-      font: '30px Arial',
+      fontFamily: 'Arial',
+      fontSize: '30px',
       fill: 0xffffff
     });
     text.x = -10;
