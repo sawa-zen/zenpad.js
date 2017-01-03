@@ -14,9 +14,12 @@ export default class Button extends PIXI.Container {
 
     // 幅
     this._width = 55;
+    // 押し込まれているかどうか
+    this._isPushed = false;
 
     this._onClick = this._onClick.bind(this);
     this._onTouchStart = this._onTouchStart.bind(this);
+    this._onTouchEndOutside = this._onTouchEndOutside.bind(this);
 
     // シェイプ
     this._shape = new PIXI.Graphics();
@@ -42,6 +45,7 @@ export default class Button extends PIXI.Container {
     this._shape.on(EventName.CLICK, this._onClick);
     this._shape.on(EventName.TOUCH_START, this._onTouchStart);
     this._shape.on(EventName.TOUCH_END, this._onClick);
+    this._shape.on(EventName.TOUCH_END_OUTSIDE, this._onTouchEndOutside);
   }
 
   /**
@@ -50,13 +54,32 @@ export default class Button extends PIXI.Container {
   _onClick(event) {
     // クリックイベントを発火
     this.emit(EventName.CLICK);
+
+    // ボタンを戻す
+    this._shape.y = 0;
+    this._isPushed = false;
   }
 
   /**
    * タッチスタート
    */
   _onTouchStart() {
-    // ボタンを凹ます
+    // 既に押し込まれていれば処理しない
+    if(this._isPushed) {
+      return;
+    }
 
+    // ボタンを凹ます
+    this._isPushed = true;
+    this._shape.y = 5;
+  }
+
+  /**
+   * タッチが枠を外れた際のハンドラーです。
+   */
+  _onTouchEndOutside() {
+    // ボタンを戻す
+    this._shape.y = 0;
+    this._isPushed = false;
   }
 }
