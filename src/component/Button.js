@@ -42,9 +42,10 @@ export default class Button extends PIXI.Container {
     this._shape.addChild(text);
 
     // イベント
-    this._shape.on(EventName.CLICK, this._onClick);
-    this._shape.on(EventName.TOUCH_START, this._onTouchStart);
+    this._shape.on(EventName.CLICK,     this._onClick);
     this._shape.on(EventName.TOUCH_END, this._onClick);
+    this._shape.on(EventName.MOUSE_DOWN,  this._onTouchStart);
+    this._shape.on(EventName.TOUCH_START, this._onTouchStart);
     this._shape.on(EventName.MOUSE_UP_OUTSIDE,  this._onTouchEndOutside);
     this._shape.on(EventName.TOUCH_END_OUTSIDE, this._onTouchEndOutside);
   }
