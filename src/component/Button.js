@@ -9,9 +9,13 @@ export default class Button extends PIXI.Container {
    * コンストラクター
    * @constructor
    */
-  constructor() {
+  constructor(type, color) {
     super();
 
+    // テキスト
+    this._type = type || 'A';
+    // カラー
+    this._color = color || 0x8c3568;
     // 幅
     this._width = 55;
     // 押し込まれているかどうか
@@ -23,7 +27,7 @@ export default class Button extends PIXI.Container {
 
     // シェイプ
     this._shape = new PIXI.Graphics();
-    this._shape.beginFill(0x8c3568);
+    this._shape.beginFill(this._color);
     this._shape.drawCircle(0, 0, this._width / 2);
     this._shape.endFill();
     this._shape.interactive = true;
@@ -31,7 +35,7 @@ export default class Button extends PIXI.Container {
     this.addChild(this._shape);
 
     // テキスト
-    let text = new PIXI.Text('B', {
+    let text = new PIXI.Text(this._type, {
       fontFamily: 'Arial',
       fontSize: '30px',
       fill: 0xffffff
