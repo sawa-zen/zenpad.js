@@ -54,16 +54,19 @@ export default class Pad extends PIXI.Container {
     this._stick.buttonMode = true;
     this.addChild(this._stick);
 
-    this._stick.on('mousedown', this._onClick);
-    this._stick.on('mousemove', this._onMouseMoveStick);
-    this.on('mouseup', this._onMouseUp);
+    this._stick.on('mousedown',  this._onClick);
+    this._stick.on('touchstart', this._onClick);
+    this.on('mouseup',  this._onMouseUp);
+    this.on('touchend', this._onMouseUp);
     this.on('mousemove', this._onTouchMove);
+    this.on('touchmove', this._onTouchMove);
   }
 
   /**
    * クリック時のハンドラーです。
    */
   _onClick() {
+    console.info("click");
     // ドラッグ中フラグを立てる
     this._isDragging = true;
   }
