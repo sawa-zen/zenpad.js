@@ -6,10 +6,7 @@
     "start": "npm run watch & npm run lite",
     "lite": "lite-server",
     "build": "browserify src/Zenpad.js --standalone Zenpad -t babelify -o build/zenpad.js -v",
-    "watch": "watchify src/Zenpad.js --standalone Zenpad -t babelify -o build/zenpad.js -v -d",
-    "typings": "typings",
-    "typings:install": "typings install --global --save",
-    "postinstall": "typings install"
+    "watch": "watchify src/Zenpad.js --standalone Zenpad -t babelify -o build/zenpad.js -v -d"
   },
   "repository": {
     "type": "git",
