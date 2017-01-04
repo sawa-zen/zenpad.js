@@ -7,7 +7,7 @@ import PublicEvent from './event/PublicEvent';
 /**
  * Zenpadのメインクラスです。
  */
-class Zenpad extends PIXI.utils.EventEmitter {
+module.exports = class Zenpad extends PIXI.utils.EventEmitter {
 
   /**
    * コンストラクター
@@ -124,5 +124,3 @@ class Zenpad extends PIXI.utils.EventEmitter {
     this.emit(PublicEvent.STICK_MOVE, data);
   }
 }
-
-window.Zenpad = Zenpad;
