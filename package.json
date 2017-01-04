@@ -1,7 +1,8 @@
 {
   "name": "zenpad.js",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "main": "./build/zenpad.js",
+  "description": "GamePad for canvas.",
   "scripts": {
     "start": "npm run watch & npm run lite",
     "lite": "lite-server",
