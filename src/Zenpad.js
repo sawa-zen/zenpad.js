@@ -20,6 +20,7 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
     this._onClickA = this._onClickA.bind(this);
     this._onClickB = this._onClickB.bind(this);
     this._onMoveStick = this._onMoveStick.bind(this);
+    this._onReleaseStick = this._onReleaseStick.bind(this);
 
     // ラッパーを取得
     this._wrapper = document.getElementById(wrapperId);
@@ -54,7 +55,8 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
     pad.x = 80;
     pad.y = 90;
     this._leftButtons.addChild(pad);
-    pad.on(EventName.STICK_MOVE, this._onMoveStick);
+    pad.on(EventName.MOVE_STICK, this._onMoveStick);
+    pad.on(EventName.RELEASE_STICK, this._onReleaseStick);
 
     // Aボタン
     let aButton = new Button('A');
@@ -118,9 +120,18 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
   }
 
   /**
-   * スティックが動いた時
+   * スティックが動いた際のハンドラーです。
    */
   _onMoveStick(data) {
+    // スティックの変更イベントを発火
     this.emit(PublicEvent.MOVE_STICK, data);
+  }
+
+  /**
+   * スティックが離された際のハンドラーです。
+   */
+  _onReleaseStick() {
+    // スティックリリースイベントを発火
+    this.emit(PublicEvent.RELEASE_STICK);
   }
 }

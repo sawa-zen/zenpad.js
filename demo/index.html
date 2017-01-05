@@ -25,6 +25,11 @@
       zenpad.on('moveStick', function(event) {
         console.info('moveStick', event);
       });
+
+      // スティックが離れた時
+      zenpad.on('releaseStick', function() {
+        console.info('releaseStick');
+      });
     }
   </script>
 </head>

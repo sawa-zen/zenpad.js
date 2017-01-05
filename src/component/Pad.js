@@ -77,6 +77,9 @@ export default class Pad extends PIXI.Container {
     this._stick.y = 0;
 
     this._currentdirection = null;
+
+    // スティックリリースイベント発火
+    this.emit(EventName.RELEASE_STICK);
   }
 
   /**
@@ -113,7 +116,7 @@ export default class Pad extends PIXI.Container {
     }
 
     // スティックムーブイベントを発火
-    this.emit(EventName.STICK_MOVE, { x: x, y: y, angle: angle });
+    this.emit(EventName.MOVE_STICK, { x: x, y: y, angle: angle });
   }
 
   /**
