@@ -66,6 +66,20 @@ export default class Pad extends PIXI.Container {
   }
 
   /**
+   * スティックをもとに戻す
+   */
+  _resetStick() {
+    // ドラッグフラグを折る
+    this._isDragging = false;
+
+    // スティックをもとの位置に戻す
+    this._stick.x = 0;
+    this._stick.y = 0;
+
+    this._currentdirection = null;
+  }
+
+  /**
    * クリック時のハンドラーです。
    */
   _onClick() {
@@ -106,27 +120,13 @@ export default class Pad extends PIXI.Container {
    * マウスアップ時のハンドラーです。
    */
   _onMouseUp() {
-    // ドラッグフラグを折る
-    this._isDragging = false;
-
-    // スティックをもとの位置に戻す
-    this._stick.x = 0;
-    this._stick.y = 0;
-
-    this._currentdirection = null;
+    this._resetStick();
   }
 
   /**
    * タッチが枠を外れた際のハンドラーです。
    */
   _onTouchEndOutside() {
-    // ドラッグフラグを折る
-    this._isDragging = false;
-
-    // スティックをもとの位置に戻す
-    this._stick.x = 0;
-    this._stick.y = 0;
-
-    this._currentdirection = null;
+    this._resetStick();
   }
 }
