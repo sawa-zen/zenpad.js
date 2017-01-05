@@ -27,6 +27,7 @@ export default class Pad extends PIXI.Container {
 
     this._onClick = this._onClick.bind(this);
     this._onTouchMove = this._onTouchMove.bind(this);
+    this._onTouchEndOutside = this._onTouchEndOutside.bind(this);
     this._onMouseUp = this._onMouseUp.bind(this);
 
     // タップエリア
@@ -60,6 +61,8 @@ export default class Pad extends PIXI.Container {
     this.on('touchend', this._onMouseUp);
     this.on('mousemove', this._onTouchMove);
     this.on('touchmove', this._onTouchMove);
+    this.on(EventName.MOUSE_UP_OUTSIDE,  this._onTouchEndOutside);
+    this.on(EventName.TOUCH_END_OUTSIDE, this._onTouchEndOutside);
   }
 
   /**
@@ -104,6 +107,20 @@ export default class Pad extends PIXI.Container {
    * マウスアップ時のハンドラーです。
    */
   _onMouseUp() {
+    // ドラッグフラグを折る
+    this._isDragging = false;
+
+    // スティックをもとの位置に戻す
+    this._stick.x = 0;
+    this._stick.y = 0;
+
+    this._currentdirection = null;
+  }
+
+  /**
+   * タッチが枠を外れた際のハンドラーです。
+   */
+  _onTouchEndOutside() {
     // ドラッグフラグを折る
     this._isDragging = false;
 
