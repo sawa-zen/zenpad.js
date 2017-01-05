@@ -121,6 +121,6 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
    * スティックが動いた時
    */
   _onStickMove(data) {
-    this.emit(PublicEvent.STICK_MOVE, data);
+    this.emit(PublicEvent.MOVE_STICK, data);
   }
 }

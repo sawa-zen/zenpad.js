@@ -22,8 +22,8 @@
       });
 
       // スティックが動いた時
-      zenpad.on('stickMove', function(data) {
-        console.info('stickMove', data);
+      zenpad.on('moveStick', function(event) {
+        console.info('moveStick', event);
       });
     }
   </script>
