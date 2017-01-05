@@ -1,4 +1,4 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Zenpad = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Zenpad = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 /**
  * Bit twiddling hacks for JavaScript.
  *
@@ -204,7 +204,7 @@ exports.nextCombination = function(v) {
 }
 
 
-},{}],2:[function(require,module,exports){
+},{}],2:[function(_dereq_,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -431,9 +431,9 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-}).call(this,require('_process'))
+}).call(this,_dereq_('_process'))
 
-},{"_process":3}],3:[function(require,module,exports){
+},{"_process":3}],3:[function(_dereq_,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -615,7 +615,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],4:[function(require,module,exports){
+},{}],4:[function(_dereq_,module,exports){
 (function (global){
 /*! https://mths.be/punycode v1.4.1 by @mathias */
 ;(function(root) {
@@ -1153,7 +1153,7 @@ process.umask = function() { return 0; };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],5:[function(require,module,exports){
+},{}],5:[function(_dereq_,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -1239,7 +1239,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],6:[function(require,module,exports){
+},{}],6:[function(_dereq_,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -1326,13 +1326,13 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],7:[function(require,module,exports){
+},{}],7:[function(_dereq_,module,exports){
 'use strict';
 
-exports.decode = exports.parse = require('./decode');
-exports.encode = exports.stringify = require('./encode');
+exports.decode = exports.parse = _dereq_('./decode');
+exports.encode = exports.stringify = _dereq_('./encode');
 
-},{"./decode":5,"./encode":6}],8:[function(require,module,exports){
+},{"./decode":5,"./encode":6}],8:[function(_dereq_,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -1356,8 +1356,8 @@ exports.encode = exports.stringify = require('./encode');
 
 'use strict';
 
-var punycode = require('punycode');
-var util = require('./util');
+var punycode = _dereq_('punycode');
+var util = _dereq_('./util');
 
 exports.parse = urlParse;
 exports.resolve = urlResolve;
@@ -1432,7 +1432,7 @@ var protocolPattern = /^([a-z0-9.+-]+:)/i,
       'gopher:': true,
       'file:': true
     },
-    querystring = require('querystring');
+    querystring = _dereq_('querystring');
 
 function urlParse(url, parseQueryString, slashesDenoteHost) {
   if (url && util.isObject(url) && url instanceof Url) return url;
@@ -2066,7 +2066,7 @@ Url.prototype.parseHost = function() {
   if (host) this.hostname = host;
 };
 
-},{"./util":9,"punycode":4,"querystring":7}],9:[function(require,module,exports){
+},{"./util":9,"punycode":4,"querystring":7}],9:[function(_dereq_,module,exports){
 'use strict';
 
 module.exports = {
@@ -2084,7 +2084,7 @@ module.exports = {
   }
 };
 
-},{}],10:[function(require,module,exports){
+},{}],10:[function(_dereq_,module,exports){
 'use strict';
 
 module.exports = earcut;
@@ -2730,7 +2730,7 @@ earcut.flatten = function (data) {
     return result;
 };
 
-},{}],11:[function(require,module,exports){
+},{}],11:[function(_dereq_,module,exports){
 'use strict';
 
 var has = Object.prototype.hasOwnProperty
@@ -3043,7 +3043,7 @@ if ('undefined' !== typeof module) {
   module.exports = EventEmitter;
 }
 
-},{}],12:[function(require,module,exports){
+},{}],12:[function(_dereq_,module,exports){
 /**
  * isMobile.js v0.4.0
  *
@@ -3182,7 +3182,7 @@ if ('undefined' !== typeof module) {
 
 })(this);
 
-},{}],13:[function(require,module,exports){
+},{}],13:[function(_dereq_,module,exports){
 'use strict';
 /* eslint-disable no-unused-vars */
 var hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -3267,7 +3267,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],14:[function(require,module,exports){
+},{}],14:[function(_dereq_,module,exports){
 'use strict'
 
 module.exports = function parseURI (str, opts) {
@@ -3299,7 +3299,7 @@ module.exports = function parseURI (str, opts) {
   return uri
 }
 
-},{}],15:[function(require,module,exports){
+},{}],15:[function(_dereq_,module,exports){
 var EMPTY_ARRAY_BUFFER = new ArrayBuffer(0);
 
 /**
@@ -3418,9 +3418,9 @@ Buffer.prototype.destroy = function(){
 
 module.exports = Buffer;
 
-},{}],16:[function(require,module,exports){
+},{}],16:[function(_dereq_,module,exports){
 
-var Texture = require('./GLTexture');
+var Texture = _dereq_('./GLTexture');
 
 /**
  * Helper class to create a webGL Framebuffer
@@ -3641,12 +3641,12 @@ Framebuffer.createFloat32 = function(gl, width, height, data)
 
 module.exports = Framebuffer;
 
-},{"./GLTexture":18}],17:[function(require,module,exports){
+},{"./GLTexture":18}],17:[function(_dereq_,module,exports){
 
-var compileProgram = require('./shader/compileProgram'),
-	extractAttributes = require('./shader/extractAttributes'),
-	extractUniforms = require('./shader/extractUniforms'),
-	generateUniformAccessObject = require('./shader/generateUniformAccessObject');
+var compileProgram = _dereq_('./shader/compileProgram'),
+	extractAttributes = _dereq_('./shader/extractAttributes'),
+	extractUniforms = _dereq_('./shader/extractUniforms'),
+	generateUniformAccessObject = _dereq_('./shader/generateUniformAccessObject');
 
 /**
  * Helper class to create a webGL Shader
@@ -3719,7 +3719,7 @@ Shader.prototype.destroy = function()
 
 module.exports = Shader;
 
-},{"./shader/compileProgram":23,"./shader/extractAttributes":25,"./shader/extractUniforms":26,"./shader/generateUniformAccessObject":27}],18:[function(require,module,exports){
+},{"./shader/compileProgram":23,"./shader/extractAttributes":25,"./shader/extractUniforms":26,"./shader/generateUniformAccessObject":27}],18:[function(_dereq_,module,exports){
 
 /**
  * Helper class to create a WebGL Texture
@@ -4054,10 +4054,10 @@ Texture.fromData = function(gl, data, width, height)
 
 module.exports = Texture;
 
-},{}],19:[function(require,module,exports){
+},{}],19:[function(_dereq_,module,exports){
 
 // state object//
-var setVertexAttribArrays = require( './setVertexAttribArrays' );
+var setVertexAttribArrays = _dereq_( './setVertexAttribArrays' );
 
 /**
  * Helper class to work with WebGL VertexArrayObjects (vaos)
@@ -4302,7 +4302,7 @@ VertexArrayObject.prototype.destroy = function()
     this.nativeVao = null;
 };
 
-},{"./setVertexAttribArrays":22}],20:[function(require,module,exports){
+},{"./setVertexAttribArrays":22}],20:[function(_dereq_,module,exports){
 
 /**
  * Helper class to create a webGL Context
@@ -4330,16 +4330,16 @@ var createContext = function(canvas, options)
 
 module.exports = createContext;
 
-},{}],21:[function(require,module,exports){
+},{}],21:[function(_dereq_,module,exports){
 var gl = {
-    createContext:          require('./createContext'),
-    setVertexAttribArrays:  require('./setVertexAttribArrays'),
-    GLBuffer:               require('./GLBuffer'),
-    GLFramebuffer:          require('./GLFramebuffer'),
-    GLShader:               require('./GLShader'),
-    GLTexture:              require('./GLTexture'),
-    VertexArrayObject:      require('./VertexArrayObject'),
-    shader:                 require('./shader')
+    createContext:          _dereq_('./createContext'),
+    setVertexAttribArrays:  _dereq_('./setVertexAttribArrays'),
+    GLBuffer:               _dereq_('./GLBuffer'),
+    GLFramebuffer:          _dereq_('./GLFramebuffer'),
+    GLShader:               _dereq_('./GLShader'),
+    GLTexture:              _dereq_('./GLTexture'),
+    VertexArrayObject:      _dereq_('./VertexArrayObject'),
+    shader:                 _dereq_('./shader')
 };
 
 // Export for Node-compatible environments
@@ -4357,7 +4357,7 @@ if (typeof window !== 'undefined')
     window.PIXI.glCore = gl;
 }
 
-},{"./GLBuffer":15,"./GLFramebuffer":16,"./GLShader":17,"./GLTexture":18,"./VertexArrayObject":19,"./createContext":20,"./setVertexAttribArrays":22,"./shader":28}],22:[function(require,module,exports){
+},{"./GLBuffer":15,"./GLFramebuffer":16,"./GLShader":17,"./GLTexture":18,"./VertexArrayObject":19,"./createContext":20,"./setVertexAttribArrays":22,"./shader":28}],22:[function(_dereq_,module,exports){
 // var GL_MAP = {};
 
 /**
@@ -4414,7 +4414,7 @@ var setVertexAttribArrays = function (gl, attribs, state)
 
 module.exports = setVertexAttribArrays;
 
-},{}],23:[function(require,module,exports){
+},{}],23:[function(_dereq_,module,exports){
 
 /**
  * @class
@@ -4484,7 +4484,7 @@ var compileShader = function (gl, type, src)
 
 module.exports = compileProgram;
 
-},{}],24:[function(require,module,exports){
+},{}],24:[function(_dereq_,module,exports){
 /**
  * @class
  * @memberof PIXI.glCore.shader
@@ -4564,10 +4564,10 @@ var booleanArray = function(size)
 
 module.exports = defaultValue;
 
-},{}],25:[function(require,module,exports){
+},{}],25:[function(_dereq_,module,exports){
 
-var mapType = require('./mapType');
-var mapSize = require('./mapSize');
+var mapType = _dereq_('./mapType');
+var mapSize = _dereq_('./mapSize');
 
 /**
  * Extracts the attributes
@@ -4607,9 +4607,9 @@ var pointer = function(type, normalized, stride, start){
 
 module.exports = extractAttributes;
 
-},{"./mapSize":29,"./mapType":30}],26:[function(require,module,exports){
-var mapType = require('./mapType');
-var defaultValue = require('./defaultValue');
+},{"./mapSize":29,"./mapType":30}],26:[function(_dereq_,module,exports){
+var mapType = _dereq_('./mapType');
+var defaultValue = _dereq_('./defaultValue');
 
 /**
  * Extracts the uniforms
@@ -4644,7 +4644,7 @@ var extractUniforms = function(gl, program)
 
 module.exports = extractUniforms;
 
-},{"./defaultValue":24,"./mapType":30}],27:[function(require,module,exports){
+},{"./defaultValue":24,"./mapType":30}],27:[function(_dereq_,module,exports){
 /**
  * Extracts the attributes
  * @class
@@ -4786,17 +4786,17 @@ var GLSL_TO_ARRAY_SETTERS = {
 
 module.exports = generateUniformAccessObject;
 
-},{}],28:[function(require,module,exports){
+},{}],28:[function(_dereq_,module,exports){
 module.exports = {
-    compileProgram: require('./compileProgram'),
-    defaultValue: require('./defaultValue'),
-    extractAttributes: require('./extractAttributes'),
-    extractUniforms: require('./extractUniforms'),
-    generateUniformAccessObject: require('./generateUniformAccessObject'),
-    mapSize: require('./mapSize'),
-    mapType: require('./mapType')  
+    compileProgram: _dereq_('./compileProgram'),
+    defaultValue: _dereq_('./defaultValue'),
+    extractAttributes: _dereq_('./extractAttributes'),
+    extractUniforms: _dereq_('./extractUniforms'),
+    generateUniformAccessObject: _dereq_('./generateUniformAccessObject'),
+    mapSize: _dereq_('./mapSize'),
+    mapType: _dereq_('./mapType')  
 };
-},{"./compileProgram":23,"./defaultValue":24,"./extractAttributes":25,"./extractUniforms":26,"./generateUniformAccessObject":27,"./mapSize":29,"./mapType":30}],29:[function(require,module,exports){
+},{"./compileProgram":23,"./defaultValue":24,"./extractAttributes":25,"./extractUniforms":26,"./generateUniformAccessObject":27,"./mapSize":29,"./mapType":30}],29:[function(_dereq_,module,exports){
 /**
  * @class
  * @memberof PIXI.glCore.shader
@@ -4834,7 +4834,7 @@ var GLSL_TO_SIZE = {
 
 module.exports = mapSize;
 
-},{}],30:[function(require,module,exports){
+},{}],30:[function(_dereq_,module,exports){
 
 
 var mapSize = function(gl, type) 
@@ -4882,20 +4882,20 @@ var GL_TO_GLSL_TYPES = {
 
 module.exports = mapSize;
 
-},{}],31:[function(require,module,exports){
+},{}],31:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _ismobilejs = require('ismobilejs');
+var _ismobilejs = _dereq_('ismobilejs');
 
 var _ismobilejs2 = _interopRequireDefault(_ismobilejs);
 
-var _accessibleTarget = require('./accessibleTarget');
+var _accessibleTarget = _dereq_('./accessibleTarget');
 
 var _accessibleTarget2 = _interopRequireDefault(_accessibleTarget);
 
@@ -5374,7 +5374,7 @@ exports.default = AccessibilityManager;
 core.WebGLRenderer.registerPlugin('accessibility', AccessibilityManager);
 core.CanvasRenderer.registerPlugin('accessibility', AccessibilityManager);
 
-},{"../core":54,"./accessibleTarget":32,"ismobilejs":12}],32:[function(require,module,exports){
+},{"../core":54,"./accessibleTarget":32,"ismobilejs":12}],32:[function(_dereq_,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -5433,12 +5433,12 @@ exports.default = {
   _accessibleDiv: false
 };
 
-},{}],33:[function(require,module,exports){
+},{}],33:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _accessibleTarget = require('./accessibleTarget');
+var _accessibleTarget = _dereq_('./accessibleTarget');
 
 Object.defineProperty(exports, 'accessibleTarget', {
   enumerable: true,
@@ -5447,7 +5447,7 @@ Object.defineProperty(exports, 'accessibleTarget', {
   }
 });
 
-var _AccessibilityManager = require('./AccessibilityManager');
+var _AccessibilityManager = _dereq_('./AccessibilityManager');
 
 Object.defineProperty(exports, 'AccessibilityManager', {
   enumerable: true,
@@ -5458,14 +5458,14 @@ Object.defineProperty(exports, 'AccessibilityManager', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-},{"./AccessibilityManager":31,"./accessibleTarget":32}],34:[function(require,module,exports){
+},{"./AccessibilityManager":31,"./accessibleTarget":32}],34:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _pixiGlCore = require('pixi-gl-core');
+var _pixiGlCore = _dereq_('pixi-gl-core');
 
-var _settings = require('./settings');
+var _settings = _dereq_('./settings');
 
 var _settings2 = _interopRequireDefault(_settings);
 
@@ -5525,7 +5525,7 @@ var Shader = function (_GLShader) {
 
 exports.default = Shader;
 
-},{"./settings":90,"pixi-gl-core":21}],35:[function(require,module,exports){
+},{"./settings":90,"pixi-gl-core":21}],35:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -5841,12 +5841,12 @@ var TEXT_GRADIENT = exports.TEXT_GRADIENT = {
   LINEAR_HORIZONTAL: 1
 };
 
-},{}],36:[function(require,module,exports){
+},{}],36:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _math = require('../math');
+var _math = _dereq_('../math');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -6184,16 +6184,16 @@ var Bounds = function () {
 
 exports.default = Bounds;
 
-},{"../math":59}],37:[function(require,module,exports){
+},{"../math":59}],37:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _utils = require('../utils');
+var _utils = _dereq_('../utils');
 
-var _DisplayObject2 = require('./DisplayObject');
+var _DisplayObject2 = _dereq_('./DisplayObject');
 
 var _DisplayObject3 = _interopRequireDefault(_DisplayObject2);
 
@@ -6796,36 +6796,36 @@ var Container = function (_DisplayObject) {
 exports.default = Container;
 Container.prototype.containerUpdateTransform = Container.prototype.updateTransform;
 
-},{"../utils":110,"./DisplayObject":38}],38:[function(require,module,exports){
+},{"../utils":110,"./DisplayObject":38}],38:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _eventemitter = require('eventemitter3');
+var _eventemitter = _dereq_('eventemitter3');
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
-var _const = require('../const');
+var _const = _dereq_('../const');
 
-var _settings = require('../settings');
+var _settings = _dereq_('../settings');
 
 var _settings2 = _interopRequireDefault(_settings);
 
-var _TransformStatic = require('./TransformStatic');
+var _TransformStatic = _dereq_('./TransformStatic');
 
 var _TransformStatic2 = _interopRequireDefault(_TransformStatic);
 
-var _Transform = require('./Transform');
+var _Transform = _dereq_('./Transform');
 
 var _Transform2 = _interopRequireDefault(_Transform);
 
-var _Bounds = require('./Bounds');
+var _Bounds = _dereq_('./Bounds');
 
 var _Bounds2 = _interopRequireDefault(_Bounds);
 
-var _math = require('../math');
+var _math = _dereq_('../math');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7530,16 +7530,16 @@ var DisplayObject = function (_EventEmitter) {
 exports.default = DisplayObject;
 DisplayObject.prototype.displayObjectUpdateTransform = DisplayObject.prototype.updateTransform;
 
-},{"../const":35,"../math":59,"../settings":90,"./Bounds":36,"./Transform":39,"./TransformStatic":41,"eventemitter3":11}],39:[function(require,module,exports){
+},{"../const":35,"../math":59,"../settings":90,"./Bounds":36,"./Transform":39,"./TransformStatic":41,"eventemitter3":11}],39:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _math = require('../math');
+var _math = _dereq_('../math');
 
-var _TransformBase2 = require('./TransformBase');
+var _TransformBase2 = _dereq_('./TransformBase');
 
 var _TransformBase3 = _interopRequireDefault(_TransformBase2);
 
@@ -7718,12 +7718,12 @@ var Transform = function (_TransformBase) {
 
 exports.default = Transform;
 
-},{"../math":59,"./TransformBase":40}],40:[function(require,module,exports){
+},{"../math":59,"./TransformBase":40}],40:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _math = require('../math');
+var _math = _dereq_('../math');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -7805,16 +7805,16 @@ TransformBase.prototype.updateWorldTransform = TransformBase.prototype.updateTra
 
 TransformBase.IDENTITY = new TransformBase();
 
-},{"../math":59}],41:[function(require,module,exports){
+},{"../math":59}],41:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _math = require('../math');
+var _math = _dereq_('../math');
 
-var _TransformBase2 = require('./TransformBase');
+var _TransformBase2 = _dereq_('./TransformBase');
 
 var _TransformBase3 = _interopRequireDefault(_TransformBase2);
 
@@ -8022,46 +8022,46 @@ var TransformStatic = function (_TransformBase) {
 
 exports.default = TransformStatic;
 
-},{"../math":59,"./TransformBase":40}],42:[function(require,module,exports){
+},{"../math":59,"./TransformBase":40}],42:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _Container2 = require('../display/Container');
+var _Container2 = _dereq_('../display/Container');
 
 var _Container3 = _interopRequireDefault(_Container2);
 
-var _RenderTexture = require('../textures/RenderTexture');
+var _RenderTexture = _dereq_('../textures/RenderTexture');
 
 var _RenderTexture2 = _interopRequireDefault(_RenderTexture);
 
-var _Texture = require('../textures/Texture');
+var _Texture = _dereq_('../textures/Texture');
 
 var _Texture2 = _interopRequireDefault(_Texture);
 
-var _GraphicsData = require('./GraphicsData');
+var _GraphicsData = _dereq_('./GraphicsData');
 
 var _GraphicsData2 = _interopRequireDefault(_GraphicsData);
 
-var _Sprite = require('../sprites/Sprite');
+var _Sprite = _dereq_('../sprites/Sprite');
 
 var _Sprite2 = _interopRequireDefault(_Sprite);
 
-var _math = require('../math');
+var _math = _dereq_('../math');
 
-var _utils = require('../utils');
+var _utils = _dereq_('../utils');
 
-var _const = require('../const');
+var _const = _dereq_('../const');
 
-var _Bounds = require('../display/Bounds');
+var _Bounds = _dereq_('../display/Bounds');
 
 var _Bounds2 = _interopRequireDefault(_Bounds);
 
-var _bezierCurveTo2 = require('./utils/bezierCurveTo');
+var _bezierCurveTo2 = _dereq_('./utils/bezierCurveTo');
 
 var _bezierCurveTo3 = _interopRequireDefault(_bezierCurveTo2);
 
-var _CanvasRenderer = require('../renderers/canvas/CanvasRenderer');
+var _CanvasRenderer = _dereq_('../renderers/canvas/CanvasRenderer');
 
 var _CanvasRenderer2 = _interopRequireDefault(_CanvasRenderer);
 
@@ -9175,7 +9175,7 @@ exports.default = Graphics;
 
 Graphics._SPRITE_TEXTURE = null;
 
-},{"../const":35,"../display/Bounds":36,"../display/Container":37,"../math":59,"../renderers/canvas/CanvasRenderer":66,"../sprites/Sprite":91,"../textures/RenderTexture":101,"../textures/Texture":102,"../utils":110,"./GraphicsData":43,"./utils/bezierCurveTo":45}],43:[function(require,module,exports){
+},{"../const":35,"../display/Bounds":36,"../display/Container":37,"../math":59,"../renderers/canvas/CanvasRenderer":66,"../sprites/Sprite":91,"../textures/RenderTexture":101,"../textures/Texture":102,"../utils":110,"./GraphicsData":43,"./utils/bezierCurveTo":45}],43:[function(_dereq_,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -9292,16 +9292,16 @@ var GraphicsData = function () {
 
 exports.default = GraphicsData;
 
-},{}],44:[function(require,module,exports){
+},{}],44:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _CanvasRenderer = require('../../renderers/canvas/CanvasRenderer');
+var _CanvasRenderer = _dereq_('../../renderers/canvas/CanvasRenderer');
 
 var _CanvasRenderer2 = _interopRequireDefault(_CanvasRenderer);
 
-var _const = require('../../const');
+var _const = _dereq_('../../const');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9561,7 +9561,7 @@ exports.default = CanvasGraphicsRenderer;
 
 _CanvasRenderer2.default.registerPlugin('graphics', CanvasGraphicsRenderer);
 
-},{"../../const":35,"../../renderers/canvas/CanvasRenderer":66}],45:[function(require,module,exports){
+},{"../../const":35,"../../renderers/canvas/CanvasRenderer":66}],45:[function(_dereq_,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -9611,44 +9611,44 @@ function bezierCurveTo(fromX, fromY, cpX, cpY, cpX2, cpY2, toX, toY) {
     return path;
 }
 
-},{}],46:[function(require,module,exports){
+},{}],46:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _utils = require('../../utils');
+var _utils = _dereq_('../../utils');
 
-var _const = require('../../const');
+var _const = _dereq_('../../const');
 
-var _ObjectRenderer2 = require('../../renderers/webgl/utils/ObjectRenderer');
+var _ObjectRenderer2 = _dereq_('../../renderers/webgl/utils/ObjectRenderer');
 
 var _ObjectRenderer3 = _interopRequireDefault(_ObjectRenderer2);
 
-var _WebGLRenderer = require('../../renderers/webgl/WebGLRenderer');
+var _WebGLRenderer = _dereq_('../../renderers/webgl/WebGLRenderer');
 
 var _WebGLRenderer2 = _interopRequireDefault(_WebGLRenderer);
 
-var _WebGLGraphicsData = require('./WebGLGraphicsData');
+var _WebGLGraphicsData = _dereq_('./WebGLGraphicsData');
 
 var _WebGLGraphicsData2 = _interopRequireDefault(_WebGLGraphicsData);
 
-var _PrimitiveShader = require('./shaders/PrimitiveShader');
+var _PrimitiveShader = _dereq_('./shaders/PrimitiveShader');
 
 var _PrimitiveShader2 = _interopRequireDefault(_PrimitiveShader);
 
-var _buildPoly = require('./utils/buildPoly');
+var _buildPoly = _dereq_('./utils/buildPoly');
 
 var _buildPoly2 = _interopRequireDefault(_buildPoly);
 
-var _buildRectangle = require('./utils/buildRectangle');
+var _buildRectangle = _dereq_('./utils/buildRectangle');
 
 var _buildRectangle2 = _interopRequireDefault(_buildRectangle);
 
-var _buildRoundedRectangle = require('./utils/buildRoundedRectangle');
+var _buildRoundedRectangle = _dereq_('./utils/buildRoundedRectangle');
 
 var _buildRoundedRectangle2 = _interopRequireDefault(_buildRoundedRectangle);
 
-var _buildCircle = require('./utils/buildCircle');
+var _buildCircle = _dereq_('./utils/buildCircle');
 
 var _buildCircle2 = _interopRequireDefault(_buildCircle);
 
@@ -9864,12 +9864,12 @@ exports.default = GraphicsRenderer;
 
 _WebGLRenderer2.default.registerPlugin('graphics', GraphicsRenderer);
 
-},{"../../const":35,"../../renderers/webgl/WebGLRenderer":73,"../../renderers/webgl/utils/ObjectRenderer":83,"../../utils":110,"./WebGLGraphicsData":47,"./shaders/PrimitiveShader":48,"./utils/buildCircle":49,"./utils/buildPoly":51,"./utils/buildRectangle":52,"./utils/buildRoundedRectangle":53}],47:[function(require,module,exports){
+},{"../../const":35,"../../renderers/webgl/WebGLRenderer":73,"../../renderers/webgl/utils/ObjectRenderer":83,"../../utils":110,"./WebGLGraphicsData":47,"./shaders/PrimitiveShader":48,"./utils/buildCircle":49,"./utils/buildPoly":51,"./utils/buildRectangle":52,"./utils/buildRoundedRectangle":53}],47:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _pixiGlCore = require('pixi-gl-core');
+var _pixiGlCore = _dereq_('pixi-gl-core');
 
 var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
 
@@ -10001,12 +10001,12 @@ var WebGLGraphicsData = function () {
 
 exports.default = WebGLGraphicsData;
 
-},{"pixi-gl-core":21}],48:[function(require,module,exports){
+},{"pixi-gl-core":21}],48:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _Shader2 = require('../../../Shader');
+var _Shader2 = _dereq_('../../../Shader');
 
 var _Shader3 = _interopRequireDefault(_Shader2);
 
@@ -10046,19 +10046,19 @@ var PrimitiveShader = function (_Shader) {
 
 exports.default = PrimitiveShader;
 
-},{"../../../Shader":34}],49:[function(require,module,exports){
+},{"../../../Shader":34}],49:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.default = buildCircle;
 
-var _buildLine = require('./buildLine');
+var _buildLine = _dereq_('./buildLine');
 
 var _buildLine2 = _interopRequireDefault(_buildLine);
 
-var _const = require('../../../const');
+var _const = _dereq_('../../../const');
 
-var _utils = require('../../../utils');
+var _utils = _dereq_('../../../utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10134,15 +10134,15 @@ function buildCircle(graphicsData, webGLData) {
     }
 }
 
-},{"../../../const":35,"../../../utils":110,"./buildLine":50}],50:[function(require,module,exports){
+},{"../../../const":35,"../../../utils":110,"./buildLine":50}],50:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.default = buildLine;
 
-var _math = require('../../../math');
+var _math = _dereq_('../../../math');
 
-var _utils = require('../../../utils');
+var _utils = _dereq_('../../../utils');
 
 /**
  * Builds a line to draw
@@ -10343,19 +10343,19 @@ function buildLine(graphicsData, webGLData) {
     indices.push(indexStart - 1);
 }
 
-},{"../../../math":59,"../../../utils":110}],51:[function(require,module,exports){
+},{"../../../math":59,"../../../utils":110}],51:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.default = buildPoly;
 
-var _buildLine = require('./buildLine');
+var _buildLine = _dereq_('./buildLine');
 
 var _buildLine2 = _interopRequireDefault(_buildLine);
 
-var _utils = require('../../../utils');
+var _utils = _dereq_('../../../utils');
 
-var _earcut = require('earcut');
+var _earcut = _dereq_('earcut');
 
 var _earcut2 = _interopRequireDefault(_earcut);
 
@@ -10428,17 +10428,17 @@ function buildPoly(graphicsData, webGLData) {
     }
 }
 
-},{"../../../utils":110,"./buildLine":50,"earcut":10}],52:[function(require,module,exports){
+},{"../../../utils":110,"./buildLine":50,"earcut":10}],52:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.default = buildRectangle;
 
-var _buildLine = require('./buildLine');
+var _buildLine = _dereq_('./buildLine');
 
 var _buildLine2 = _interopRequireDefault(_buildLine);
 
-var _utils = require('../../../utils');
+var _utils = _dereq_('../../../utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10503,21 +10503,21 @@ function buildRectangle(graphicsData, webGLData) {
     }
 }
 
-},{"../../../utils":110,"./buildLine":50}],53:[function(require,module,exports){
+},{"../../../utils":110,"./buildLine":50}],53:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.default = buildRoundedRectangle;
 
-var _earcut = require('earcut');
+var _earcut = _dereq_('earcut');
 
 var _earcut2 = _interopRequireDefault(_earcut);
 
-var _buildLine = require('./buildLine');
+var _buildLine = _dereq_('./buildLine');
 
 var _buildLine2 = _interopRequireDefault(_buildLine);
 
-var _utils = require('../../../utils');
+var _utils = _dereq_('../../../utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10645,13 +10645,13 @@ function quadraticBezierCurve(fromX, fromY, cpX, cpY, toX, toY) {
     return points;
 }
 
-},{"../../../utils":110,"./buildLine":50,"earcut":10}],54:[function(require,module,exports){
+},{"../../../utils":110,"./buildLine":50,"earcut":10}],54:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.Filter = exports.SpriteMaskFilter = exports.Quad = exports.RenderTarget = exports.ObjectRenderer = exports.WebGLManager = exports.Shader = exports.CanvasRenderTarget = exports.TextureUvs = exports.VideoBaseTexture = exports.BaseRenderTexture = exports.RenderTexture = exports.BaseTexture = exports.Texture = exports.CanvasGraphicsRenderer = exports.GraphicsRenderer = exports.GraphicsData = exports.Graphics = exports.TextStyle = exports.Text = exports.SpriteRenderer = exports.CanvasTinter = exports.CanvasSpriteRenderer = exports.Sprite = exports.TransformBase = exports.TransformStatic = exports.Transform = exports.Container = exports.DisplayObject = exports.Bounds = exports.glCore = exports.WebGLRenderer = exports.CanvasRenderer = exports.ticker = exports.utils = exports.settings = undefined;
 
-var _const = require('./const');
+var _const = _dereq_('./const');
 
 Object.keys(_const).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -10663,7 +10663,7 @@ Object.keys(_const).forEach(function (key) {
   });
 });
 
-var _math = require('./math');
+var _math = _dereq_('./math');
 
 Object.keys(_math).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -10675,7 +10675,7 @@ Object.keys(_math).forEach(function (key) {
   });
 });
 
-var _pixiGlCore = require('pixi-gl-core');
+var _pixiGlCore = _dereq_('pixi-gl-core');
 
 Object.defineProperty(exports, 'glCore', {
   enumerable: true,
@@ -10684,7 +10684,7 @@ Object.defineProperty(exports, 'glCore', {
   }
 });
 
-var _Bounds = require('./display/Bounds');
+var _Bounds = _dereq_('./display/Bounds');
 
 Object.defineProperty(exports, 'Bounds', {
   enumerable: true,
@@ -10693,7 +10693,7 @@ Object.defineProperty(exports, 'Bounds', {
   }
 });
 
-var _DisplayObject = require('./display/DisplayObject');
+var _DisplayObject = _dereq_('./display/DisplayObject');
 
 Object.defineProperty(exports, 'DisplayObject', {
   enumerable: true,
@@ -10702,7 +10702,7 @@ Object.defineProperty(exports, 'DisplayObject', {
   }
 });
 
-var _Container = require('./display/Container');
+var _Container = _dereq_('./display/Container');
 
 Object.defineProperty(exports, 'Container', {
   enumerable: true,
@@ -10711,7 +10711,7 @@ Object.defineProperty(exports, 'Container', {
   }
 });
 
-var _Transform = require('./display/Transform');
+var _Transform = _dereq_('./display/Transform');
 
 Object.defineProperty(exports, 'Transform', {
   enumerable: true,
@@ -10720,7 +10720,7 @@ Object.defineProperty(exports, 'Transform', {
   }
 });
 
-var _TransformStatic = require('./display/TransformStatic');
+var _TransformStatic = _dereq_('./display/TransformStatic');
 
 Object.defineProperty(exports, 'TransformStatic', {
   enumerable: true,
@@ -10729,7 +10729,7 @@ Object.defineProperty(exports, 'TransformStatic', {
   }
 });
 
-var _TransformBase = require('./display/TransformBase');
+var _TransformBase = _dereq_('./display/TransformBase');
 
 Object.defineProperty(exports, 'TransformBase', {
   enumerable: true,
@@ -10738,7 +10738,7 @@ Object.defineProperty(exports, 'TransformBase', {
   }
 });
 
-var _Sprite = require('./sprites/Sprite');
+var _Sprite = _dereq_('./sprites/Sprite');
 
 Object.defineProperty(exports, 'Sprite', {
   enumerable: true,
@@ -10747,7 +10747,7 @@ Object.defineProperty(exports, 'Sprite', {
   }
 });
 
-var _CanvasSpriteRenderer = require('./sprites/canvas/CanvasSpriteRenderer');
+var _CanvasSpriteRenderer = _dereq_('./sprites/canvas/CanvasSpriteRenderer');
 
 Object.defineProperty(exports, 'CanvasSpriteRenderer', {
   enumerable: true,
@@ -10756,7 +10756,7 @@ Object.defineProperty(exports, 'CanvasSpriteRenderer', {
   }
 });
 
-var _CanvasTinter = require('./sprites/canvas/CanvasTinter');
+var _CanvasTinter = _dereq_('./sprites/canvas/CanvasTinter');
 
 Object.defineProperty(exports, 'CanvasTinter', {
   enumerable: true,
@@ -10765,7 +10765,7 @@ Object.defineProperty(exports, 'CanvasTinter', {
   }
 });
 
-var _SpriteRenderer = require('./sprites/webgl/SpriteRenderer');
+var _SpriteRenderer = _dereq_('./sprites/webgl/SpriteRenderer');
 
 Object.defineProperty(exports, 'SpriteRenderer', {
   enumerable: true,
@@ -10774,7 +10774,7 @@ Object.defineProperty(exports, 'SpriteRenderer', {
   }
 });
 
-var _Text = require('./text/Text');
+var _Text = _dereq_('./text/Text');
 
 Object.defineProperty(exports, 'Text', {
   enumerable: true,
@@ -10783,7 +10783,7 @@ Object.defineProperty(exports, 'Text', {
   }
 });
 
-var _TextStyle = require('./text/TextStyle');
+var _TextStyle = _dereq_('./text/TextStyle');
 
 Object.defineProperty(exports, 'TextStyle', {
   enumerable: true,
@@ -10792,7 +10792,7 @@ Object.defineProperty(exports, 'TextStyle', {
   }
 });
 
-var _Graphics = require('./graphics/Graphics');
+var _Graphics = _dereq_('./graphics/Graphics');
 
 Object.defineProperty(exports, 'Graphics', {
   enumerable: true,
@@ -10801,7 +10801,7 @@ Object.defineProperty(exports, 'Graphics', {
   }
 });
 
-var _GraphicsData = require('./graphics/GraphicsData');
+var _GraphicsData = _dereq_('./graphics/GraphicsData');
 
 Object.defineProperty(exports, 'GraphicsData', {
   enumerable: true,
@@ -10810,7 +10810,7 @@ Object.defineProperty(exports, 'GraphicsData', {
   }
 });
 
-var _GraphicsRenderer = require('./graphics/webgl/GraphicsRenderer');
+var _GraphicsRenderer = _dereq_('./graphics/webgl/GraphicsRenderer');
 
 Object.defineProperty(exports, 'GraphicsRenderer', {
   enumerable: true,
@@ -10819,7 +10819,7 @@ Object.defineProperty(exports, 'GraphicsRenderer', {
   }
 });
 
-var _CanvasGraphicsRenderer = require('./graphics/canvas/CanvasGraphicsRenderer');
+var _CanvasGraphicsRenderer = _dereq_('./graphics/canvas/CanvasGraphicsRenderer');
 
 Object.defineProperty(exports, 'CanvasGraphicsRenderer', {
   enumerable: true,
@@ -10828,7 +10828,7 @@ Object.defineProperty(exports, 'CanvasGraphicsRenderer', {
   }
 });
 
-var _Texture = require('./textures/Texture');
+var _Texture = _dereq_('./textures/Texture');
 
 Object.defineProperty(exports, 'Texture', {
   enumerable: true,
@@ -10837,7 +10837,7 @@ Object.defineProperty(exports, 'Texture', {
   }
 });
 
-var _BaseTexture = require('./textures/BaseTexture');
+var _BaseTexture = _dereq_('./textures/BaseTexture');
 
 Object.defineProperty(exports, 'BaseTexture', {
   enumerable: true,
@@ -10846,7 +10846,7 @@ Object.defineProperty(exports, 'BaseTexture', {
   }
 });
 
-var _RenderTexture = require('./textures/RenderTexture');
+var _RenderTexture = _dereq_('./textures/RenderTexture');
 
 Object.defineProperty(exports, 'RenderTexture', {
   enumerable: true,
@@ -10855,7 +10855,7 @@ Object.defineProperty(exports, 'RenderTexture', {
   }
 });
 
-var _BaseRenderTexture = require('./textures/BaseRenderTexture');
+var _BaseRenderTexture = _dereq_('./textures/BaseRenderTexture');
 
 Object.defineProperty(exports, 'BaseRenderTexture', {
   enumerable: true,
@@ -10864,7 +10864,7 @@ Object.defineProperty(exports, 'BaseRenderTexture', {
   }
 });
 
-var _VideoBaseTexture = require('./textures/VideoBaseTexture');
+var _VideoBaseTexture = _dereq_('./textures/VideoBaseTexture');
 
 Object.defineProperty(exports, 'VideoBaseTexture', {
   enumerable: true,
@@ -10873,7 +10873,7 @@ Object.defineProperty(exports, 'VideoBaseTexture', {
   }
 });
 
-var _TextureUvs = require('./textures/TextureUvs');
+var _TextureUvs = _dereq_('./textures/TextureUvs');
 
 Object.defineProperty(exports, 'TextureUvs', {
   enumerable: true,
@@ -10882,7 +10882,7 @@ Object.defineProperty(exports, 'TextureUvs', {
   }
 });
 
-var _CanvasRenderTarget = require('./renderers/canvas/utils/CanvasRenderTarget');
+var _CanvasRenderTarget = _dereq_('./renderers/canvas/utils/CanvasRenderTarget');
 
 Object.defineProperty(exports, 'CanvasRenderTarget', {
   enumerable: true,
@@ -10891,7 +10891,7 @@ Object.defineProperty(exports, 'CanvasRenderTarget', {
   }
 });
 
-var _Shader = require('./Shader');
+var _Shader = _dereq_('./Shader');
 
 Object.defineProperty(exports, 'Shader', {
   enumerable: true,
@@ -10900,7 +10900,7 @@ Object.defineProperty(exports, 'Shader', {
   }
 });
 
-var _WebGLManager = require('./renderers/webgl/managers/WebGLManager');
+var _WebGLManager = _dereq_('./renderers/webgl/managers/WebGLManager');
 
 Object.defineProperty(exports, 'WebGLManager', {
   enumerable: true,
@@ -10909,7 +10909,7 @@ Object.defineProperty(exports, 'WebGLManager', {
   }
 });
 
-var _ObjectRenderer = require('./renderers/webgl/utils/ObjectRenderer');
+var _ObjectRenderer = _dereq_('./renderers/webgl/utils/ObjectRenderer');
 
 Object.defineProperty(exports, 'ObjectRenderer', {
   enumerable: true,
@@ -10918,7 +10918,7 @@ Object.defineProperty(exports, 'ObjectRenderer', {
   }
 });
 
-var _RenderTarget = require('./renderers/webgl/utils/RenderTarget');
+var _RenderTarget = _dereq_('./renderers/webgl/utils/RenderTarget');
 
 Object.defineProperty(exports, 'RenderTarget', {
   enumerable: true,
@@ -10927,7 +10927,7 @@ Object.defineProperty(exports, 'RenderTarget', {
   }
 });
 
-var _Quad = require('./renderers/webgl/utils/Quad');
+var _Quad = _dereq_('./renderers/webgl/utils/Quad');
 
 Object.defineProperty(exports, 'Quad', {
   enumerable: true,
@@ -10936,7 +10936,7 @@ Object.defineProperty(exports, 'Quad', {
   }
 });
 
-var _SpriteMaskFilter = require('./renderers/webgl/filters/spriteMask/SpriteMaskFilter');
+var _SpriteMaskFilter = _dereq_('./renderers/webgl/filters/spriteMask/SpriteMaskFilter');
 
 Object.defineProperty(exports, 'SpriteMaskFilter', {
   enumerable: true,
@@ -10945,7 +10945,7 @@ Object.defineProperty(exports, 'SpriteMaskFilter', {
   }
 });
 
-var _Filter = require('./renderers/webgl/filters/Filter');
+var _Filter = _dereq_('./renderers/webgl/filters/Filter');
 
 Object.defineProperty(exports, 'Filter', {
   enumerable: true,
@@ -10955,23 +10955,23 @@ Object.defineProperty(exports, 'Filter', {
 });
 exports.autoDetectRenderer = autoDetectRenderer;
 
-var _utils = require('./utils');
+var _utils = _dereq_('./utils');
 
 var utils = _interopRequireWildcard(_utils);
 
-var _ticker = require('./ticker');
+var _ticker = _dereq_('./ticker');
 
 var ticker = _interopRequireWildcard(_ticker);
 
-var _settings = require('./settings');
+var _settings = _dereq_('./settings');
 
 var _settings2 = _interopRequireDefault(_settings);
 
-var _CanvasRenderer = require('./renderers/canvas/CanvasRenderer');
+var _CanvasRenderer = _dereq_('./renderers/canvas/CanvasRenderer');
 
 var _CanvasRenderer2 = _interopRequireDefault(_CanvasRenderer);
 
-var _WebGLRenderer = require('./renderers/webgl/WebGLRenderer');
+var _WebGLRenderer = _dereq_('./renderers/webgl/WebGLRenderer');
 
 var _WebGLRenderer2 = _interopRequireDefault(_WebGLRenderer);
 
@@ -11019,12 +11019,12 @@ function autoDetectRenderer() {
   return new _CanvasRenderer2.default(width, height, options);
 }
 
-},{"./Shader":34,"./const":35,"./display/Bounds":36,"./display/Container":37,"./display/DisplayObject":38,"./display/Transform":39,"./display/TransformBase":40,"./display/TransformStatic":41,"./graphics/Graphics":42,"./graphics/GraphicsData":43,"./graphics/canvas/CanvasGraphicsRenderer":44,"./graphics/webgl/GraphicsRenderer":46,"./math":59,"./renderers/canvas/CanvasRenderer":66,"./renderers/canvas/utils/CanvasRenderTarget":68,"./renderers/webgl/WebGLRenderer":73,"./renderers/webgl/filters/Filter":75,"./renderers/webgl/filters/spriteMask/SpriteMaskFilter":78,"./renderers/webgl/managers/WebGLManager":82,"./renderers/webgl/utils/ObjectRenderer":83,"./renderers/webgl/utils/Quad":84,"./renderers/webgl/utils/RenderTarget":85,"./settings":90,"./sprites/Sprite":91,"./sprites/canvas/CanvasSpriteRenderer":92,"./sprites/canvas/CanvasTinter":93,"./sprites/webgl/SpriteRenderer":95,"./text/Text":97,"./text/TextStyle":98,"./textures/BaseRenderTexture":99,"./textures/BaseTexture":100,"./textures/RenderTexture":101,"./textures/Texture":102,"./textures/TextureUvs":103,"./textures/VideoBaseTexture":104,"./ticker":106,"./utils":110,"pixi-gl-core":21}],55:[function(require,module,exports){
+},{"./Shader":34,"./const":35,"./display/Bounds":36,"./display/Container":37,"./display/DisplayObject":38,"./display/Transform":39,"./display/TransformBase":40,"./display/TransformStatic":41,"./graphics/Graphics":42,"./graphics/GraphicsData":43,"./graphics/canvas/CanvasGraphicsRenderer":44,"./graphics/webgl/GraphicsRenderer":46,"./math":59,"./renderers/canvas/CanvasRenderer":66,"./renderers/canvas/utils/CanvasRenderTarget":68,"./renderers/webgl/WebGLRenderer":73,"./renderers/webgl/filters/Filter":75,"./renderers/webgl/filters/spriteMask/SpriteMaskFilter":78,"./renderers/webgl/managers/WebGLManager":82,"./renderers/webgl/utils/ObjectRenderer":83,"./renderers/webgl/utils/Quad":84,"./renderers/webgl/utils/RenderTarget":85,"./settings":90,"./sprites/Sprite":91,"./sprites/canvas/CanvasSpriteRenderer":92,"./sprites/canvas/CanvasTinter":93,"./sprites/webgl/SpriteRenderer":95,"./text/Text":97,"./text/TextStyle":98,"./textures/BaseRenderTexture":99,"./textures/BaseTexture":100,"./textures/RenderTexture":101,"./textures/Texture":102,"./textures/TextureUvs":103,"./textures/VideoBaseTexture":104,"./ticker":106,"./utils":110,"pixi-gl-core":21}],55:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _Matrix = require('./Matrix');
+var _Matrix = _dereq_('./Matrix');
 
 var _Matrix2 = _interopRequireDefault(_Matrix);
 
@@ -11208,14 +11208,14 @@ var GroupD8 = {
 
 exports.default = GroupD8;
 
-},{"./Matrix":56}],56:[function(require,module,exports){
+},{"./Matrix":56}],56:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Point = require('./Point');
+var _Point = _dereq_('./Point');
 
 var _Point2 = _interopRequireDefault(_Point);
 
@@ -11727,7 +11727,7 @@ var Matrix = function () {
 
 exports.default = Matrix;
 
-},{"./Point":58}],57:[function(require,module,exports){
+},{"./Point":58}],57:[function(_dereq_,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -11858,7 +11858,7 @@ var ObservablePoint = function () {
 
 exports.default = ObservablePoint;
 
-},{}],58:[function(require,module,exports){
+},{}],58:[function(_dereq_,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -11949,12 +11949,12 @@ var Point = function () {
 
 exports.default = Point;
 
-},{}],59:[function(require,module,exports){
+},{}],59:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _Point = require('./Point');
+var _Point = _dereq_('./Point');
 
 Object.defineProperty(exports, 'Point', {
   enumerable: true,
@@ -11963,7 +11963,7 @@ Object.defineProperty(exports, 'Point', {
   }
 });
 
-var _ObservablePoint = require('./ObservablePoint');
+var _ObservablePoint = _dereq_('./ObservablePoint');
 
 Object.defineProperty(exports, 'ObservablePoint', {
   enumerable: true,
@@ -11972,7 +11972,7 @@ Object.defineProperty(exports, 'ObservablePoint', {
   }
 });
 
-var _Matrix = require('./Matrix');
+var _Matrix = _dereq_('./Matrix');
 
 Object.defineProperty(exports, 'Matrix', {
   enumerable: true,
@@ -11981,7 +11981,7 @@ Object.defineProperty(exports, 'Matrix', {
   }
 });
 
-var _GroupD = require('./GroupD8');
+var _GroupD = _dereq_('./GroupD8');
 
 Object.defineProperty(exports, 'GroupD8', {
   enumerable: true,
@@ -11990,7 +11990,7 @@ Object.defineProperty(exports, 'GroupD8', {
   }
 });
 
-var _Circle = require('./shapes/Circle');
+var _Circle = _dereq_('./shapes/Circle');
 
 Object.defineProperty(exports, 'Circle', {
   enumerable: true,
@@ -11999,7 +11999,7 @@ Object.defineProperty(exports, 'Circle', {
   }
 });
 
-var _Ellipse = require('./shapes/Ellipse');
+var _Ellipse = _dereq_('./shapes/Ellipse');
 
 Object.defineProperty(exports, 'Ellipse', {
   enumerable: true,
@@ -12008,7 +12008,7 @@ Object.defineProperty(exports, 'Ellipse', {
   }
 });
 
-var _Polygon = require('./shapes/Polygon');
+var _Polygon = _dereq_('./shapes/Polygon');
 
 Object.defineProperty(exports, 'Polygon', {
   enumerable: true,
@@ -12017,7 +12017,7 @@ Object.defineProperty(exports, 'Polygon', {
   }
 });
 
-var _Rectangle = require('./shapes/Rectangle');
+var _Rectangle = _dereq_('./shapes/Rectangle');
 
 Object.defineProperty(exports, 'Rectangle', {
   enumerable: true,
@@ -12026,7 +12026,7 @@ Object.defineProperty(exports, 'Rectangle', {
   }
 });
 
-var _RoundedRectangle = require('./shapes/RoundedRectangle');
+var _RoundedRectangle = _dereq_('./shapes/RoundedRectangle');
 
 Object.defineProperty(exports, 'RoundedRectangle', {
   enumerable: true,
@@ -12037,16 +12037,16 @@ Object.defineProperty(exports, 'RoundedRectangle', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-},{"./GroupD8":55,"./Matrix":56,"./ObservablePoint":57,"./Point":58,"./shapes/Circle":60,"./shapes/Ellipse":61,"./shapes/Polygon":62,"./shapes/Rectangle":63,"./shapes/RoundedRectangle":64}],60:[function(require,module,exports){
+},{"./GroupD8":55,"./Matrix":56,"./ObservablePoint":57,"./Point":58,"./shapes/Circle":60,"./shapes/Ellipse":61,"./shapes/Polygon":62,"./shapes/Rectangle":63,"./shapes/RoundedRectangle":64}],60:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _Rectangle = require('./Rectangle');
+var _Rectangle = _dereq_('./Rectangle');
 
 var _Rectangle2 = _interopRequireDefault(_Rectangle);
 
-var _const = require('../../const');
+var _const = _dereq_('../../const');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12151,16 +12151,16 @@ var Circle = function () {
 
 exports.default = Circle;
 
-},{"../../const":35,"./Rectangle":63}],61:[function(require,module,exports){
+},{"../../const":35,"./Rectangle":63}],61:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _Rectangle = require('./Rectangle');
+var _Rectangle = _dereq_('./Rectangle');
 
 var _Rectangle2 = _interopRequireDefault(_Rectangle);
 
-var _const = require('../../const');
+var _const = _dereq_('../../const');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12273,16 +12273,16 @@ var Ellipse = function () {
 
 exports.default = Ellipse;
 
-},{"../../const":35,"./Rectangle":63}],62:[function(require,module,exports){
+},{"../../const":35,"./Rectangle":63}],62:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _Point = require('../Point');
+var _Point = _dereq_('../Point');
 
 var _Point2 = _interopRequireDefault(_Point);
 
-var _const = require('../../const');
+var _const = _dereq_('../../const');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12404,14 +12404,14 @@ var Polygon = function () {
 
 exports.default = Polygon;
 
-},{"../../const":35,"../Point":58}],63:[function(require,module,exports){
+},{"../../const":35,"../Point":58}],63:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _const = require('../../const');
+var _const = _dereq_('../../const');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -12675,12 +12675,12 @@ var Rectangle = function () {
 
 exports.default = Rectangle;
 
-},{"../../const":35}],64:[function(require,module,exports){
+},{"../../const":35}],64:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _const = require('../../const');
+var _const = _dereq_('../../const');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -12808,32 +12808,32 @@ var RoundedRectangle = function () {
 
 exports.default = RoundedRectangle;
 
-},{"../../const":35}],65:[function(require,module,exports){
+},{"../../const":35}],65:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _utils = require('../utils');
+var _utils = _dereq_('../utils');
 
-var _math = require('../math');
+var _math = _dereq_('../math');
 
-var _const = require('../const');
+var _const = _dereq_('../const');
 
-var _settings = require('../settings');
+var _settings = _dereq_('../settings');
 
 var _settings2 = _interopRequireDefault(_settings);
 
-var _Container = require('../display/Container');
+var _Container = _dereq_('../display/Container');
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _RenderTexture = require('../textures/RenderTexture');
+var _RenderTexture = _dereq_('../textures/RenderTexture');
 
 var _RenderTexture2 = _interopRequireDefault(_RenderTexture);
 
-var _eventemitter = require('eventemitter3');
+var _eventemitter = _dereq_('eventemitter3');
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
@@ -13147,32 +13147,32 @@ var SystemRenderer = function (_EventEmitter) {
 
 exports.default = SystemRenderer;
 
-},{"../const":35,"../display/Container":37,"../math":59,"../settings":90,"../textures/RenderTexture":101,"../utils":110,"eventemitter3":11}],66:[function(require,module,exports){
+},{"../const":35,"../display/Container":37,"../math":59,"../settings":90,"../textures/RenderTexture":101,"../utils":110,"eventemitter3":11}],66:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _SystemRenderer2 = require('../SystemRenderer');
+var _SystemRenderer2 = _dereq_('../SystemRenderer');
 
 var _SystemRenderer3 = _interopRequireDefault(_SystemRenderer2);
 
-var _CanvasMaskManager = require('./utils/CanvasMaskManager');
+var _CanvasMaskManager = _dereq_('./utils/CanvasMaskManager');
 
 var _CanvasMaskManager2 = _interopRequireDefault(_CanvasMaskManager);
 
-var _CanvasRenderTarget = require('./utils/CanvasRenderTarget');
+var _CanvasRenderTarget = _dereq_('./utils/CanvasRenderTarget');
 
 var _CanvasRenderTarget2 = _interopRequireDefault(_CanvasRenderTarget);
 
-var _mapCanvasBlendModesToPixi = require('./utils/mapCanvasBlendModesToPixi');
+var _mapCanvasBlendModesToPixi = _dereq_('./utils/mapCanvasBlendModesToPixi');
 
 var _mapCanvasBlendModesToPixi2 = _interopRequireDefault(_mapCanvasBlendModesToPixi);
 
-var _utils = require('../../utils');
+var _utils = _dereq_('../../utils');
 
-var _const = require('../../const');
+var _const = _dereq_('../../const');
 
-var _settings = require('../../settings');
+var _settings = _dereq_('../../settings');
 
 var _settings2 = _interopRequireDefault(_settings);
 
@@ -13433,12 +13433,12 @@ exports.default = CanvasRenderer;
 
 _utils.pluginTarget.mixin(CanvasRenderer);
 
-},{"../../const":35,"../../settings":90,"../../utils":110,"../SystemRenderer":65,"./utils/CanvasMaskManager":67,"./utils/CanvasRenderTarget":68,"./utils/mapCanvasBlendModesToPixi":70}],67:[function(require,module,exports){
+},{"../../const":35,"../../settings":90,"../../utils":110,"../SystemRenderer":65,"./utils/CanvasMaskManager":67,"./utils/CanvasRenderTarget":68,"./utils/mapCanvasBlendModesToPixi":70}],67:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _const = require('../../../const');
+var _const = _dereq_('../../../const');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -13601,14 +13601,14 @@ var CanvasMaskManager = function () {
 
 exports.default = CanvasMaskManager;
 
-},{"../../../const":35}],68:[function(require,module,exports){
+},{"../../../const":35}],68:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _settings = require('../../../settings');
+var _settings = _dereq_('../../../settings');
 
 var _settings2 = _interopRequireDefault(_settings);
 
@@ -13742,7 +13742,7 @@ var CanvasRenderTarget = function () {
 
 exports.default = CanvasRenderTarget;
 
-},{"../../../settings":90}],69:[function(require,module,exports){
+},{"../../../settings":90}],69:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -13803,15 +13803,15 @@ function canUseNewCanvasBlendModes() {
     return data[0] === 255 && data[1] === 0 && data[2] === 0;
 }
 
-},{}],70:[function(require,module,exports){
+},{}],70:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.default = mapCanvasBlendModesToPixi;
 
-var _const = require('../../../const');
+var _const = _dereq_('../../../const');
 
-var _canUseNewCanvasBlendModes = require('./canUseNewCanvasBlendModes');
+var _canUseNewCanvasBlendModes = _dereq_('./canUseNewCanvasBlendModes');
 
 var _canUseNewCanvasBlendModes2 = _interopRequireDefault(_canUseNewCanvasBlendModes);
 
@@ -13871,14 +13871,14 @@ function mapCanvasBlendModesToPixi() {
     return array;
 }
 
-},{"../../../const":35,"./canUseNewCanvasBlendModes":69}],71:[function(require,module,exports){
+},{"../../../const":35,"./canUseNewCanvasBlendModes":69}],71:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _const = require('../../const');
+var _const = _dereq_('../../const');
 
-var _settings = require('../../settings');
+var _settings = _dereq_('../../settings');
 
 var _settings2 = _interopRequireDefault(_settings);
 
@@ -13990,20 +13990,20 @@ var TextureGarbageCollector = function () {
 
 exports.default = TextureGarbageCollector;
 
-},{"../../const":35,"../../settings":90}],72:[function(require,module,exports){
+},{"../../const":35,"../../settings":90}],72:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _pixiGlCore = require('pixi-gl-core');
+var _pixiGlCore = _dereq_('pixi-gl-core');
 
-var _const = require('../../const');
+var _const = _dereq_('../../const');
 
-var _RenderTarget = require('./utils/RenderTarget');
+var _RenderTarget = _dereq_('./utils/RenderTarget');
 
 var _RenderTarget2 = _interopRequireDefault(_RenderTarget);
 
-var _utils = require('../../utils');
+var _utils = _dereq_('../../utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14220,66 +14220,66 @@ var TextureManager = function () {
 
 exports.default = TextureManager;
 
-},{"../../const":35,"../../utils":110,"./utils/RenderTarget":85,"pixi-gl-core":21}],73:[function(require,module,exports){
+},{"../../const":35,"../../utils":110,"./utils/RenderTarget":85,"pixi-gl-core":21}],73:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _SystemRenderer2 = require('../SystemRenderer');
+var _SystemRenderer2 = _dereq_('../SystemRenderer');
 
 var _SystemRenderer3 = _interopRequireDefault(_SystemRenderer2);
 
-var _MaskManager = require('./managers/MaskManager');
+var _MaskManager = _dereq_('./managers/MaskManager');
 
 var _MaskManager2 = _interopRequireDefault(_MaskManager);
 
-var _StencilManager = require('./managers/StencilManager');
+var _StencilManager = _dereq_('./managers/StencilManager');
 
 var _StencilManager2 = _interopRequireDefault(_StencilManager);
 
-var _FilterManager = require('./managers/FilterManager');
+var _FilterManager = _dereq_('./managers/FilterManager');
 
 var _FilterManager2 = _interopRequireDefault(_FilterManager);
 
-var _RenderTarget = require('./utils/RenderTarget');
+var _RenderTarget = _dereq_('./utils/RenderTarget');
 
 var _RenderTarget2 = _interopRequireDefault(_RenderTarget);
 
-var _ObjectRenderer = require('./utils/ObjectRenderer');
+var _ObjectRenderer = _dereq_('./utils/ObjectRenderer');
 
 var _ObjectRenderer2 = _interopRequireDefault(_ObjectRenderer);
 
-var _TextureManager = require('./TextureManager');
+var _TextureManager = _dereq_('./TextureManager');
 
 var _TextureManager2 = _interopRequireDefault(_TextureManager);
 
-var _BaseTexture = require('../../textures/BaseTexture');
+var _BaseTexture = _dereq_('../../textures/BaseTexture');
 
 var _BaseTexture2 = _interopRequireDefault(_BaseTexture);
 
-var _TextureGarbageCollector = require('./TextureGarbageCollector');
+var _TextureGarbageCollector = _dereq_('./TextureGarbageCollector');
 
 var _TextureGarbageCollector2 = _interopRequireDefault(_TextureGarbageCollector);
 
-var _WebGLState = require('./WebGLState');
+var _WebGLState = _dereq_('./WebGLState');
 
 var _WebGLState2 = _interopRequireDefault(_WebGLState);
 
-var _mapWebGLDrawModesToPixi = require('./utils/mapWebGLDrawModesToPixi');
+var _mapWebGLDrawModesToPixi = _dereq_('./utils/mapWebGLDrawModesToPixi');
 
 var _mapWebGLDrawModesToPixi2 = _interopRequireDefault(_mapWebGLDrawModesToPixi);
 
-var _validateContext = require('./utils/validateContext');
+var _validateContext = _dereq_('./utils/validateContext');
 
 var _validateContext2 = _interopRequireDefault(_validateContext);
 
-var _utils = require('../../utils');
+var _utils = _dereq_('../../utils');
 
-var _pixiGlCore = require('pixi-gl-core');
+var _pixiGlCore = _dereq_('pixi-gl-core');
 
 var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
 
-var _const = require('../../const');
+var _const = _dereq_('../../const');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14943,12 +14943,12 @@ exports.default = WebGLRenderer;
 
 _utils.pluginTarget.mixin(WebGLRenderer);
 
-},{"../../const":35,"../../textures/BaseTexture":100,"../../utils":110,"../SystemRenderer":65,"./TextureGarbageCollector":71,"./TextureManager":72,"./WebGLState":74,"./managers/FilterManager":79,"./managers/MaskManager":80,"./managers/StencilManager":81,"./utils/ObjectRenderer":83,"./utils/RenderTarget":85,"./utils/mapWebGLDrawModesToPixi":88,"./utils/validateContext":89,"pixi-gl-core":21}],74:[function(require,module,exports){
+},{"../../const":35,"../../textures/BaseTexture":100,"../../utils":110,"../SystemRenderer":65,"./TextureGarbageCollector":71,"./TextureManager":72,"./WebGLState":74,"./managers/FilterManager":79,"./managers/MaskManager":80,"./managers/StencilManager":81,"./utils/ObjectRenderer":83,"./utils/RenderTarget":85,"./utils/mapWebGLDrawModesToPixi":88,"./utils/validateContext":89,"pixi-gl-core":21}],74:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _mapWebGLBlendModesToPixi = require('./utils/mapWebGLBlendModesToPixi');
+var _mapWebGLBlendModesToPixi = _dereq_('./utils/mapWebGLBlendModesToPixi');
 
 var _mapWebGLBlendModesToPixi2 = _interopRequireDefault(_mapWebGLBlendModesToPixi);
 
@@ -15215,20 +15215,20 @@ var WebGLState = function () {
 
 exports.default = WebGLState;
 
-},{"./utils/mapWebGLBlendModesToPixi":87}],75:[function(require,module,exports){
+},{"./utils/mapWebGLBlendModesToPixi":87}],75:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _extractUniformsFromSrc = require('./extractUniformsFromSrc');
+var _extractUniformsFromSrc = _dereq_('./extractUniformsFromSrc');
 
 var _extractUniformsFromSrc2 = _interopRequireDefault(_extractUniformsFromSrc);
 
-var _utils = require('../../../utils');
+var _utils = _dereq_('../../../utils');
 
-var _const = require('../../../const');
+var _const = _dereq_('../../../const');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15377,13 +15377,13 @@ var Filter = function () {
 
 exports.default = Filter;
 
-},{"../../../const":35,"../../../utils":110,"./extractUniformsFromSrc":76}],76:[function(require,module,exports){
+},{"../../../const":35,"../../../utils":110,"./extractUniformsFromSrc":76}],76:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.default = extractUniformsFromSrc;
 
-var _pixiGlCore = require('pixi-gl-core');
+var _pixiGlCore = _dereq_('pixi-gl-core');
 
 var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
 
@@ -15439,7 +15439,7 @@ function extractUniformsFromString(string) {
     return uniforms;
 }
 
-},{"pixi-gl-core":21}],77:[function(require,module,exports){
+},{"pixi-gl-core":21}],77:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -15447,7 +15447,7 @@ exports.calculateScreenSpaceMatrix = calculateScreenSpaceMatrix;
 exports.calculateNormalizedScreenSpaceMatrix = calculateNormalizedScreenSpaceMatrix;
 exports.calculateSpriteMatrix = calculateSpriteMatrix;
 
-var _math = require('../../../math');
+var _math = _dereq_('../../../math');
 
 /*
  * Calculates the mapped matrix
@@ -15521,18 +15521,18 @@ function calculateSpriteMatrix(outputMatrix, filterArea, textureSize, sprite) {
     return mappedMatrix;
 }
 
-},{"../../../math":59}],78:[function(require,module,exports){
+},{"../../../math":59}],78:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _Filter2 = require('../Filter');
+var _Filter2 = _dereq_('../Filter');
 
 var _Filter3 = _interopRequireDefault(_Filter2);
 
-var _math = require('../../../../math');
+var _math = _dereq_('../../../../math');
 
-var _path = require('path');
+var _path = _dereq_('path');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15593,34 +15593,34 @@ var SpriteMaskFilter = function (_Filter) {
 
 exports.default = SpriteMaskFilter;
 
-},{"../../../../math":59,"../Filter":75,"path":2}],79:[function(require,module,exports){
+},{"../../../../math":59,"../Filter":75,"path":2}],79:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _WebGLManager2 = require('./WebGLManager');
+var _WebGLManager2 = _dereq_('./WebGLManager');
 
 var _WebGLManager3 = _interopRequireDefault(_WebGLManager2);
 
-var _RenderTarget = require('../utils/RenderTarget');
+var _RenderTarget = _dereq_('../utils/RenderTarget');
 
 var _RenderTarget2 = _interopRequireDefault(_RenderTarget);
 
-var _Quad = require('../utils/Quad');
+var _Quad = _dereq_('../utils/Quad');
 
 var _Quad2 = _interopRequireDefault(_Quad);
 
-var _math = require('../../../math');
+var _math = _dereq_('../../../math');
 
-var _Shader = require('../../../Shader');
+var _Shader = _dereq_('../../../Shader');
 
 var _Shader2 = _interopRequireDefault(_Shader);
 
-var _filterTransforms = require('../filters/filterTransforms');
+var _filterTransforms = _dereq_('../filters/filterTransforms');
 
 var filterTransforms = _interopRequireWildcard(_filterTransforms);
 
-var _bitTwiddle = require('bit-twiddle');
+var _bitTwiddle = _dereq_('bit-twiddle');
 
 var _bitTwiddle2 = _interopRequireDefault(_bitTwiddle);
 
@@ -16153,16 +16153,16 @@ var FilterManager = function (_WebGLManager) {
 
 exports.default = FilterManager;
 
-},{"../../../Shader":34,"../../../math":59,"../filters/filterTransforms":77,"../utils/Quad":84,"../utils/RenderTarget":85,"./WebGLManager":82,"bit-twiddle":1}],80:[function(require,module,exports){
+},{"../../../Shader":34,"../../../math":59,"../filters/filterTransforms":77,"../utils/Quad":84,"../utils/RenderTarget":85,"./WebGLManager":82,"bit-twiddle":1}],80:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _WebGLManager2 = require('./WebGLManager');
+var _WebGLManager2 = _dereq_('./WebGLManager');
 
 var _WebGLManager3 = _interopRequireDefault(_WebGLManager2);
 
-var _SpriteMaskFilter = require('../filters/spriteMask/SpriteMaskFilter');
+var _SpriteMaskFilter = _dereq_('../filters/spriteMask/SpriteMaskFilter');
 
 var _SpriteMaskFilter2 = _interopRequireDefault(_SpriteMaskFilter);
 
@@ -16359,12 +16359,12 @@ var MaskManager = function (_WebGLManager) {
 
 exports.default = MaskManager;
 
-},{"../filters/spriteMask/SpriteMaskFilter":78,"./WebGLManager":82}],81:[function(require,module,exports){
+},{"../filters/spriteMask/SpriteMaskFilter":78,"./WebGLManager":82}],81:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _WebGLManager2 = require('./WebGLManager');
+var _WebGLManager2 = _dereq_('./WebGLManager');
 
 var _WebGLManager3 = _interopRequireDefault(_WebGLManager2);
 
@@ -16493,7 +16493,7 @@ var StencilManager = function (_WebGLManager) {
 
 exports.default = StencilManager;
 
-},{"./WebGLManager":82}],82:[function(require,module,exports){
+},{"./WebGLManager":82}],82:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -16548,12 +16548,12 @@ var WebGLManager = function () {
 
 exports.default = WebGLManager;
 
-},{}],83:[function(require,module,exports){
+},{}],83:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _WebGLManager2 = require('../managers/WebGLManager');
+var _WebGLManager2 = _dereq_('../managers/WebGLManager');
 
 var _WebGLManager3 = _interopRequireDefault(_WebGLManager2);
 
@@ -16626,16 +16626,16 @@ var ObjectRenderer = function (_WebGLManager) {
 
 exports.default = ObjectRenderer;
 
-},{"../managers/WebGLManager":82}],84:[function(require,module,exports){
+},{"../managers/WebGLManager":82}],84:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _pixiGlCore = require('pixi-gl-core');
+var _pixiGlCore = _dereq_('pixi-gl-core');
 
 var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
 
-var _createIndicesForQuads = require('../../../utils/createIndicesForQuads');
+var _createIndicesForQuads = _dereq_('../../../utils/createIndicesForQuads');
 
 var _createIndicesForQuads2 = _interopRequireDefault(_createIndicesForQuads);
 
@@ -16799,20 +16799,20 @@ var Quad = function () {
 
 exports.default = Quad;
 
-},{"../../../utils/createIndicesForQuads":108,"pixi-gl-core":21}],85:[function(require,module,exports){
+},{"../../../utils/createIndicesForQuads":108,"pixi-gl-core":21}],85:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _math = require('../../../math');
+var _math = _dereq_('../../../math');
 
-var _const = require('../../../const');
+var _const = _dereq_('../../../const');
 
-var _settings = require('../../../settings');
+var _settings = _dereq_('../../../settings');
 
 var _settings2 = _interopRequireDefault(_settings);
 
-var _pixiGlCore = require('pixi-gl-core');
+var _pixiGlCore = _dereq_('pixi-gl-core');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -17126,13 +17126,13 @@ var RenderTarget = function () {
 
 exports.default = RenderTarget;
 
-},{"../../../const":35,"../../../math":59,"../../../settings":90,"pixi-gl-core":21}],86:[function(require,module,exports){
+},{"../../../const":35,"../../../math":59,"../../../settings":90,"pixi-gl-core":21}],86:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.default = checkMaxIfStatmentsInShader;
 
-var _pixiGlCore = require('pixi-gl-core');
+var _pixiGlCore = _dereq_('pixi-gl-core');
 
 var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
 
@@ -17201,13 +17201,13 @@ function generateIfTestSrc(maxIfs) {
     return src;
 }
 
-},{"pixi-gl-core":21}],87:[function(require,module,exports){
+},{"pixi-gl-core":21}],87:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.default = mapWebGLBlendModesToPixi;
 
-var _const = require('../../../const');
+var _const = _dereq_('../../../const');
 
 /**
  * Maps gl blend combinations to WebGL.
@@ -17245,13 +17245,13 @@ function mapWebGLBlendModesToPixi(gl) {
     return array;
 }
 
-},{"../../../const":35}],88:[function(require,module,exports){
+},{"../../../const":35}],88:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.default = mapWebGLDrawModesToPixi;
 
-var _const = require('../../../const');
+var _const = _dereq_('../../../const');
 
 /**
  * Generic Mask Stack data structure.
@@ -17277,7 +17277,7 @@ function mapWebGLDrawModesToPixi(gl) {
   return object;
 }
 
-},{"../../../const":35}],89:[function(require,module,exports){
+},{"../../../const":35}],89:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -17293,16 +17293,16 @@ function validateContext(gl) {
     }
 }
 
-},{}],90:[function(require,module,exports){
+},{}],90:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _maxRecommendedTextures = require('./utils/maxRecommendedTextures');
+var _maxRecommendedTextures = _dereq_('./utils/maxRecommendedTextures');
 
 var _maxRecommendedTextures2 = _interopRequireDefault(_maxRecommendedTextures);
 
-var _canUploadSameBuffer = require('./utils/canUploadSameBuffer');
+var _canUploadSameBuffer = _dereq_('./utils/canUploadSameBuffer');
 
 var _canUploadSameBuffer2 = _interopRequireDefault(_canUploadSameBuffer);
 
@@ -17503,24 +17503,24 @@ exports.default = {
 
 };
 
-},{"./utils/canUploadSameBuffer":107,"./utils/maxRecommendedTextures":111}],91:[function(require,module,exports){
+},{"./utils/canUploadSameBuffer":107,"./utils/maxRecommendedTextures":111}],91:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _math = require('../math');
+var _math = _dereq_('../math');
 
-var _utils = require('../utils');
+var _utils = _dereq_('../utils');
 
-var _const = require('../const');
+var _const = _dereq_('../const');
 
-var _Texture = require('../textures/Texture');
+var _Texture = _dereq_('../textures/Texture');
 
 var _Texture2 = _interopRequireDefault(_Texture);
 
-var _Container2 = require('../display/Container');
+var _Container2 = _dereq_('../display/Container');
 
 var _Container3 = _interopRequireDefault(_Container2);
 
@@ -18149,20 +18149,20 @@ var Sprite = function (_Container) {
 
 exports.default = Sprite;
 
-},{"../const":35,"../display/Container":37,"../math":59,"../textures/Texture":102,"../utils":110}],92:[function(require,module,exports){
+},{"../const":35,"../display/Container":37,"../math":59,"../textures/Texture":102,"../utils":110}],92:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _CanvasRenderer = require('../../renderers/canvas/CanvasRenderer');
+var _CanvasRenderer = _dereq_('../../renderers/canvas/CanvasRenderer');
 
 var _CanvasRenderer2 = _interopRequireDefault(_CanvasRenderer);
 
-var _const = require('../../const');
+var _const = _dereq_('../../const');
 
-var _math = require('../../math');
+var _math = _dereq_('../../math');
 
-var _CanvasTinter = require('./CanvasTinter');
+var _CanvasTinter = _dereq_('./CanvasTinter');
 
 var _CanvasTinter2 = _interopRequireDefault(_CanvasTinter);
 
@@ -18302,14 +18302,14 @@ exports.default = CanvasSpriteRenderer;
 
 _CanvasRenderer2.default.registerPlugin('sprite', CanvasSpriteRenderer);
 
-},{"../../const":35,"../../math":59,"../../renderers/canvas/CanvasRenderer":66,"./CanvasTinter":93}],93:[function(require,module,exports){
+},{"../../const":35,"../../math":59,"../../renderers/canvas/CanvasRenderer":66,"./CanvasTinter":93}],93:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _utils = require('../../utils');
+var _utils = _dereq_('../../utils');
 
-var _canUseNewCanvasBlendModes = require('../../renderers/canvas/utils/canUseNewCanvasBlendModes');
+var _canUseNewCanvasBlendModes = _dereq_('../../renderers/canvas/utils/canUseNewCanvasBlendModes');
 
 var _canUseNewCanvasBlendModes2 = _interopRequireDefault(_canUseNewCanvasBlendModes);
 
@@ -18538,7 +18538,7 @@ CanvasTinter.tintMethod = CanvasTinter.canUseMultiply ? CanvasTinter.tintWithMul
 
 exports.default = CanvasTinter;
 
-},{"../../renderers/canvas/utils/canUseNewCanvasBlendModes":69,"../../utils":110}],94:[function(require,module,exports){
+},{"../../renderers/canvas/utils/canUseNewCanvasBlendModes":69,"../../utils":110}],94:[function(_dereq_,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -18590,44 +18590,44 @@ var Buffer = function () {
 
 exports.default = Buffer;
 
-},{}],95:[function(require,module,exports){
+},{}],95:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _ObjectRenderer2 = require('../../renderers/webgl/utils/ObjectRenderer');
+var _ObjectRenderer2 = _dereq_('../../renderers/webgl/utils/ObjectRenderer');
 
 var _ObjectRenderer3 = _interopRequireDefault(_ObjectRenderer2);
 
-var _WebGLRenderer = require('../../renderers/webgl/WebGLRenderer');
+var _WebGLRenderer = _dereq_('../../renderers/webgl/WebGLRenderer');
 
 var _WebGLRenderer2 = _interopRequireDefault(_WebGLRenderer);
 
-var _createIndicesForQuads = require('../../utils/createIndicesForQuads');
+var _createIndicesForQuads = _dereq_('../../utils/createIndicesForQuads');
 
 var _createIndicesForQuads2 = _interopRequireDefault(_createIndicesForQuads);
 
-var _generateMultiTextureShader = require('./generateMultiTextureShader');
+var _generateMultiTextureShader = _dereq_('./generateMultiTextureShader');
 
 var _generateMultiTextureShader2 = _interopRequireDefault(_generateMultiTextureShader);
 
-var _checkMaxIfStatmentsInShader = require('../../renderers/webgl/utils/checkMaxIfStatmentsInShader');
+var _checkMaxIfStatmentsInShader = _dereq_('../../renderers/webgl/utils/checkMaxIfStatmentsInShader');
 
 var _checkMaxIfStatmentsInShader2 = _interopRequireDefault(_checkMaxIfStatmentsInShader);
 
-var _BatchBuffer = require('./BatchBuffer');
+var _BatchBuffer = _dereq_('./BatchBuffer');
 
 var _BatchBuffer2 = _interopRequireDefault(_BatchBuffer);
 
-var _settings = require('../../settings');
+var _settings = _dereq_('../../settings');
 
 var _settings2 = _interopRequireDefault(_settings);
 
-var _pixiGlCore = require('pixi-gl-core');
+var _pixiGlCore = _dereq_('pixi-gl-core');
 
 var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
 
-var _bitTwiddle = require('bit-twiddle');
+var _bitTwiddle = _dereq_('bit-twiddle');
 
 var _bitTwiddle2 = _interopRequireDefault(_bitTwiddle);
 
@@ -19104,17 +19104,17 @@ exports.default = SpriteRenderer;
 
 _WebGLRenderer2.default.registerPlugin('sprite', SpriteRenderer);
 
-},{"../../renderers/webgl/WebGLRenderer":73,"../../renderers/webgl/utils/ObjectRenderer":83,"../../renderers/webgl/utils/checkMaxIfStatmentsInShader":86,"../../settings":90,"../../utils/createIndicesForQuads":108,"./BatchBuffer":94,"./generateMultiTextureShader":96,"bit-twiddle":1,"pixi-gl-core":21}],96:[function(require,module,exports){
+},{"../../renderers/webgl/WebGLRenderer":73,"../../renderers/webgl/utils/ObjectRenderer":83,"../../renderers/webgl/utils/checkMaxIfStatmentsInShader":86,"../../settings":90,"../../utils/createIndicesForQuads":108,"./BatchBuffer":94,"./generateMultiTextureShader":96,"bit-twiddle":1,"pixi-gl-core":21}],96:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.default = generateMultiTextureShader;
 
-var _Shader = require('../../Shader');
+var _Shader = _dereq_('../../Shader');
 
 var _Shader2 = _interopRequireDefault(_Shader);
 
-var _path = require('path');
+var _path = _dereq_('path');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19167,32 +19167,32 @@ function generateSampleSrc(maxTextures) {
     return src;
 }
 
-},{"../../Shader":34,"path":2}],97:[function(require,module,exports){
+},{"../../Shader":34,"path":2}],97:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Sprite2 = require('../sprites/Sprite');
+var _Sprite2 = _dereq_('../sprites/Sprite');
 
 var _Sprite3 = _interopRequireDefault(_Sprite2);
 
-var _Texture = require('../textures/Texture');
+var _Texture = _dereq_('../textures/Texture');
 
 var _Texture2 = _interopRequireDefault(_Texture);
 
-var _math = require('../math');
+var _math = _dereq_('../math');
 
-var _utils = require('../utils');
+var _utils = _dereq_('../utils');
 
-var _const = require('../const');
+var _const = _dereq_('../const');
 
-var _settings = require('../settings');
+var _settings = _dereq_('../settings');
 
 var _settings2 = _interopRequireDefault(_settings);
 
-var _TextStyle = require('./TextStyle');
+var _TextStyle = _dereq_('./TextStyle');
 
 var _TextStyle2 = _interopRequireDefault(_TextStyle);
 
@@ -19995,7 +19995,7 @@ Text.fontPropertiesCache = {};
 Text.fontPropertiesCanvas = document.createElement('canvas');
 Text.fontPropertiesContext = Text.fontPropertiesCanvas.getContext('2d');
 
-},{"../const":35,"../math":59,"../settings":90,"../sprites/Sprite":91,"../textures/Texture":102,"../utils":110,"./TextStyle":98}],98:[function(require,module,exports){
+},{"../const":35,"../math":59,"../settings":90,"../sprites/Sprite":91,"../textures/Texture":102,"../utils":110,"./TextStyle":98}],98:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -20003,9 +20003,9 @@ exports.__esModule = true;
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); // disabling eslint for now, going to rewrite this in v5
 /* eslint-disable */
 
-var _const = require('../const');
+var _const = _dereq_('../const');
 
-var _utils = require('../utils');
+var _utils = _dereq_('../utils');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -20432,16 +20432,16 @@ function getColor(color) {
     }
 }
 
-},{"../const":35,"../utils":110}],99:[function(require,module,exports){
+},{"../const":35,"../utils":110}],99:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _BaseTexture2 = require('./BaseTexture');
+var _BaseTexture2 = _dereq_('./BaseTexture');
 
 var _BaseTexture3 = _interopRequireDefault(_BaseTexture2);
 
-var _settings = require('../settings');
+var _settings = _dereq_('../settings');
 
 var _settings2 = _interopRequireDefault(_settings);
 
@@ -20596,28 +20596,28 @@ var BaseRenderTexture = function (_BaseTexture) {
 
 exports.default = BaseRenderTexture;
 
-},{"../settings":90,"./BaseTexture":100}],100:[function(require,module,exports){
+},{"../settings":90,"./BaseTexture":100}],100:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _utils = require('../utils');
+var _utils = _dereq_('../utils');
 
-var _settings = require('../settings');
+var _settings = _dereq_('../settings');
 
 var _settings2 = _interopRequireDefault(_settings);
 
-var _eventemitter = require('eventemitter3');
+var _eventemitter = _dereq_('eventemitter3');
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
-var _determineCrossOrigin = require('../utils/determineCrossOrigin');
+var _determineCrossOrigin = _dereq_('../utils/determineCrossOrigin');
 
 var _determineCrossOrigin2 = _interopRequireDefault(_determineCrossOrigin);
 
-var _bitTwiddle = require('bit-twiddle');
+var _bitTwiddle = _dereq_('bit-twiddle');
 
 var _bitTwiddle2 = _interopRequireDefault(_bitTwiddle);
 
@@ -21299,16 +21299,16 @@ var BaseTexture = function (_EventEmitter) {
 
 exports.default = BaseTexture;
 
-},{"../settings":90,"../utils":110,"../utils/determineCrossOrigin":109,"bit-twiddle":1,"eventemitter3":11}],101:[function(require,module,exports){
+},{"../settings":90,"../utils":110,"../utils/determineCrossOrigin":109,"bit-twiddle":1,"eventemitter3":11}],101:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _BaseRenderTexture = require('./BaseRenderTexture');
+var _BaseRenderTexture = _dereq_('./BaseRenderTexture');
 
 var _BaseRenderTexture2 = _interopRequireDefault(_BaseRenderTexture);
 
-var _Texture2 = require('./Texture');
+var _Texture2 = _dereq_('./Texture');
 
 var _Texture3 = _interopRequireDefault(_Texture2);
 
@@ -21450,32 +21450,32 @@ var RenderTexture = function (_Texture) {
 
 exports.default = RenderTexture;
 
-},{"./BaseRenderTexture":99,"./Texture":102}],102:[function(require,module,exports){
+},{"./BaseRenderTexture":99,"./Texture":102}],102:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _BaseTexture = require('./BaseTexture');
+var _BaseTexture = _dereq_('./BaseTexture');
 
 var _BaseTexture2 = _interopRequireDefault(_BaseTexture);
 
-var _VideoBaseTexture = require('./VideoBaseTexture');
+var _VideoBaseTexture = _dereq_('./VideoBaseTexture');
 
 var _VideoBaseTexture2 = _interopRequireDefault(_VideoBaseTexture);
 
-var _TextureUvs = require('./TextureUvs');
+var _TextureUvs = _dereq_('./TextureUvs');
 
 var _TextureUvs2 = _interopRequireDefault(_TextureUvs);
 
-var _eventemitter = require('eventemitter3');
+var _eventemitter = _dereq_('eventemitter3');
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
-var _math = require('../math');
+var _math = _dereq_('../math');
 
-var _utils = require('../utils');
+var _utils = _dereq_('../utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22022,12 +22022,12 @@ Texture.EMPTY.on = function _emptyOn() {/* empty */};
 Texture.EMPTY.once = function _emptyOnce() {/* empty */};
 Texture.EMPTY.emit = function _emptyEmit() {/* empty */};
 
-},{"../math":59,"../utils":110,"./BaseTexture":100,"./TextureUvs":103,"./VideoBaseTexture":104,"eventemitter3":11}],103:[function(require,module,exports){
+},{"../math":59,"../utils":110,"./BaseTexture":100,"./TextureUvs":103,"./VideoBaseTexture":104,"eventemitter3":11}],103:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _GroupD = require('../math/GroupD8');
+var _GroupD = _dereq_('../math/GroupD8');
 
 var _GroupD2 = _interopRequireDefault(_GroupD);
 
@@ -22127,20 +22127,20 @@ var TextureUvs = function () {
 
 exports.default = TextureUvs;
 
-},{"../math/GroupD8":55}],104:[function(require,module,exports){
+},{"../math/GroupD8":55}],104:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _BaseTexture2 = require('./BaseTexture');
+var _BaseTexture2 = _dereq_('./BaseTexture');
 
 var _BaseTexture3 = _interopRequireDefault(_BaseTexture2);
 
-var _utils = require('../utils');
+var _utils = _dereq_('../utils');
 
-var _ticker = require('../ticker');
+var _ticker = _dereq_('../ticker');
 
 var ticker = _interopRequireWildcard(_ticker);
 
@@ -22461,18 +22461,18 @@ function createSource(path, type) {
     return source;
 }
 
-},{"../ticker":106,"../utils":110,"./BaseTexture":100}],105:[function(require,module,exports){
+},{"../ticker":106,"../utils":110,"./BaseTexture":100}],105:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _settings = require('../settings');
+var _settings = _dereq_('../settings');
 
 var _settings2 = _interopRequireDefault(_settings);
 
-var _eventemitter = require('eventemitter3');
+var _eventemitter = _dereq_('eventemitter3');
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
@@ -22863,13 +22863,13 @@ var Ticker = function () {
 
 exports.default = Ticker;
 
-},{"../settings":90,"eventemitter3":11}],106:[function(require,module,exports){
+},{"../settings":90,"eventemitter3":11}],106:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.Ticker = exports.shared = undefined;
 
-var _Ticker = require('./Ticker');
+var _Ticker = _dereq_('./Ticker');
 
 var _Ticker2 = _interopRequireDefault(_Ticker);
 
@@ -22927,7 +22927,7 @@ shared.autoStart = true;
 exports.shared = shared;
 exports.Ticker = _Ticker2.default;
 
-},{"./Ticker":105}],107:[function(require,module,exports){
+},{"./Ticker":105}],107:[function(_dereq_,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -22941,7 +22941,7 @@ function canUploadSameBuffer() {
 	return !ios;
 }
 
-},{}],108:[function(require,module,exports){
+},{}],108:[function(_dereq_,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -22975,13 +22975,13 @@ function createIndicesForQuads(size) {
     return indices;
 }
 
-},{}],109:[function(require,module,exports){
+},{}],109:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.default = determineCrossOrigin;
 
-var _url2 = require('url');
+var _url2 = _dereq_('url');
 
 var _url3 = _interopRequireDefault(_url2);
 
@@ -23031,7 +23031,7 @@ function determineCrossOrigin(url) {
     return '';
 }
 
-},{"url":8}],110:[function(require,module,exports){
+},{"url":8}],110:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -23050,21 +23050,21 @@ exports.isWebGLSupported = isWebGLSupported;
 exports.sign = sign;
 exports.removeItems = removeItems;
 
-var _const = require('../const');
+var _const = _dereq_('../const');
 
-var _settings = require('../settings');
+var _settings = _dereq_('../settings');
 
 var _settings2 = _interopRequireDefault(_settings);
 
-var _eventemitter = require('eventemitter3');
+var _eventemitter = _dereq_('eventemitter3');
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
-var _pluginTarget = require('./pluginTarget');
+var _pluginTarget = _dereq_('./pluginTarget');
 
 var _pluginTarget2 = _interopRequireDefault(_pluginTarget);
 
-var _ismobilejs = require('ismobilejs');
+var _ismobilejs = _dereq_('ismobilejs');
 
 var isMobile = _interopRequireWildcard(_ismobilejs);
 
@@ -23369,13 +23369,13 @@ var TextureCache = exports.TextureCache = {};
  */
 var BaseTextureCache = exports.BaseTextureCache = {};
 
-},{"../const":35,"../settings":90,"./pluginTarget":112,"eventemitter3":11,"ismobilejs":12}],111:[function(require,module,exports){
+},{"../const":35,"../settings":90,"./pluginTarget":112,"eventemitter3":11,"ismobilejs":12}],111:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.default = maxRecommendedTextures;
 
-var _ismobilejs = require('ismobilejs');
+var _ismobilejs = _dereq_('ismobilejs');
 
 var _ismobilejs2 = _interopRequireDefault(_ismobilejs);
 
@@ -23391,7 +23391,7 @@ function maxRecommendedTextures(max) {
     return max;
 }
 
-},{"ismobilejs":12}],112:[function(require,module,exports){
+},{"ismobilejs":12}],112:[function(_dereq_,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -23457,30 +23457,30 @@ exports.default = {
     }
 };
 
-},{}],113:[function(require,module,exports){
+},{}],113:[function(_dereq_,module,exports){
 'use strict';
 
-var _core = require('./core');
+var _core = _dereq_('./core');
 
 var core = _interopRequireWildcard(_core);
 
-var _mesh = require('./mesh');
+var _mesh = _dereq_('./mesh');
 
 var mesh = _interopRequireWildcard(_mesh);
 
-var _particles = require('./particles');
+var _particles = _dereq_('./particles');
 
 var particles = _interopRequireWildcard(_particles);
 
-var _extras = require('./extras');
+var _extras = _dereq_('./extras');
 
 var extras = _interopRequireWildcard(_extras);
 
-var _filters = require('./filters');
+var _filters = _dereq_('./filters');
 
 var filters = _interopRequireWildcard(_filters);
 
-var _prepare = require('./prepare');
+var _prepare = _dereq_('./prepare');
 
 var prepare = _interopRequireWildcard(_prepare);
 
@@ -24317,12 +24317,12 @@ Object.defineProperty(prepare.webgl, 'UPLOADS_PER_FRAME', {
     }
 });
 
-},{"./core":54,"./extras":124,"./filters":135,"./mesh":154,"./particles":157,"./prepare":167}],114:[function(require,module,exports){
+},{"./core":54,"./extras":124,"./filters":135,"./mesh":154,"./particles":157,"./prepare":167}],114:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
@@ -24495,12 +24495,12 @@ exports.default = CanvasExtract;
 
 core.CanvasRenderer.registerPlugin('extract', CanvasExtract);
 
-},{"../../core":54}],115:[function(require,module,exports){
+},{"../../core":54}],115:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _WebGLExtract = require('./webgl/WebGLExtract');
+var _WebGLExtract = _dereq_('./webgl/WebGLExtract');
 
 Object.defineProperty(exports, 'webgl', {
   enumerable: true,
@@ -24509,7 +24509,7 @@ Object.defineProperty(exports, 'webgl', {
   }
 });
 
-var _CanvasExtract = require('./canvas/CanvasExtract');
+var _CanvasExtract = _dereq_('./canvas/CanvasExtract');
 
 Object.defineProperty(exports, 'canvas', {
   enumerable: true,
@@ -24520,12 +24520,12 @@ Object.defineProperty(exports, 'canvas', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-},{"./canvas/CanvasExtract":114,"./webgl/WebGLExtract":116}],116:[function(require,module,exports){
+},{"./canvas/CanvasExtract":114,"./webgl/WebGLExtract":116}],116:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
@@ -24741,14 +24741,14 @@ exports.default = WebGLExtract;
 
 core.WebGLRenderer.registerPlugin('extract', WebGLExtract);
 
-},{"../../core":54}],117:[function(require,module,exports){
+},{"../../core":54}],117:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
 var core = _interopRequireWildcard(_core);
 
@@ -25124,18 +25124,18 @@ var AnimatedSprite = function (_core$Sprite) {
 
 exports.default = AnimatedSprite;
 
-},{"../core":54}],118:[function(require,module,exports){
+},{"../core":54}],118:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _ObservablePoint = require('../core/math/ObservablePoint');
+var _ObservablePoint = _dereq_('../core/math/ObservablePoint');
 
 var _ObservablePoint2 = _interopRequireDefault(_ObservablePoint);
 
@@ -25612,14 +25612,14 @@ exports.default = BitmapText;
 
 BitmapText.fonts = {};
 
-},{"../core":54,"../core/math/ObservablePoint":57}],119:[function(require,module,exports){
+},{"../core":54,"../core/math/ObservablePoint":57}],119:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Matrix = require('../core/math/Matrix');
+var _Matrix = _dereq_('../core/math/Matrix');
 
 var _Matrix2 = _interopRequireDefault(_Matrix);
 
@@ -25745,22 +25745,22 @@ var TextureTransform = function () {
 
 exports.default = TextureTransform;
 
-},{"../core/math/Matrix":56}],120:[function(require,module,exports){
+},{"../core/math/Matrix":56}],120:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _CanvasTinter = require('../core/sprites/canvas/CanvasTinter');
+var _CanvasTinter = _dereq_('../core/sprites/canvas/CanvasTinter');
 
 var _CanvasTinter2 = _interopRequireDefault(_CanvasTinter);
 
-var _TextureTransform = require('./TextureTransform');
+var _TextureTransform = _dereq_('./TextureTransform');
 
 var _TextureTransform2 = _interopRequireDefault(_TextureTransform);
 
@@ -26208,10 +26208,10 @@ var TilingSprite = function (_core$Sprite) {
 
 exports.default = TilingSprite;
 
-},{"../core":54,"../core/sprites/canvas/CanvasTinter":93,"./TextureTransform":119}],121:[function(require,module,exports){
+},{"../core":54,"../core/sprites/canvas/CanvasTinter":93,"./TextureTransform":119}],121:[function(_dereq_,module,exports){
 'use strict';
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
 var core = _interopRequireWildcard(_core);
 
@@ -26560,10 +26560,10 @@ DisplayObject.prototype._cacheAsBitmapDestroy = function _cacheAsBitmapDestroy()
     this.destroy();
 };
 
-},{"../core":54}],122:[function(require,module,exports){
+},{"../core":54}],122:[function(_dereq_,module,exports){
 'use strict';
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
 var core = _interopRequireWildcard(_core);
 
@@ -26594,10 +26594,10 @@ core.Container.prototype.getChildByName = function getChildByName(name) {
     return null;
 };
 
-},{"../core":54}],123:[function(require,module,exports){
+},{"../core":54}],123:[function(_dereq_,module,exports){
 'use strict';
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
 var core = _interopRequireWildcard(_core);
 
@@ -26627,13 +26627,13 @@ core.DisplayObject.prototype.getGlobalPosition = function getGlobalPosition() {
     return point;
 };
 
-},{"../core":54}],124:[function(require,module,exports){
+},{"../core":54}],124:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 exports.BitmapText = exports.TilingSpriteRenderer = exports.TilingSprite = exports.AnimatedSprite = exports.TextureTransform = undefined;
 
-var _TextureTransform = require('./TextureTransform');
+var _TextureTransform = _dereq_('./TextureTransform');
 
 Object.defineProperty(exports, 'TextureTransform', {
   enumerable: true,
@@ -26642,7 +26642,7 @@ Object.defineProperty(exports, 'TextureTransform', {
   }
 });
 
-var _AnimatedSprite = require('./AnimatedSprite');
+var _AnimatedSprite = _dereq_('./AnimatedSprite');
 
 Object.defineProperty(exports, 'AnimatedSprite', {
   enumerable: true,
@@ -26651,7 +26651,7 @@ Object.defineProperty(exports, 'AnimatedSprite', {
   }
 });
 
-var _TilingSprite = require('./TilingSprite');
+var _TilingSprite = _dereq_('./TilingSprite');
 
 Object.defineProperty(exports, 'TilingSprite', {
   enumerable: true,
@@ -26660,7 +26660,7 @@ Object.defineProperty(exports, 'TilingSprite', {
   }
 });
 
-var _TilingSpriteRenderer = require('./webgl/TilingSpriteRenderer');
+var _TilingSpriteRenderer = _dereq_('./webgl/TilingSpriteRenderer');
 
 Object.defineProperty(exports, 'TilingSpriteRenderer', {
   enumerable: true,
@@ -26669,7 +26669,7 @@ Object.defineProperty(exports, 'TilingSpriteRenderer', {
   }
 });
 
-var _BitmapText = require('./BitmapText');
+var _BitmapText = _dereq_('./BitmapText');
 
 Object.defineProperty(exports, 'BitmapText', {
   enumerable: true,
@@ -26678,28 +26678,28 @@ Object.defineProperty(exports, 'BitmapText', {
   }
 });
 
-require('./cacheAsBitmap');
+_dereq_('./cacheAsBitmap');
 
-require('./getChildByName');
+_dereq_('./getChildByName');
 
-require('./getGlobalPosition');
+_dereq_('./getGlobalPosition');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // imported for side effect of extending the prototype only, contains no exports
 
-},{"./AnimatedSprite":117,"./BitmapText":118,"./TextureTransform":119,"./TilingSprite":120,"./cacheAsBitmap":121,"./getChildByName":122,"./getGlobalPosition":123,"./webgl/TilingSpriteRenderer":125}],125:[function(require,module,exports){
+},{"./AnimatedSprite":117,"./BitmapText":118,"./TextureTransform":119,"./TilingSprite":120,"./cacheAsBitmap":121,"./getChildByName":122,"./getGlobalPosition":123,"./webgl/TilingSpriteRenderer":125}],125:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _const = require('../../core/const');
+var _const = _dereq_('../../core/const');
 
-var _path = require('path');
+var _path = _dereq_('path');
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -26850,22 +26850,22 @@ exports.default = TilingSpriteRenderer;
 
 core.WebGLRenderer.registerPlugin('tilingSprite', TilingSpriteRenderer);
 
-},{"../../core":54,"../../core/const":35,"path":2}],126:[function(require,module,exports){
+},{"../../core":54,"../../core/const":35,"path":2}],126:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _BlurXFilter = require('./BlurXFilter');
+var _BlurXFilter = _dereq_('./BlurXFilter');
 
 var _BlurXFilter2 = _interopRequireDefault(_BlurXFilter);
 
-var _BlurYFilter = require('./BlurYFilter');
+var _BlurYFilter = _dereq_('./BlurYFilter');
 
 var _BlurYFilter2 = _interopRequireDefault(_BlurYFilter);
 
@@ -27036,26 +27036,26 @@ var BlurFilter = function (_core$Filter) {
 
 exports.default = BlurFilter;
 
-},{"../../core":54,"./BlurXFilter":127,"./BlurYFilter":128}],127:[function(require,module,exports){
+},{"../../core":54,"./BlurXFilter":127,"./BlurYFilter":128}],127:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _generateBlurVertSource = require('./generateBlurVertSource');
+var _generateBlurVertSource = _dereq_('./generateBlurVertSource');
 
 var _generateBlurVertSource2 = _interopRequireDefault(_generateBlurVertSource);
 
-var _generateBlurFragSource = require('./generateBlurFragSource');
+var _generateBlurFragSource = _dereq_('./generateBlurFragSource');
 
 var _generateBlurFragSource2 = _interopRequireDefault(_generateBlurFragSource);
 
-var _getMaxBlurKernelSize = require('./getMaxBlurKernelSize');
+var _getMaxBlurKernelSize = _dereq_('./getMaxBlurKernelSize');
 
 var _getMaxBlurKernelSize2 = _interopRequireDefault(_getMaxBlurKernelSize);
 
@@ -27216,26 +27216,26 @@ var BlurXFilter = function (_core$Filter) {
 
 exports.default = BlurXFilter;
 
-},{"../../core":54,"./generateBlurFragSource":129,"./generateBlurVertSource":130,"./getMaxBlurKernelSize":131}],128:[function(require,module,exports){
+},{"../../core":54,"./generateBlurFragSource":129,"./generateBlurVertSource":130,"./getMaxBlurKernelSize":131}],128:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _generateBlurVertSource = require('./generateBlurVertSource');
+var _generateBlurVertSource = _dereq_('./generateBlurVertSource');
 
 var _generateBlurVertSource2 = _interopRequireDefault(_generateBlurVertSource);
 
-var _generateBlurFragSource = require('./generateBlurFragSource');
+var _generateBlurFragSource = _dereq_('./generateBlurFragSource');
 
 var _generateBlurFragSource2 = _interopRequireDefault(_generateBlurFragSource);
 
-var _getMaxBlurKernelSize = require('./getMaxBlurKernelSize');
+var _getMaxBlurKernelSize = _dereq_('./getMaxBlurKernelSize');
 
 var _getMaxBlurKernelSize2 = _interopRequireDefault(_getMaxBlurKernelSize);
 
@@ -27395,7 +27395,7 @@ var BlurYFilter = function (_core$Filter) {
 
 exports.default = BlurYFilter;
 
-},{"../../core":54,"./generateBlurFragSource":129,"./generateBlurVertSource":130,"./getMaxBlurKernelSize":131}],129:[function(require,module,exports){
+},{"../../core":54,"./generateBlurFragSource":129,"./generateBlurVertSource":130,"./getMaxBlurKernelSize":131}],129:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -27442,7 +27442,7 @@ function generateFragBlurSource(kernelSize) {
     return fragSource;
 }
 
-},{}],130:[function(require,module,exports){
+},{}],130:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -27486,7 +27486,7 @@ function generateVertBlurSource(kernelSize, x) {
     return vertSource;
 }
 
-},{}],131:[function(require,module,exports){
+},{}],131:[function(_dereq_,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -27502,18 +27502,18 @@ function getMaxKernelSize(gl) {
     return kernelSize;
 }
 
-},{}],132:[function(require,module,exports){
+},{}],132:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _path = require('path');
+var _path = _dereq_('path');
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -28037,18 +28037,18 @@ var ColorMatrixFilter = function (_core$Filter) {
 exports.default = ColorMatrixFilter;
 ColorMatrixFilter.prototype.grayscale = ColorMatrixFilter.prototype.greyscale;
 
-},{"../../core":54,"path":2}],133:[function(require,module,exports){
+},{"../../core":54,"path":2}],133:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _path = require('path');
+var _path = _dereq_('path');
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -28154,16 +28154,16 @@ var DisplacementFilter = function (_core$Filter) {
 
 exports.default = DisplacementFilter;
 
-},{"../../core":54,"path":2}],134:[function(require,module,exports){
+},{"../../core":54,"path":2}],134:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _path = require('path');
+var _path = _dereq_('path');
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -28208,12 +28208,12 @@ var FXAAFilter = function (_core$Filter) {
 
 exports.default = FXAAFilter;
 
-},{"../../core":54,"path":2}],135:[function(require,module,exports){
+},{"../../core":54,"path":2}],135:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _FXAAFilter = require('./fxaa/FXAAFilter');
+var _FXAAFilter = _dereq_('./fxaa/FXAAFilter');
 
 Object.defineProperty(exports, 'FXAAFilter', {
   enumerable: true,
@@ -28222,7 +28222,7 @@ Object.defineProperty(exports, 'FXAAFilter', {
   }
 });
 
-var _NoiseFilter = require('./noise/NoiseFilter');
+var _NoiseFilter = _dereq_('./noise/NoiseFilter');
 
 Object.defineProperty(exports, 'NoiseFilter', {
   enumerable: true,
@@ -28231,7 +28231,7 @@ Object.defineProperty(exports, 'NoiseFilter', {
   }
 });
 
-var _DisplacementFilter = require('./displacement/DisplacementFilter');
+var _DisplacementFilter = _dereq_('./displacement/DisplacementFilter');
 
 Object.defineProperty(exports, 'DisplacementFilter', {
   enumerable: true,
@@ -28240,7 +28240,7 @@ Object.defineProperty(exports, 'DisplacementFilter', {
   }
 });
 
-var _BlurFilter = require('./blur/BlurFilter');
+var _BlurFilter = _dereq_('./blur/BlurFilter');
 
 Object.defineProperty(exports, 'BlurFilter', {
   enumerable: true,
@@ -28249,7 +28249,7 @@ Object.defineProperty(exports, 'BlurFilter', {
   }
 });
 
-var _BlurXFilter = require('./blur/BlurXFilter');
+var _BlurXFilter = _dereq_('./blur/BlurXFilter');
 
 Object.defineProperty(exports, 'BlurXFilter', {
   enumerable: true,
@@ -28258,7 +28258,7 @@ Object.defineProperty(exports, 'BlurXFilter', {
   }
 });
 
-var _BlurYFilter = require('./blur/BlurYFilter');
+var _BlurYFilter = _dereq_('./blur/BlurYFilter');
 
 Object.defineProperty(exports, 'BlurYFilter', {
   enumerable: true,
@@ -28267,7 +28267,7 @@ Object.defineProperty(exports, 'BlurYFilter', {
   }
 });
 
-var _ColorMatrixFilter = require('./colormatrix/ColorMatrixFilter');
+var _ColorMatrixFilter = _dereq_('./colormatrix/ColorMatrixFilter');
 
 Object.defineProperty(exports, 'ColorMatrixFilter', {
   enumerable: true,
@@ -28276,7 +28276,7 @@ Object.defineProperty(exports, 'ColorMatrixFilter', {
   }
 });
 
-var _VoidFilter = require('./void/VoidFilter');
+var _VoidFilter = _dereq_('./void/VoidFilter');
 
 Object.defineProperty(exports, 'VoidFilter', {
   enumerable: true,
@@ -28287,18 +28287,18 @@ Object.defineProperty(exports, 'VoidFilter', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-},{"./blur/BlurFilter":126,"./blur/BlurXFilter":127,"./blur/BlurYFilter":128,"./colormatrix/ColorMatrixFilter":132,"./displacement/DisplacementFilter":133,"./fxaa/FXAAFilter":134,"./noise/NoiseFilter":136,"./void/VoidFilter":137}],136:[function(require,module,exports){
+},{"./blur/BlurFilter":126,"./blur/BlurXFilter":127,"./blur/BlurYFilter":128,"./colormatrix/ColorMatrixFilter":132,"./displacement/DisplacementFilter":133,"./fxaa/FXAAFilter":134,"./noise/NoiseFilter":136,"./void/VoidFilter":137}],136:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _path = require('path');
+var _path = _dereq_('path');
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -28370,16 +28370,16 @@ var NoiseFilter = function (_core$Filter) {
 
 exports.default = NoiseFilter;
 
-},{"../../core":54,"path":2}],137:[function(require,module,exports){
+},{"../../core":54,"path":2}],137:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _path = require('path');
+var _path = _dereq_('path');
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -28420,14 +28420,14 @@ var VoidFilter = function (_core$Filter) {
 
 exports.default = VoidFilter;
 
-},{"../../core":54,"path":2}],138:[function(require,module,exports){
+},{"../../core":54,"path":2}],138:[function(_dereq_,module,exports){
 (function (global){
 'use strict';
 
 exports.__esModule = true;
 exports.loader = exports.prepare = exports.particles = exports.mesh = exports.loaders = exports.interaction = exports.filters = exports.extras = exports.extract = exports.accessibility = undefined;
 
-var _deprecation = require('./deprecation');
+var _deprecation = _dereq_('./deprecation');
 
 Object.keys(_deprecation).forEach(function (key) {
     if (key === "default" || key === "__esModule") return;
@@ -28439,7 +28439,7 @@ Object.keys(_deprecation).forEach(function (key) {
     });
 });
 
-var _core = require('./core');
+var _core = _dereq_('./core');
 
 Object.keys(_core).forEach(function (key) {
     if (key === "default" || key === "__esModule") return;
@@ -28451,41 +28451,41 @@ Object.keys(_core).forEach(function (key) {
     });
 });
 
-require('./polyfill');
+_dereq_('./polyfill');
 
-var _accessibility = require('./accessibility');
+var _accessibility = _dereq_('./accessibility');
 
 var accessibility = _interopRequireWildcard(_accessibility);
 
-var _extract = require('./extract');
+var _extract = _dereq_('./extract');
 
 var extract = _interopRequireWildcard(_extract);
 
-var _extras = require('./extras');
+var _extras = _dereq_('./extras');
 
 var extras = _interopRequireWildcard(_extras);
 
-var _filters = require('./filters');
+var _filters = _dereq_('./filters');
 
 var filters = _interopRequireWildcard(_filters);
 
-var _interaction = require('./interaction');
+var _interaction = _dereq_('./interaction');
 
 var interaction = _interopRequireWildcard(_interaction);
 
-var _loaders = require('./loaders');
+var _loaders = _dereq_('./loaders');
 
 var loaders = _interopRequireWildcard(_loaders);
 
-var _mesh = require('./mesh');
+var _mesh = _dereq_('./mesh');
 
 var mesh = _interopRequireWildcard(_mesh);
 
-var _particles = require('./particles');
+var _particles = _dereq_('./particles');
 
 var particles = _interopRequireWildcard(_particles);
 
-var _prepare = require('./prepare');
+var _prepare = _dereq_('./prepare');
 
 var prepare = _interopRequireWildcard(_prepare);
 
@@ -28526,12 +28526,12 @@ global.PIXI = exports; // eslint-disable-line
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./accessibility":33,"./core":54,"./deprecation":113,"./extract":115,"./extras":124,"./filters":135,"./interaction":142,"./loaders":145,"./mesh":154,"./particles":157,"./polyfill":163,"./prepare":167}],139:[function(require,module,exports){
+},{"./accessibility":33,"./core":54,"./deprecation":113,"./extract":115,"./extras":124,"./filters":135,"./interaction":142,"./loaders":145,"./mesh":154,"./particles":157,"./polyfill":163,"./prepare":167}],139:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
 var core = _interopRequireWildcard(_core);
 
@@ -28597,7 +28597,7 @@ var InteractionData = function () {
 
 exports.default = InteractionData;
 
-},{"../core":54}],140:[function(require,module,exports){
+},{"../core":54}],140:[function(_dereq_,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -28682,32 +28682,32 @@ var InteractionEvent = function () {
 
 exports.default = InteractionEvent;
 
-},{}],141:[function(require,module,exports){
+},{}],141:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _InteractionData = require('./InteractionData');
+var _InteractionData = _dereq_('./InteractionData');
 
 var _InteractionData2 = _interopRequireDefault(_InteractionData);
 
-var _InteractionEvent = require('./InteractionEvent');
+var _InteractionEvent = _dereq_('./InteractionEvent');
 
 var _InteractionEvent2 = _interopRequireDefault(_InteractionEvent);
 
-var _eventemitter = require('eventemitter3');
+var _eventemitter = _dereq_('eventemitter3');
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
-var _interactiveTarget = require('./interactiveTarget');
+var _interactiveTarget = _dereq_('./interactiveTarget');
 
 var _interactiveTarget2 = _interopRequireDefault(_interactiveTarget);
 
-var _ismobilejs = require('ismobilejs');
+var _ismobilejs = _dereq_('ismobilejs');
 
 var _ismobilejs2 = _interopRequireDefault(_ismobilejs);
 
@@ -30277,12 +30277,12 @@ exports.default = InteractionManager;
 core.WebGLRenderer.registerPlugin('interaction', InteractionManager);
 core.CanvasRenderer.registerPlugin('interaction', InteractionManager);
 
-},{"../core":54,"./InteractionData":139,"./InteractionEvent":140,"./interactiveTarget":143,"eventemitter3":11,"ismobilejs":12}],142:[function(require,module,exports){
+},{"../core":54,"./InteractionData":139,"./InteractionEvent":140,"./interactiveTarget":143,"eventemitter3":11,"ismobilejs":12}],142:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _InteractionData = require('./InteractionData');
+var _InteractionData = _dereq_('./InteractionData');
 
 Object.defineProperty(exports, 'InteractionData', {
   enumerable: true,
@@ -30291,7 +30291,7 @@ Object.defineProperty(exports, 'InteractionData', {
   }
 });
 
-var _InteractionManager = require('./InteractionManager');
+var _InteractionManager = _dereq_('./InteractionManager');
 
 Object.defineProperty(exports, 'InteractionManager', {
   enumerable: true,
@@ -30300,7 +30300,7 @@ Object.defineProperty(exports, 'InteractionManager', {
   }
 });
 
-var _interactiveTarget = require('./interactiveTarget');
+var _interactiveTarget = _dereq_('./interactiveTarget');
 
 Object.defineProperty(exports, 'interactiveTarget', {
   enumerable: true,
@@ -30311,7 +30311,7 @@ Object.defineProperty(exports, 'interactiveTarget', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-},{"./InteractionData":139,"./InteractionManager":141,"./interactiveTarget":143}],143:[function(require,module,exports){
+},{"./InteractionData":139,"./InteractionManager":141,"./interactiveTarget":143}],143:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -30421,7 +30421,7 @@ exports.default = {
   _touchDown: false
 };
 
-},{}],144:[function(require,module,exports){
+},{}],144:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -30488,15 +30488,15 @@ exports.default = function () {
     };
 };
 
-var _path = require('path');
+var _path = _dereq_('path');
 
 var path = _interopRequireWildcard(_path);
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
-var _resourceLoader = require('resource-loader');
+var _resourceLoader = _dereq_('resource-loader');
 
-var _extras = require('../extras');
+var _extras = _dereq_('../extras');
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -30548,12 +30548,12 @@ function parse(resource, texture) {
     _extras.BitmapText.fonts[data.font] = data;
 }
 
-},{"../core":54,"../extras":124,"path":2,"resource-loader":175}],145:[function(require,module,exports){
+},{"../core":54,"../extras":124,"path":2,"resource-loader":175}],145:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _loader = require('./loader');
+var _loader = _dereq_('./loader');
 
 Object.defineProperty(exports, 'Loader', {
   enumerable: true,
@@ -30562,7 +30562,7 @@ Object.defineProperty(exports, 'Loader', {
   }
 });
 
-var _bitmapFontParser = require('./bitmapFontParser');
+var _bitmapFontParser = _dereq_('./bitmapFontParser');
 
 Object.defineProperty(exports, 'bitmapFontParser', {
   enumerable: true,
@@ -30577,7 +30577,7 @@ Object.defineProperty(exports, 'parseBitmapFontData', {
   }
 });
 
-var _spritesheetParser = require('./spritesheetParser');
+var _spritesheetParser = _dereq_('./spritesheetParser');
 
 Object.defineProperty(exports, 'spritesheetParser', {
   enumerable: true,
@@ -30586,7 +30586,7 @@ Object.defineProperty(exports, 'spritesheetParser', {
   }
 });
 
-var _textureParser = require('./textureParser');
+var _textureParser = _dereq_('./textureParser');
 
 Object.defineProperty(exports, 'textureParser', {
   enumerable: true,
@@ -30595,7 +30595,7 @@ Object.defineProperty(exports, 'textureParser', {
   }
 });
 
-var _resourceLoader = require('resource-loader');
+var _resourceLoader = _dereq_('resource-loader');
 
 Object.defineProperty(exports, 'Resource', {
   enumerable: true,
@@ -30606,24 +30606,24 @@ Object.defineProperty(exports, 'Resource', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-},{"./bitmapFontParser":144,"./loader":146,"./spritesheetParser":147,"./textureParser":148,"resource-loader":175}],146:[function(require,module,exports){
+},{"./bitmapFontParser":144,"./loader":146,"./spritesheetParser":147,"./textureParser":148,"resource-loader":175}],146:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _resourceLoader = require('resource-loader');
+var _resourceLoader = _dereq_('resource-loader');
 
 var _resourceLoader2 = _interopRequireDefault(_resourceLoader);
 
-var _textureParser = require('./textureParser');
+var _textureParser = _dereq_('./textureParser');
 
 var _textureParser2 = _interopRequireDefault(_textureParser);
 
-var _spritesheetParser = require('./spritesheetParser');
+var _spritesheetParser = _dereq_('./spritesheetParser');
 
 var _spritesheetParser2 = _interopRequireDefault(_spritesheetParser);
 
-var _bitmapFontParser = require('./bitmapFontParser');
+var _bitmapFontParser = _dereq_('./bitmapFontParser');
 
 var _bitmapFontParser2 = _interopRequireDefault(_bitmapFontParser);
 
@@ -30710,7 +30710,7 @@ var Resource = _resourceLoader2.default.Resource;
 
 Resource.setExtensionXhrType('fnt', Resource.XHR_RESPONSE_TYPE.DOCUMENT);
 
-},{"./bitmapFontParser":144,"./spritesheetParser":147,"./textureParser":148,"resource-loader":175}],147:[function(require,module,exports){
+},{"./bitmapFontParser":144,"./spritesheetParser":147,"./textureParser":148,"resource-loader":175}],147:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -30829,13 +30829,13 @@ exports.default = function () {
     };
 };
 
-var _resourceLoader = require('resource-loader');
+var _resourceLoader = _dereq_('resource-loader');
 
-var _path = require('path');
+var _path = _dereq_('path');
 
 var _path2 = _interopRequireDefault(_path);
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
 var core = _interopRequireWildcard(_core);
 
@@ -30845,7 +30845,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var BATCH_SIZE = 1000;
 
-},{"../core":54,"path":2,"resource-loader":175}],148:[function(require,module,exports){
+},{"../core":54,"path":2,"resource-loader":175}],148:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -30874,20 +30874,20 @@ exports.default = function () {
     };
 };
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
 var core = _interopRequireWildcard(_core);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-},{"../core":54}],149:[function(require,module,exports){
+},{"../core":54}],149:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
 var core = _interopRequireWildcard(_core);
 
@@ -31200,14 +31200,14 @@ Mesh.DRAW_MODES = {
   TRIANGLES: 1
 };
 
-},{"../core":54}],150:[function(require,module,exports){
+},{"../core":54}],150:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Plane2 = require('./Plane');
+var _Plane2 = _dereq_('./Plane');
 
 var _Plane3 = _interopRequireDefault(_Plane2);
 
@@ -31622,12 +31622,12 @@ var NineSlicePlane = function (_Plane) {
 
 exports.default = NineSlicePlane;
 
-},{"./Plane":151}],151:[function(require,module,exports){
+},{"./Plane":151}],151:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _Mesh2 = require('./Mesh');
+var _Mesh2 = _dereq_('./Mesh');
 
 var _Mesh3 = _interopRequireDefault(_Mesh2);
 
@@ -31765,16 +31765,16 @@ var Plane = function (_Mesh) {
 
 exports.default = Plane;
 
-},{"./Mesh":149}],152:[function(require,module,exports){
+},{"./Mesh":149}],152:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _Mesh2 = require('./Mesh');
+var _Mesh2 = _dereq_('./Mesh');
 
 var _Mesh3 = _interopRequireDefault(_Mesh2);
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
 var core = _interopRequireWildcard(_core);
 
@@ -32006,16 +32006,16 @@ var Rope = function (_Mesh) {
 
 exports.default = Rope;
 
-},{"../core":54,"./Mesh":149}],153:[function(require,module,exports){
+},{"../core":54,"./Mesh":149}],153:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _Mesh = require('../Mesh');
+var _Mesh = _dereq_('../Mesh');
 
 var _Mesh2 = _interopRequireDefault(_Mesh);
 
@@ -32270,12 +32270,12 @@ exports.default = MeshSpriteRenderer;
 
 core.CanvasRenderer.registerPlugin('mesh', MeshSpriteRenderer);
 
-},{"../../core":54,"../Mesh":149}],154:[function(require,module,exports){
+},{"../../core":54,"../Mesh":149}],154:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _Mesh = require('./Mesh');
+var _Mesh = _dereq_('./Mesh');
 
 Object.defineProperty(exports, 'Mesh', {
   enumerable: true,
@@ -32284,7 +32284,7 @@ Object.defineProperty(exports, 'Mesh', {
   }
 });
 
-var _MeshRenderer = require('./webgl/MeshRenderer');
+var _MeshRenderer = _dereq_('./webgl/MeshRenderer');
 
 Object.defineProperty(exports, 'MeshRenderer', {
   enumerable: true,
@@ -32293,7 +32293,7 @@ Object.defineProperty(exports, 'MeshRenderer', {
   }
 });
 
-var _CanvasMeshRenderer = require('./canvas/CanvasMeshRenderer');
+var _CanvasMeshRenderer = _dereq_('./canvas/CanvasMeshRenderer');
 
 Object.defineProperty(exports, 'CanvasMeshRenderer', {
   enumerable: true,
@@ -32302,7 +32302,7 @@ Object.defineProperty(exports, 'CanvasMeshRenderer', {
   }
 });
 
-var _Plane = require('./Plane');
+var _Plane = _dereq_('./Plane');
 
 Object.defineProperty(exports, 'Plane', {
   enumerable: true,
@@ -32311,7 +32311,7 @@ Object.defineProperty(exports, 'Plane', {
   }
 });
 
-var _NineSlicePlane = require('./NineSlicePlane');
+var _NineSlicePlane = _dereq_('./NineSlicePlane');
 
 Object.defineProperty(exports, 'NineSlicePlane', {
   enumerable: true,
@@ -32320,7 +32320,7 @@ Object.defineProperty(exports, 'NineSlicePlane', {
   }
 });
 
-var _Rope = require('./Rope');
+var _Rope = _dereq_('./Rope');
 
 Object.defineProperty(exports, 'Rope', {
   enumerable: true,
@@ -32331,24 +32331,24 @@ Object.defineProperty(exports, 'Rope', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-},{"./Mesh":149,"./NineSlicePlane":150,"./Plane":151,"./Rope":152,"./canvas/CanvasMeshRenderer":153,"./webgl/MeshRenderer":155}],155:[function(require,module,exports){
+},{"./Mesh":149,"./NineSlicePlane":150,"./Plane":151,"./Rope":152,"./canvas/CanvasMeshRenderer":153,"./webgl/MeshRenderer":155}],155:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _pixiGlCore = require('pixi-gl-core');
+var _pixiGlCore = _dereq_('pixi-gl-core');
 
 var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
 
-var _Mesh = require('../Mesh');
+var _Mesh = _dereq_('../Mesh');
 
 var _Mesh2 = _interopRequireDefault(_Mesh);
 
-var _path = require('path');
+var _path = _dereq_('path');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32467,12 +32467,12 @@ exports.default = MeshRenderer;
 
 core.WebGLRenderer.registerPlugin('mesh', MeshRenderer);
 
-},{"../../core":54,"../Mesh":149,"path":2,"pixi-gl-core":21}],156:[function(require,module,exports){
+},{"../../core":54,"../Mesh":149,"path":2,"pixi-gl-core":21}],156:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
 var core = _interopRequireWildcard(_core);
 
@@ -32799,12 +32799,12 @@ var ParticleContainer = function (_core$Container) {
 
 exports.default = ParticleContainer;
 
-},{"../core":54}],157:[function(require,module,exports){
+},{"../core":54}],157:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _ParticleContainer = require('./ParticleContainer');
+var _ParticleContainer = _dereq_('./ParticleContainer');
 
 Object.defineProperty(exports, 'ParticleContainer', {
   enumerable: true,
@@ -32813,7 +32813,7 @@ Object.defineProperty(exports, 'ParticleContainer', {
   }
 });
 
-var _ParticleRenderer = require('./webgl/ParticleRenderer');
+var _ParticleRenderer = _dereq_('./webgl/ParticleRenderer');
 
 Object.defineProperty(exports, 'ParticleRenderer', {
   enumerable: true,
@@ -32824,16 +32824,16 @@ Object.defineProperty(exports, 'ParticleRenderer', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-},{"./ParticleContainer":156,"./webgl/ParticleRenderer":159}],158:[function(require,module,exports){
+},{"./ParticleContainer":156,"./webgl/ParticleRenderer":159}],158:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _pixiGlCore = require('pixi-gl-core');
+var _pixiGlCore = _dereq_('pixi-gl-core');
 
 var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
 
-var _createIndicesForQuads = require('../../core/utils/createIndicesForQuads');
+var _createIndicesForQuads = _dereq_('../../core/utils/createIndicesForQuads');
 
 var _createIndicesForQuads2 = _interopRequireDefault(_createIndicesForQuads);
 
@@ -33064,20 +33064,20 @@ var ParticleBuffer = function () {
 
 exports.default = ParticleBuffer;
 
-},{"../../core/utils/createIndicesForQuads":108,"pixi-gl-core":21}],159:[function(require,module,exports){
+},{"../../core/utils/createIndicesForQuads":108,"pixi-gl-core":21}],159:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _ParticleShader = require('./ParticleShader');
+var _ParticleShader = _dereq_('./ParticleShader');
 
 var _ParticleShader2 = _interopRequireDefault(_ParticleShader);
 
-var _ParticleBuffer = require('./ParticleBuffer');
+var _ParticleBuffer = _dereq_('./ParticleBuffer');
 
 var _ParticleBuffer2 = _interopRequireDefault(_ParticleBuffer);
 
@@ -33508,12 +33508,12 @@ exports.default = ParticleRenderer;
 
 core.WebGLRenderer.registerPlugin('particle', ParticleRenderer);
 
-},{"../../core":54,"./ParticleBuffer":158,"./ParticleShader":160}],160:[function(require,module,exports){
+},{"../../core":54,"./ParticleBuffer":158,"./ParticleShader":160}],160:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _Shader2 = require('../../core/Shader');
+var _Shader2 = _dereq_('../../core/Shader');
 
 var _Shader3 = _interopRequireDefault(_Shader2);
 
@@ -33551,7 +33551,7 @@ var ParticleShader = function (_Shader) {
 
 exports.default = ParticleShader;
 
-},{"../../core/Shader":34}],161:[function(require,module,exports){
+},{"../../core/Shader":34}],161:[function(_dereq_,module,exports){
 "use strict";
 
 // References:
@@ -33569,10 +33569,10 @@ if (!Math.sign) {
     };
 }
 
-},{}],162:[function(require,module,exports){
+},{}],162:[function(_dereq_,module,exports){
 'use strict';
 
-var _objectAssign = require('object-assign');
+var _objectAssign = _dereq_('object-assign');
 
 var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
@@ -33584,14 +33584,14 @@ if (!Object.assign) {
 // https://github.com/sindresorhus/object-assign
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 
-},{"object-assign":13}],163:[function(require,module,exports){
+},{"object-assign":13}],163:[function(_dereq_,module,exports){
 'use strict';
 
-require('./Object.assign');
+_dereq_('./Object.assign');
 
-require('./requestAnimationFrame');
+_dereq_('./requestAnimationFrame');
 
-require('./Math.sign');
+_dereq_('./Math.sign');
 
 if (!window.ArrayBuffer) {
     window.ArrayBuffer = Array;
@@ -33609,7 +33609,7 @@ if (!window.Uint16Array) {
     window.Uint16Array = Array;
 }
 
-},{"./Math.sign":161,"./Object.assign":162,"./requestAnimationFrame":164}],164:[function(require,module,exports){
+},{"./Math.sign":161,"./Object.assign":162,"./requestAnimationFrame":164}],164:[function(_dereq_,module,exports){
 (function (global){
 'use strict';
 
@@ -33689,16 +33689,16 @@ if (!global.cancelAnimationFrame) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],165:[function(require,module,exports){
+},{}],165:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _core = require('../core');
+var _core = _dereq_('../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _CountLimiter = require('./limiters/CountLimiter');
+var _CountLimiter = _dereq_('./limiters/CountLimiter');
 
 var _CountLimiter2 = _interopRequireDefault(_CountLimiter);
 
@@ -34074,16 +34074,16 @@ function findTextStyle(item, queue) {
     return false;
 }
 
-},{"../core":54,"./limiters/CountLimiter":168}],166:[function(require,module,exports){
+},{"../core":54,"./limiters/CountLimiter":168}],166:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _BasePrepare2 = require('../BasePrepare');
+var _BasePrepare2 = _dereq_('../BasePrepare');
 
 var _BasePrepare3 = _interopRequireDefault(_BasePrepare2);
 
@@ -34220,12 +34220,12 @@ function findBaseTextures(item, queue) {
 
 core.CanvasRenderer.registerPlugin('prepare', CanvasPrepare);
 
-},{"../../core":54,"../BasePrepare":165}],167:[function(require,module,exports){
+},{"../../core":54,"../BasePrepare":165}],167:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _WebGLPrepare = require('./webgl/WebGLPrepare');
+var _WebGLPrepare = _dereq_('./webgl/WebGLPrepare');
 
 Object.defineProperty(exports, 'webgl', {
   enumerable: true,
@@ -34234,7 +34234,7 @@ Object.defineProperty(exports, 'webgl', {
   }
 });
 
-var _CanvasPrepare = require('./canvas/CanvasPrepare');
+var _CanvasPrepare = _dereq_('./canvas/CanvasPrepare');
 
 Object.defineProperty(exports, 'canvas', {
   enumerable: true,
@@ -34243,7 +34243,7 @@ Object.defineProperty(exports, 'canvas', {
   }
 });
 
-var _BasePrepare = require('./BasePrepare');
+var _BasePrepare = _dereq_('./BasePrepare');
 
 Object.defineProperty(exports, 'BasePrepare', {
   enumerable: true,
@@ -34252,7 +34252,7 @@ Object.defineProperty(exports, 'BasePrepare', {
   }
 });
 
-var _CountLimiter = require('./limiters/CountLimiter');
+var _CountLimiter = _dereq_('./limiters/CountLimiter');
 
 Object.defineProperty(exports, 'CountLimiter', {
   enumerable: true,
@@ -34261,7 +34261,7 @@ Object.defineProperty(exports, 'CountLimiter', {
   }
 });
 
-var _TimeLimiter = require('./limiters/TimeLimiter');
+var _TimeLimiter = _dereq_('./limiters/TimeLimiter');
 
 Object.defineProperty(exports, 'TimeLimiter', {
   enumerable: true,
@@ -34272,7 +34272,7 @@ Object.defineProperty(exports, 'TimeLimiter', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-},{"./BasePrepare":165,"./canvas/CanvasPrepare":166,"./limiters/CountLimiter":168,"./limiters/TimeLimiter":169,"./webgl/WebGLPrepare":170}],168:[function(require,module,exports){
+},{"./BasePrepare":165,"./canvas/CanvasPrepare":166,"./limiters/CountLimiter":168,"./limiters/TimeLimiter":169,"./webgl/WebGLPrepare":170}],168:[function(_dereq_,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -34330,7 +34330,7 @@ var CountLimiter = function () {
 
 exports.default = CountLimiter;
 
-},{}],169:[function(require,module,exports){
+},{}],169:[function(_dereq_,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -34388,16 +34388,16 @@ var TimeLimiter = function () {
 
 exports.default = TimeLimiter;
 
-},{}],170:[function(require,module,exports){
+},{}],170:[function(_dereq_,module,exports){
 'use strict';
 
 exports.__esModule = true;
 
-var _core = require('../../core');
+var _core = _dereq_('../../core');
 
 var core = _interopRequireWildcard(_core);
 
-var _BasePrepare2 = require('../BasePrepare');
+var _BasePrepare2 = _dereq_('../BasePrepare');
 
 var _BasePrepare3 = _interopRequireDefault(_BasePrepare2);
 
@@ -34535,13 +34535,13 @@ function findGraphics(item, queue) {
 
 core.WebGLRenderer.registerPlugin('prepare', WebGLPrepare);
 
-},{"../../core":54,"../BasePrepare":165}],171:[function(require,module,exports){
+},{"../../core":54,"../BasePrepare":165}],171:[function(_dereq_,module,exports){
 'use strict';
 
-var parseUri        = require('parse-uri');
-var async           = require('./async');
-var Resource        = require('./Resource');
-var EventEmitter    = require('eventemitter3');
+var parseUri        = _dereq_('parse-uri');
+var async           = _dereq_('./async');
+var Resource        = _dereq_('./Resource');
+var EventEmitter    = _dereq_('eventemitter3');
 
 // some constants
 var DEFAULT_CONCURRENCY = 10;
@@ -35029,11 +35029,11 @@ Loader.prototype._onLoad = function (resource) {
 Loader.LOAD_TYPE = Resource.LOAD_TYPE;
 Loader.XHR_RESPONSE_TYPE = Resource.XHR_RESPONSE_TYPE;
 
-},{"./Resource":172,"./async":173,"eventemitter3":11,"parse-uri":14}],172:[function(require,module,exports){
+},{"./Resource":172,"./async":173,"eventemitter3":11,"parse-uri":14}],172:[function(_dereq_,module,exports){
 'use strict';
 
-var EventEmitter    = require('eventemitter3');
-var parseUri        = require('parse-uri');
+var EventEmitter    = _dereq_('eventemitter3');
+var parseUri        = _dereq_('parse-uri');
 
 // tests is CORS is supported in XHR, if not we need to use XDR
 var useXdr = !!(window.XDomainRequest && !('withCredentials' in (new XMLHttpRequest())));
@@ -35943,7 +35943,7 @@ function setExtMap(map, extname, val) {
     map[extname] = val;
 }
 
-},{"eventemitter3":11,"parse-uri":14}],173:[function(require,module,exports){
+},{"eventemitter3":11,"parse-uri":14}],173:[function(_dereq_,module,exports){
 'use strict';
 
 /**
@@ -36144,7 +36144,7 @@ function asyncQueue(worker, concurrency) {
     return q;
 }
 
-},{}],174:[function(require,module,exports){
+},{}],174:[function(_dereq_,module,exports){
 /* eslint no-magic-numbers: 0 */
 'use strict';
 
@@ -36214,24 +36214,24 @@ module.exports = {
     }
 };
 
-},{}],175:[function(require,module,exports){
+},{}],175:[function(_dereq_,module,exports){
 /* eslint global-require: 0 */
 'use strict';
 
-module.exports = require('./Loader');
-module.exports.Resource = require('./Resource');
+module.exports = _dereq_('./Loader');
+module.exports.Resource = _dereq_('./Resource');
 module.exports.middleware = {
     caching: {
-        memory: require('./middlewares/caching/memory')
+        memory: _dereq_('./middlewares/caching/memory')
     },
     parsing: {
-        blob: require('./middlewares/parsing/blob')
+        blob: _dereq_('./middlewares/parsing/blob')
     }
 };
 
-module.exports.async = require('./async');
+module.exports.async = _dereq_('./async');
 
-},{"./Loader":171,"./Resource":172,"./async":173,"./middlewares/caching/memory":176,"./middlewares/parsing/blob":177}],176:[function(require,module,exports){
+},{"./Loader":171,"./Resource":172,"./async":173,"./middlewares/caching/memory":176,"./middlewares/parsing/blob":177}],176:[function(_dereq_,module,exports){
 'use strict';
 
 // a simple in-memory cache for resources
@@ -36255,11 +36255,11 @@ module.exports = function () {
     };
 };
 
-},{}],177:[function(require,module,exports){
+},{}],177:[function(_dereq_,module,exports){
 'use strict';
 
-var Resource = require('../../Resource');
-var b64 = require('../../b64');
+var Resource = _dereq_('../../Resource');
+var b64 = _dereq_('../../b64');
 
 var Url = window.URL || window.webkitURL;
 
@@ -36324,7 +36324,7 @@ module.exports = function () {
     };
 };
 
-},{"../../Resource":172,"../../b64":174}],178:[function(require,module,exports){
+},{"../../Resource":172,"../../b64":174}],178:[function(_dereq_,module,exports){
 exports = module.exports = Victor;
 
 /**
@@ -37650,28 +37650,28 @@ function degrees2radian (deg) {
 	return deg / degrees;
 }
 
-},{}],179:[function(require,module,exports){
+},{}],179:[function(_dereq_,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _pixi = require('pixi.js');
+var _pixi = _dereq_('pixi.js');
 
 var PIXI = _interopRequireWildcard(_pixi);
 
-var _Button = require('./component/Button');
+var _Button = _dereq_('./component/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _Pad = require('./component/Pad');
+var _Pad = _dereq_('./component/Pad');
 
 var _Pad2 = _interopRequireDefault(_Pad);
 
-var _EventName = require('./event/EventName');
+var _EventName = _dereq_('./event/EventName');
 
 var _EventName2 = _interopRequireDefault(_EventName);
 
-var _PublicEvent = require('./event/PublicEvent');
+var _PublicEvent = _dereq_('./event/PublicEvent');
 
 var _PublicEvent2 = _interopRequireDefault(_PublicEvent);
 
@@ -37825,7 +37825,7 @@ module.exports = function (_PIXI$utils$EventEmit) {
   return Zenpad;
 }(PIXI.utils.EventEmitter);
 
-},{"./component/Button":180,"./component/Pad":181,"./event/EventName":182,"./event/PublicEvent":183,"pixi.js":138}],180:[function(require,module,exports){
+},{"./component/Button":180,"./component/Pad":181,"./event/EventName":182,"./event/PublicEvent":183,"pixi.js":138}],180:[function(_dereq_,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37834,7 +37834,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _EventName = require('../event/EventName');
+var _EventName = _dereq_('../event/EventName');
 
 var _EventName2 = _interopRequireDefault(_EventName);
 
@@ -37955,7 +37955,7 @@ var Button = function (_PIXI$Container) {
 
 exports.default = Button;
 
-},{"../event/EventName":182}],181:[function(require,module,exports){
+},{"../event/EventName":182}],181:[function(_dereq_,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37964,15 +37964,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _victor = require('victor');
+var _victor = _dereq_('victor');
 
 var _victor2 = _interopRequireDefault(_victor);
 
-var _EventName = require('../event/EventName');
+var _EventName = _dereq_('../event/EventName');
 
 var _EventName2 = _interopRequireDefault(_EventName);
 
-var _PublicEvent = require('../event/PublicEvent');
+var _PublicEvent = _dereq_('../event/PublicEvent');
 
 var _PublicEvent2 = _interopRequireDefault(_PublicEvent);
 
@@ -38116,7 +38116,7 @@ var Pad = function (_PIXI$Container) {
 
 exports.default = Pad;
 
-},{"../event/EventName":182,"../event/PublicEvent":183,"victor":178}],182:[function(require,module,exports){
+},{"../event/EventName":182,"../event/PublicEvent":183,"victor":178}],182:[function(_dereq_,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38192,7 +38192,7 @@ var EventName = function () {
 
 exports.default = EventName;
 
-},{}],183:[function(require,module,exports){
+},{}],183:[function(_dereq_,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

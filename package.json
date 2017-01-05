@@ -1,12 +1,12 @@
 {
   "name": "zenpad.js",
-  "version": "0.0.1",
-  "main": "./build/zenpad.js",
+  "version": "0.0.13",
+  "main": "build/zenpad.js",
   "description": "GamePad for canvas.",
   "scripts": {
     "start": "npm run watch & npm run lite",
     "lite": "lite-server",
-    "build": "browserify src/Zenpad.js --standalone Zenpad -t babelify -o build/zenpad.js -v",
+    "build": "browserify src/Zenpad.js --standalone Zenpad -t babelify -d | derequire > build/zenpad.js",
     "watch": "watchify src/Zenpad.js --standalone Zenpad -t babelify -o build/zenpad.js -v -d"
   },
   "repository": {
@@ -24,6 +24,7 @@
     "babel-preset-es2015": "^6.18.0",
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
+    "derequire": "^2.0.6",
     "lite-server": "^2.2.0",
     "pixi.js": "^4.3.0",
     "victor": "^1.1.0",
