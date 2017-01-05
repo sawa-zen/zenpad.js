@@ -7,7 +7,7 @@
     "start": "npm run watch & npm run lite",
     "lite": "lite-server",
     "build": "browserify src/Zenpad.js --standalone Zenpad -t babelify -d | derequire > build/zenpad.js",
-    "watch": "watchify src/Zenpad.js --standalone Zenpad -t babelify -o build/zenpad.js -v -d"
+    "watch": "watch 'npm run build' src/ --ignoreDotFiles"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,6 @@
     "lite-server": "^2.2.0",
     "pixi.js": "^4.3.0",
     "victor": "^1.1.0",
-    "watchify": "^3.7.0"
+    "watch": "^1.0.1"
   }
 }
