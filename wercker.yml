@@ -1,11 +1,7 @@
-box: nodesource/trusty
+box: node:6.9.1
 build:
   steps:
     - npm-install
-
-    - wacul/store-link:
-        type: restore
-        prefix: node_modules/.bin
 
     - script:
         name: build
