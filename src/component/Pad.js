@@ -69,7 +69,6 @@ export default class Pad extends PIXI.Container {
    * クリック時のハンドラーです。
    */
   _onClick() {
-    console.info("click");
     // ドラッグ中フラグを立てる
     this._isDragging = true;
   }
