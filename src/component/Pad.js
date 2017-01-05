@@ -55,12 +55,12 @@ export default class Pad extends PIXI.Container {
     this._stick.buttonMode = true;
     this.addChild(this._stick);
 
-    this._stick.on('mousedown',  this._onClick);
-    this._stick.on('touchstart', this._onClick);
-    this.on('mouseup',  this._onMouseUp);
-    this.on('touchend', this._onMouseUp);
-    this.on('mousemove', this._onTouchMove);
-    this.on('touchmove', this._onTouchMove);
+    this._stick.on(EventName.MOUSE_DOWN,  this._onClick);
+    this._stick.on(EventName.TOUCH_START, this._onClick);
+    this.on(EventName.MOUSE_UP,  this._onMouseUp);
+    this.on(EventName.TOUCH_END, this._onMouseUp);
+    this.on(EventName.MOUSE_MOVE, this._onTouchMove);
+    this.on(EventName.TOUCH_MOVE, this._onTouchMove);
     this.on(EventName.MOUSE_UP_OUTSIDE,  this._onTouchEndOutside);
     this.on(EventName.TOUCH_END_OUTSIDE, this._onTouchEndOutside);
   }
