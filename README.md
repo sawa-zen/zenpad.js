@@ -38,26 +38,27 @@ function init() {
 
 ### Method
 
-- #### on(eventName:String, handler:Function)
+- **on(eventName:String, handler:Function)**
 Use to add events.
 
-- #### off(eventName:String, handler:Function)
+- **off(eventName:String, handler:Function)**
 Use to remove events.
 
 ### Event
 
-- #### clickA
+- **clickA**
 Emit "clickA" event when push "A" button.
 
-- #### clickB
+- **clickB**
 Emit "clickB" event when push "B" button.
 
-- #### moveStick
+- **moveStick**
 Emit "moveStick" event when move stick.
-  ##### Property
+
+  **Property**
   - **x** : It is "x" position of stick.
   - **y** : It is "y" position of stick.
   - **angle** : It is the angle where the stick was knocked down.
 
-- #### releaseStick
+- **releaseStick**
 Emit "releaseStick" event when stick is released.
