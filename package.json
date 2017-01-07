@@ -1,13 +1,16 @@
 {
   "name": "zenpad.js",
-  "version": "0.0.19",
+  "version": "0.0.39",
   "main": "build/zenpad.js",
   "description": "GamePad for canvas.",
   "scripts": {
     "start": "npm run watch & npm run lite",
     "lite": "lite-server",
-    "build": "browserify src/Zenpad.js --standalone Zenpad -t babelify -d | derequire > build/zenpad.js",
-    "watch": "watch 'npm run build' src/ --ignoreDotFiles"
+    "build:production": "browserify src/Zenpad.js --standalone Zenpad -t babelify | derequire > build/zenpad.js",
+    "build:develop": "browserify src/Zenpad.js --standalone Zenpad -t babelify -d | derequire > build/zenpad.js",
+    "watch": "watch 'npm run build:develop' src/ --ignoreDotFiles",
+    "versionup": "versionup -p './' -l 'micro' -a '1'",
+    "release": "npm run build:production && npm run versionup && npm publish"
   },
   "repository": {
     "type": "git",
@@ -27,6 +30,7 @@
     "derequire": "^2.0.6",
     "lite-server": "^2.2.0",
     "pixi.js": "^4.3.0",
+    "versionup": "^2.1.2",
     "victor": "^1.1.0",
     "watch": "^1.0.1"
   }
