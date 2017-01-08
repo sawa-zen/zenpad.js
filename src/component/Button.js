@@ -55,6 +55,17 @@ export default class Button extends PIXI.Container {
   }
 
   /**
+   * 破棄します。
+   */
+  dispose() {
+    if(this._shape) {
+      this._shape.removeAllListeners();
+      this.removeChild(this._shape);
+      this._shape = null;
+    }
+  }
+
+  /**
    * ボタン押下時のハンドラーです。
    */
   _onClick(event) {

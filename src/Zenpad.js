@@ -87,17 +87,22 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
     if(this._aButton) {
       this._aButton.off(EventName.CLICK, this._onClickA);
       this._rightButtons.removeChild(this._aButton);
+      this._aButton = null;
     }
     if(this._bButton) {
       this._bButton.off(EventName.CLICK, this._onClickB);
       this._rightButtons.removeChild(this._bButton);
+      this._bButton = null;
     }
     if(this._pad) {
       this._pad.off(EventName.MOVE_STICK, this._onMoveStick);
       this._pad.off(EventName.RELEASE_STICK, this._onReleaseStick);
       this._leftButtons.removeChild(this._pad);
+      this._pad = null;
     }
     window.removeEventListener('resize', this._resize);
+
+    cancelAnimationFrame(this._requestId);
   }
 
   /**
@@ -105,7 +110,7 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
    */
   _tick() {
     this._renderer.render(this._stage);
-    requestAnimationFrame(this._tick);
+    this._requestId = requestAnimationFrame(this._tick);
   }
 
   /**
