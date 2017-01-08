@@ -1,14 +1,14 @@
 {
   "name": "zenpad.js",
-  "version": "0.0.43",
+  "version": "0.0.44",
   "main": "build/zenpad.js",
   "description": "GamePad for canvas.",
   "scripts": {
     "start": "npm run watch & npm run lite",
     "lite": "lite-server",
-    "build:production": "browserify src/Zenpad.js --standalone Zenpad -t babelify | derequire > build/zenpad.js",
-    "build:develop": "browserify src/Zenpad.js --standalone Zenpad -t babelify -d | derequire > build/zenpad.js",
-    "minify": "uglifyjs build/zenpad.js --mangle --compress --comments all --output build/zenpad.min.js",
+    "build:production": "browserify src/Zenpad.js --standalone Zenpad -t babelify -p licensify | derequire > build/zenpad.js",
+    "build:develop": "browserify src/Zenpad.js --standalone Zenpad -t babelify -d -p licensify | derequire > build/zenpad.js",
+    "minify": "uglifyjs build/zenpad.js --mangle --compress --comments --output build/zenpad.min.js",
     "watch": "watch 'npm run build:develop' src/ --ignoreDotFiles",
     "versionup": "versionup -p './' -l 'micro' -a '1'",
     "release": "npm run build:production && npm run minify && npm run versionup && npm publish"
@@ -29,6 +29,7 @@
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "derequire": "^2.0.6",
+    "licensify": "^3.1.2",
     "lite-server": "^2.2.0",
     "pixi.js": "^4.3.0",
     "uglify-js": "^2.7.5",
