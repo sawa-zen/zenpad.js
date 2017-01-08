@@ -122,7 +122,7 @@ export default class Pad extends PIXI.Container {
     }
 
     // スティックムーブイベントを発火
-    this.emit(EventName.MOVE_STICK, { x: x, y: y, angle: angle });
+    this.emit(EventName.MOVE_STICK, { x: x, y: y, angle: angle, length: vec.length() });
   }
 
   /**
