@@ -1,6 +1,6 @@
 {
   "name": "zenpad.js",
-  "version": "0.0.41",
+  "version": "0.0.42",
   "main": "build/zenpad.js",
   "description": "GamePad for canvas.",
   "scripts": {

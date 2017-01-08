@@ -62,6 +62,7 @@ Emit "moveStick" event when move stick.
   - **x** : It is "x" position of stick.
   - **y** : It is "y" position of stick.
   - **angle** : It is the angle where the stick was knocked down.
+  - **length** : It is the distance between the stick and the center.
 
 - **releaseStick**
 Emit "releaseStick" event when stick is released.
