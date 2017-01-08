@@ -5,35 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
   <title>zenpad.js</title>
   <script src="../build/zenpad.js"></script>
+  <script src="./js/demo.js"></script>
   <link rel="stylesheet" href="./css/index.css">
-  <script>
-    window.addEventListener('load', init);
-    function init() {
-      var zenpad = new Zenpad('myZenpad');
-
-      // Aボタンクリック
-      zenpad.on('clickA', function() {
-        console.info('clickA');
-      });
-
-      // Bボタンクリック
-      zenpad.on('clickB', function() {
-        console.info('clickB');
-      });
-
-      // スティックが動いた時
-      zenpad.on('moveStick', function(event) {
-        console.info('moveStick', event);
-      });
-
-      // スティックが離れた時
-      zenpad.on('releaseStick', function() {
-        console.info('releaseStick');
-      });
-    }
-  </script>
 </head>
 <body>
   <div id="myZenpad"></div>
+  <button id="dispose">Dispose</button>
 </body>
 </html>

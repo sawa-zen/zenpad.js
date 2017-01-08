@@ -4,6 +4,13 @@ html, body {
   overflow: hidden;
 }
 
+#dispose {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #FFF;
+}
+
 #myZenpad {
   position: absolute;
   bottom: 0;

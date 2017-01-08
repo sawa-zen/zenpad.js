@@ -61,8 +61,10 @@ export default class Button extends PIXI.Container {
     if(this._shape) {
       this._shape.removeAllListeners();
       this.removeChild(this._shape);
+      this._shape.destroy();
       this._shape = null;
     }
+    this.destroy();
   }
 
   /**
