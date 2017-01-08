@@ -1,8 +1,15 @@
 {
   "name": "zenpad.js",
-  "version": "0.0.44",
+  "version": "0.0.45",
   "main": "build/zenpad.js",
   "description": "GamePad for canvas.",
+  "maintainers": [
+    {
+      "name": "Takayoshi Sawada",
+      "email": "sawadasuiren@gmail.com",
+      "web": "http://sawa-zen.com"
+    }
+  ],
   "scripts": {
     "start": "npm run watch & npm run lite",
     "lite": "lite-server",

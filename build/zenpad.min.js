@@ -5,7 +5,8 @@
  * zenpad.js:
  *   license: MIT (http://opensource.org/licenses/MIT)
  *   author: sawa-zen
- *   version: 0.0.43
+ *   maintainers: Takayoshi Sawada <sawadasuiren@gmail.com>
+ *   version: 0.0.44
  *
  * bit-twiddle:
  *   license: MIT (http://opensource.org/licenses/MIT)
