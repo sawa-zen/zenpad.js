@@ -29,10 +29,7 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
     this._renderer = PIXI.autoDetectRenderer(
       this._wrapper.offsetWidth,
       this._wrapper.offsetHeight,
-      {
-        transparent: true,
-        antialias: true
-      }
+      { transparent: true, antialias: true }
     );
     this._renderer.plugins.interaction.moveWhenInside = true;
 
@@ -51,26 +48,26 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
     this._stage.addChild(this._rightButtons);
 
     // アナログパッド
-    let pad = new Pad();
-    pad.x = 80;
-    pad.y = 90;
-    this._leftButtons.addChild(pad);
-    pad.on(EventName.MOVE_STICK, this._onMoveStick);
-    pad.on(EventName.RELEASE_STICK, this._onReleaseStick);
+    this._pad = new Pad();
+    this._pad.x = 80;
+    this._pad.y = 90;
+    this._leftButtons.addChild(this._pad);
+    this._pad.on(EventName.MOVE_STICK, this._onMoveStick);
+    this._pad.on(EventName.RELEASE_STICK, this._onReleaseStick);
 
     // Aボタン
-    let aButton = new Button('A');
-    aButton.x = 150;
-    aButton.y = 80;
-    this._rightButtons.addChild(aButton);
-    aButton.on(EventName.CLICK, this._onClickA);
+    this._aButton = new Button('A');
+    this._aButton.x = 150;
+    this._aButton.y = 80;
+    this._rightButtons.addChild(this._aButton);
+    this._aButton.on(EventName.CLICK, this._onClickA);
 
     // Bボタン
-    let bButton = new Button('B');
-    bButton.x = 80;
-    bButton.y = 110;
-    this._rightButtons.addChild(bButton);
-    bButton.on(EventName.CLICK, this._onClickB);
+    this._bButton = new Button('B');
+    this._bButton.x = 80;
+    this._bButton.y = 110;
+    this._rightButtons.addChild(this._bButton);
+    this._bButton.on(EventName.CLICK, this._onClickB);
 
     // リサイズ
     this._resize = this._resize.bind(this);
@@ -81,6 +78,26 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
 
     // フレーム毎の更新
     this._tick();
+  }
+
+  /**
+   * 破棄します。
+   */
+  dispose() {
+    if(this._aButton) {
+      this._aButton.off(EventName.CLICK, this._onClickA);
+      this._rightButtons.removeChild(this._aButton);
+    }
+    if(this._bButton) {
+      this._bButton.off(EventName.CLICK, this._onClickB);
+      this._rightButtons.removeChild(this._bButton);
+    }
+    if(this._pad) {
+      this._pad.off(EventName.MOVE_STICK, this._onMoveStick);
+      this._pad.off(EventName.RELEASE_STICK, this._onReleaseStick);
+      this._leftButtons.removeChild(this._pad);
+    }
+    window.removeEventListener('resize', this._resize);
   }
 
   /**
