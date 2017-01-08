@@ -69,6 +69,12 @@ export default class Pad extends PIXI.Container {
    * スティックをもとに戻す
    */
   _resetStick() {
+
+    // ドラッグ中でなければ処理しない
+    if(!this._isDragging) {
+      return;
+    }
+
     // ドラッグフラグを折る
     this._isDragging = false;
 
