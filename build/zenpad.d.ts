@@ -4,13 +4,13 @@ declare class Zenpad
      * コンストラクター
      * @param canvasId
      */
-    constructor(canvasId:string);
+    constructor(id:string);
 
     /**
      * イベント
      */
-    addEventListener(type: string, listener: (eventObj: Object) => boolean): Function;
-    removeEventListener(type: string, listener: (eventObj: Object) => boolean): void;
+    on(type: string, listener: (eventObj: Object) => boolean): void;
+    off(type: string, listener: (eventObj: Object) => boolean): void;
 }
 
 declare module "zenpad" {
