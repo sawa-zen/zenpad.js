@@ -11,6 +11,13 @@ html, body {
   color: #FFF;
 }
 
+#setup {
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  color: #FFF;
+}
+
 #myZenpad {
   position: absolute;
   bottom: 0;

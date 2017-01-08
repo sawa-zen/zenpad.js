@@ -2,12 +2,16 @@
   window.addEventListener('load', init);
 
   var zenpad;
-  var disposeButton;
+  var disposeButton,
+      setupButton;
 
   function init() {
 
     disposeButton = document.getElementById('dispose');
     disposeButton.addEventListener('click', onClickDisposeButton);
+
+    setupButton = document.getElementById('setup');
+    setupButton.addEventListener('click', onClickSetupButton);
 
     setup();
   }
@@ -30,6 +34,14 @@
     zenpad.on('releaseStick', function() {
       console.info('releaseStick');
     });
+  }
+
+  function onClickSetupButton() {
+    if(zenpad) {
+      return;
+    }
+
+    setup();
   }
 
   function onClickDisposeButton() {
