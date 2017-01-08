@@ -84,6 +84,9 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
    * 破棄します。
    */
   dispose() {
+    cancelAnimationFrame(this._requestId);
+    window.removeEventListener('resize', this._resize);
+
     if(this._aButton) {
       this._aButton.off(EventName.CLICK, this._onClickA);
       this._rightButtons.removeChild(this._aButton);
@@ -102,9 +105,22 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
       this._leftButtons.removeChild(this._pad);
       this._pad = null;
     }
-    window.removeEventListener('resize', this._resize);
+    if(this._stage) {
+      this._stage.removeChild(this._leftButtons);
+      this._leftButtons.destroy();
+      this._leftButtons = null;
+      this._stage.removeChild(this._rightButtons);
+      this._rightButtons.destroy();
+      this._rightButtons = null;
+      this._stage.destroy();
+      this._stage = null;
+    }
 
-    cancelAnimationFrame(this._requestId);
+    this._renderer.view.remove();
+    this._renderer.destroy();
+    this._renderer = null;
+
+    this._wrapper = null;
   }
 
   /**

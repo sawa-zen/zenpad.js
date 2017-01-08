@@ -38,5 +38,6 @@
     }
 
     zenpad.dispose();
+    zenpad = null;
   }
 })()
