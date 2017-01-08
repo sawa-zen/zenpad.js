@@ -18,8 +18,6 @@ export default class Pad extends PIXI.Container {
     this._radius = 60;
     // スティクの半径
     this._stickRadius = 30;
-    // ドラッグ中かどうか
-    this._isDragging = false;
 
     this.width = 300;
     this.height = 300;
@@ -84,12 +82,12 @@ export default class Pad extends PIXI.Container {
   _resetStick() {
 
     // ドラッグ中でなければ処理しない
-    if(!this._isDragging) {
+    if(!this._touchId) {
       return;
     }
 
     // ドラッグフラグを折る
-    this._isDragging = false;
+    this._touchId = null;
 
     // スティックをもとの位置に戻す
     this._stick.x = 0;
@@ -104,17 +102,17 @@ export default class Pad extends PIXI.Container {
   /**
    * クリック時のハンドラーです。
    */
-  _onClick() {
-    // ドラッグ中フラグを立てる
-    this._isDragging = true;
+  _onClick(event) {
+    // イベントのIDを保持
+    this._touchId = event.data.identifier;
   }
 
   /**
    * タッチムーブ時のハンドラーです。
    */
   _onTouchMove(event) {
-    // ドラッグ中でなければ処理しない
-    if(!this._isDragging) {
+    // イベントIDが違っていれば処理しない
+    if(this._touchId != event.data.identifier) {
       return;
     }
 
@@ -143,6 +141,12 @@ export default class Pad extends PIXI.Container {
    */
   _onMouseUp(event) {
     event.stopPropagation();
+
+    // イベントIDが違っていれば処理しない
+    if(this._touchId != event.data.identifier) {
+      return;
+    }
+
     this._resetStick();
   }
 
@@ -151,6 +155,12 @@ export default class Pad extends PIXI.Container {
    */
   _onTouchEndOutside(event) {
     event.stopPropagation();
+
+    // イベントIDが違っていれば処理しない
+    if(this._touchId != event.data.identifier) {
+      return;
+    }
+
     this._resetStick();
   }
 }
