@@ -71,6 +71,7 @@ export default class Button extends PIXI.Container {
    * タッチ終了時のハンドラーです。
    */
   _onTouchEnd(event) {
+    event.stopPropagation();
     // ボタンを戻す
     this._shape.y = 0;
     this._isPushed = false;
@@ -96,7 +97,8 @@ export default class Button extends PIXI.Container {
   /**
    * タッチが枠を外れた際のハンドラーです。
    */
-  _onTouchEndOutside() {
+  _onTouchEndOutside(event) {
+    event.stopPropagation();
     // ボタンを戻す
     this._shape.y = 0;
     this._isPushed = false;

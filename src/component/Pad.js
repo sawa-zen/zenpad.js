@@ -66,6 +66,19 @@ export default class Pad extends PIXI.Container {
   }
 
   /**
+   * 破棄します。
+   */
+  dispose() {
+    if(this._stick) {
+      this._stick.removeAllListeners();
+      this.removeChild(this._stick);
+      this._stick.destroy();
+      this._stick = null;
+    }
+    this.removeAllListeners();
+  }
+
+  /**
    * スティックをもとに戻す
    */
   _resetStick() {
@@ -128,14 +141,16 @@ export default class Pad extends PIXI.Container {
   /**
    * マウスアップ時のハンドラーです。
    */
-  _onMouseUp() {
+  _onMouseUp(event) {
+    event.stopPropagation();
     this._resetStick();
   }
 
   /**
    * タッチが枠を外れた際のハンドラーです。
    */
-  _onTouchEndOutside() {
+  _onTouchEndOutside(event) {
+    event.stopPropagation();
     this._resetStick();
   }
 }
