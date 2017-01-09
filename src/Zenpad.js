@@ -22,6 +22,9 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
     this._onMoveStick = this._onMoveStick.bind(this);
     this._onReleaseStick = this._onReleaseStick.bind(this);
 
+    // PIXI.jsのコンソールをスキップ
+    PIXI.utils.skipHello();
+
     // ラッパーを取得
     this._wrapper = document.getElementById(wrapperId);
 

@@ -6,7 +6,7 @@
  *   license: MIT (http://opensource.org/licenses/MIT)
  *   author: sawa-zen
  *   maintainers: Takayoshi Sawada <sawadasuiren@gmail.com>
- *   version: 0.0.51
+ *   version: 0.0.52
  *
  * bit-twiddle:
  *   license: MIT (http://opensource.org/licenses/MIT)
@@ -37819,6 +37819,9 @@ module.exports = function (_PIXI$utils$EventEmit) {
     _this._onClickB = _this._onClickB.bind(_this);
     _this._onMoveStick = _this._onMoveStick.bind(_this);
     _this._onReleaseStick = _this._onReleaseStick.bind(_this);
+
+    // PIXI.jsのコンソールをスキップ
+    PIXI.utils.skipHello();
 
     // ラッパーを取得
     _this._wrapper = document.getElementById(wrapperId);
