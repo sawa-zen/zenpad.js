@@ -34,7 +34,7 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
     this._renderer.plugins.interaction.moveWhenInside = true;
 
     // canvasをラッパーに追加
-    this._wrapper.append(this._renderer.view);
+    this._wrapper.appendChild(this._renderer.view);
 
     // ステージ
     this._stage = new PIXI.Container();

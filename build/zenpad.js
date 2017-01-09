@@ -6,7 +6,7 @@
  *   license: MIT (http://opensource.org/licenses/MIT)
  *   author: sawa-zen
  *   maintainers: Takayoshi Sawada <sawadasuiren@gmail.com>
- *   version: 0.0.50
+ *   version: 0.0.51
  *
  * bit-twiddle:
  *   license: MIT (http://opensource.org/licenses/MIT)
@@ -37828,7 +37828,7 @@ module.exports = function (_PIXI$utils$EventEmit) {
     _this._renderer.plugins.interaction.moveWhenInside = true;
 
     // canvasをラッパーに追加
-    _this._wrapper.append(_this._renderer.view);
+    _this._wrapper.appendChild(_this._renderer.view);
 
     // ステージ
     _this._stage = new PIXI.Container();
