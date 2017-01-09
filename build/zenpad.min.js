@@ -6,7 +6,7 @@
  *   license: MIT (http://opensource.org/licenses/MIT)
  *   author: sawa-zen
  *   maintainers: Takayoshi Sawada <sawadasuiren@gmail.com>
- *   version: 0.0.48
+ *   version: 0.0.49
  *
  * bit-twiddle:
  *   license: MIT (http://opensource.org/licenses/MIT)
