@@ -2,8 +2,11 @@
   window.addEventListener('load', init);
 
   var zenpad;
-  var disposeButton,
+  var stick,
+      command,
+      disposeButton,
       setupButton;
+  var commandList = "";
 
   function init() {
 
@@ -13,6 +16,10 @@
     setupButton = document.getElementById('setup');
     setupButton.addEventListener('click', onClickSetupButton);
 
+    stick = document.getElementById('stick');
+    command = document.getElementById('command');
+    addCommand('');
+
     setup();
   }
 
@@ -20,11 +27,11 @@
     zenpad = new Zenpad('myZenpad');
 
     zenpad.on('clickA', function() {
-      console.info('clickA');
+      addCommand('A');
     });
 
     zenpad.on('clickB', function() {
-      console.info('clickB');
+      addCommand('B');
     });
 
     zenpad.on('moveStick', function(event) {
@@ -51,5 +58,11 @@
 
     zenpad.dispose();
     zenpad = null;
+  }
+
+  function addCommand(commandText) {
+    commandList = commandText + commandList;
+    commandList = commandList.slice(0, 6);
+    command.innerHTML = "commnads : " + commandList;
   }
 })()
