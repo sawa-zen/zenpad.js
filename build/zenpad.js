@@ -6,7 +6,7 @@
  *   license: MIT (http://opensource.org/licenses/MIT)
  *   author: sawa-zen
  *   maintainers: Takayoshi Sawada <sawadasuiren@gmail.com>
- *   version: 0.0.46
+ *   version: 0.0.47
  *
  * bit-twiddle:
  *   license: MIT (http://opensource.org/licenses/MIT)
@@ -38191,6 +38191,8 @@ var Pad = function (_PIXI$Container) {
     _this._radius = 60;
     // スティクの半径
     _this._stickRadius = 30;
+    // ドラッグ中かどうか
+    _this._isDragging = false;
 
     _this.width = 300;
     _this.height = 300;
@@ -38262,19 +38264,13 @@ var Pad = function (_PIXI$Container) {
     key: '_resetStick',
     value: function _resetStick() {
 
-      // ドラッグ中でなければ処理しない
-      if (!this._touchId) {
-        return;
-      }
-
       // ドラッグフラグを折る
       this._touchId = null;
+      this._isDragging = false;
 
       // スティックをもとの位置に戻す
       this._stick.x = 0;
       this._stick.y = 0;
-
-      this._currentdirection = null;
 
       // スティックリリースイベント発火
       this.emit(_EventName2.default.RELEASE_STICK);
@@ -38289,6 +38285,7 @@ var Pad = function (_PIXI$Container) {
     value: function _onClick(event) {
       // イベントのIDを保持
       this._touchId = event.data.identifier;
+      this._isDragging = true;
     }
 
     /**
@@ -38298,8 +38295,12 @@ var Pad = function (_PIXI$Container) {
   }, {
     key: '_onTouchMove',
     value: function _onTouchMove(event) {
-      // イベントIDが違っていれば処理しない
-      if (this._touchId != event.data.identifier) {
+      // 有効なイベントでなければ処理しない
+      if (!this._checkEvent(event)) {
+        return;
+      }
+
+      if (!this._isDragging) {
         return;
       }
 
@@ -38332,8 +38333,12 @@ var Pad = function (_PIXI$Container) {
     value: function _onMouseUp(event) {
       event.stopPropagation();
 
-      // イベントIDが違っていれば処理しない
-      if (this._touchId != event.data.identifier) {
+      // 有効なイベントでなければ処理しない
+      if (!this._checkEvent(event)) {
+        return;
+      }
+
+      if (!this._isDragging) {
         return;
       }
 
@@ -38349,12 +38354,35 @@ var Pad = function (_PIXI$Container) {
     value: function _onTouchEndOutside(event) {
       event.stopPropagation();
 
-      // イベントIDが違っていれば処理しない
-      if (this._touchId != event.data.identifier) {
+      // 有効なイベントでなければ処理しない
+      if (!this._checkEvent(event)) {
+        return;
+      }
+
+      if (!this._isDragging) {
         return;
       }
 
       this._resetStick();
+    }
+
+    /**
+     * タッチイベントを続行できるか確認します。
+     */
+
+  }, {
+    key: '_checkEvent',
+    value: function _checkEvent(event) {
+      if (event.type.match(/mouse/)) {
+        return true;
+      }
+
+      // イベントIDが違っていれば処理しない
+      if (this._touchId == event.data.identifier) {
+        return true;
+      }
+
+      return false;
     }
   }]);
 

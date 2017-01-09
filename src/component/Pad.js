@@ -18,6 +18,8 @@ export default class Pad extends PIXI.Container {
     this._radius = 60;
     // スティクの半径
     this._stickRadius = 30;
+    // ドラッグ中かどうか
+    this._isDragging = false;
 
     this.width = 300;
     this.height = 300;
@@ -81,19 +83,13 @@ export default class Pad extends PIXI.Container {
    */
   _resetStick() {
 
-    // ドラッグ中でなければ処理しない
-    if(!this._touchId) {
-      return;
-    }
-
     // ドラッグフラグを折る
     this._touchId = null;
+    this._isDragging = false;
 
     // スティックをもとの位置に戻す
     this._stick.x = 0;
     this._stick.y = 0;
-
-    this._currentdirection = null;
 
     // スティックリリースイベント発火
     this.emit(EventName.RELEASE_STICK);
@@ -105,14 +101,19 @@ export default class Pad extends PIXI.Container {
   _onClick(event) {
     // イベントのIDを保持
     this._touchId = event.data.identifier;
+    this._isDragging = true;
   }
 
   /**
    * タッチムーブ時のハンドラーです。
    */
   _onTouchMove(event) {
-    // イベントIDが違っていれば処理しない
-    if(this._touchId != event.data.identifier) {
+    // 有効なイベントでなければ処理しない
+    if(!this._checkEvent(event)) {
+      return;
+    }
+
+    if(!this._isDragging) {
       return;
     }
 
@@ -142,8 +143,12 @@ export default class Pad extends PIXI.Container {
   _onMouseUp(event) {
     event.stopPropagation();
 
-    // イベントIDが違っていれば処理しない
-    if(this._touchId != event.data.identifier) {
+    // 有効なイベントでなければ処理しない
+    if(!this._checkEvent(event)) {
+      return;
+    }
+
+    if(!this._isDragging) {
       return;
     }
 
@@ -156,11 +161,31 @@ export default class Pad extends PIXI.Container {
   _onTouchEndOutside(event) {
     event.stopPropagation();
 
-    // イベントIDが違っていれば処理しない
-    if(this._touchId != event.data.identifier) {
+    // 有効なイベントでなければ処理しない
+    if(!this._checkEvent(event)) {
+      return;
+    }
+
+    if(!this._isDragging) {
       return;
     }
 
     this._resetStick();
+  }
+
+  /**
+   * タッチイベントを続行できるか確認します。
+   */
+  _checkEvent(event) {
+    if(event.type.match(/mouse/)) {
+      return true;
+    }
+
+    // イベントIDが違っていれば処理しない
+    if(this._touchId == event.data.identifier) {
+      return true;
+    }
+
+    return false;
   }
 }
