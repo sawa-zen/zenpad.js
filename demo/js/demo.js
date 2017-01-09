@@ -17,6 +17,8 @@
     setupButton.addEventListener('click', onClickSetupButton);
 
     stick = document.getElementById('stick');
+    displayStickData(0, 0, 0, 0);
+
     command = document.getElementById('command');
     addCommand('');
 
@@ -35,11 +37,11 @@
     });
 
     zenpad.on('moveStick', function(event) {
-      console.info('moveStick', event);
+      displayStickData(event.x, event.y, event.angle, event.length);
     });
 
     zenpad.on('releaseStick', function() {
-      console.info('releaseStick');
+      displayStickData(0, 0, 0, 0);
     });
   }
 
@@ -58,6 +60,14 @@
 
     zenpad.dispose();
     zenpad = null;
+  }
+
+  function displayStickData(x, y, angle, length) {
+    text = "x : " + x + "<br/>" +
+           "y : " + y + "<br/>" +
+           "angle : " + Math.floor(angle) + "<br/>" +
+           "length : " + Math.floor(length);
+    stick.innerHTML = text;
   }
 
   function addCommand(commandText) {
