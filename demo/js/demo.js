@@ -72,7 +72,7 @@
 
   function addCommand(commandText) {
     commandList = commandText + commandList;
-    commandList = commandList.slice(0, 6);
+    commandList = commandList.slice(0, 10);
     command.innerHTML = "commnads : " + commandList;
   }
 })()
