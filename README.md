@@ -19,6 +19,10 @@ $ npm install zenpad.js
 <script src="zenpad.js"></script>
 ```
 
+### Demo
+
+- [http://zenpad.sawa-zen.com/demo/](http://zenpad.sawa-zen.com/demo/)
+
 ### Basic Usage Example
 
 ```html
