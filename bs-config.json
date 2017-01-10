@@ -1,5 +1,10 @@
 {
   "port": 8001,
+  "server": {
+    "baseDir": "./",
+    "index": "index.html"
+  },
+  "startPath": "./demo/index.html",
   "files": [
     "./demo/**/*.{html,htm,css,js}",
     "./build/*.{js}"
