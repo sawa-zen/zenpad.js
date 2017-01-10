@@ -60,14 +60,14 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
 
     // Aボタン
     this._aButton = new Button('A');
-    this._aButton.x = 150;
+    this._aButton.x = 145;
     this._aButton.y = 80;
     this._rightButtons.addChild(this._aButton);
     this._aButton.on(EventName.CLICK, this._onClickA);
 
     // Bボタン
     this._bButton = new Button('B');
-    this._bButton.x = 80;
+    this._bButton.x = 75;
     this._bButton.y = 110;
     this._rightButtons.addChild(this._bButton);
     this._bButton.on(EventName.CLICK, this._onClickB);
