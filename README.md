@@ -21,8 +21,8 @@ $ npm install zenpad.js
 
 ### Demo
 
-- [http://zenpad.sawa-zen.com/demo/](http://zenpad.sawa-zen.com/demo/)
 - [http://zendash.sawa-zen.com/](http://zendash.sawa-zen.com/)
+- [http://zenpad.sawa-zen.com/demo/](http://zenpad.sawa-zen.com/demo/)
 
 ### Basic Usage Example
 
