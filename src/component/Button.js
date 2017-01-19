@@ -1,5 +1,6 @@
 import EventName from '../event/EventName';
 import EventPublisher from '../event/EventPublisher';
+import PublicEvent from '../event/PublicEvent';
 
 /**
  * ボタンクラスです。
@@ -91,7 +92,8 @@ export default class Button extends PIXI.Container {
     this._shape.y = 5;
 
     // 公開クリックイベントを発火
-    EventPublisher.instance.publish('click' + this._type);
+    let eventName = PublicEvent.CLICK + this._type;
+    EventPublisher.instance.publish(eventName);
   }
 
   /**
