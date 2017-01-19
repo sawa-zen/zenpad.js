@@ -1,6 +1,6 @@
 import Victor from 'victor';
 import EventName from '../event/EventName';
-import PublicEvent from '../event/PublicEvent';
+import PublicEventName from '../event/PublicEventName';
 import EventPublisher from '../event/EventPublisher';
 
 /**
@@ -134,10 +134,8 @@ export default class Pad extends PIXI.Container {
       this._stick.y = y;
     }
 
-    // スティックムーブイベントを発火
-    this.emit(EventName.MOVE_STICK, );
     // 公開ムーブイベントを発火
-    EventPublisher.instance.publish(PublicEvent.MOVE_STICK, {
+    EventPublisher.instance.publish(PublicEventName.MOVE_STICK, {
       x: x,
       y: y,
       angle: angle,
