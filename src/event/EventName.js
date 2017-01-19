@@ -13,4 +13,5 @@ export default class EventName {
   static get TOUCH_END()         { return 'touchend'; };
   static get TOUCH_MOVE()        { return 'touchmove'; };
   static get TOUCH_END_OUTSIDE() { return 'touchendoutside'; };
+  static get PUBLISH_EVENT()     { return 'publishevent'; }
 }

@@ -1,4 +1,5 @@
 import EventName from '../event/EventName';
+import EventPublisher from '../event/EventPublisher';
 
 /**
  * ボタンクラスです。
@@ -89,8 +90,8 @@ export default class Button extends PIXI.Container {
     this._isPushed = true;
     this._shape.y = 5;
 
-    // クリックイベントを発火
-    this.emit(EventName.CLICK);
+    // 公開クリックイベントを発火
+    EventPublisher.instance.publish('click' + this._type);
   }
 
   /**

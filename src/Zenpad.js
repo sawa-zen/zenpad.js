@@ -2,7 +2,7 @@ import * as PIXI from 'pixi.js';
 import Button from './component/Button';
 import Pad from './component/Pad';
 import EventName from './event/EventName';
-import PublicEvent from './event/PublicEvent';
+import EventPublisher from './event/EventPublisher';
 
 /**
  * Zenpadのメインクラスです。
@@ -17,16 +17,17 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
     super();
 
     this._tick = this._tick.bind(this);
-    this._onClickA = this._onClickA.bind(this);
-    this._onClickB = this._onClickB.bind(this);
-    this._onMoveStick = this._onMoveStick.bind(this);
-    this._onReleaseStick = this._onReleaseStick.bind(this);
+    this._onPublishEvent = this._onPublishEvent.bind(this);
 
     // PIXI.jsのコンソールをスキップ
     PIXI.utils.skipHello();
 
     // ラッパーを取得
     this._wrapper = document.getElementById(wrapperId);
+
+    // 公開イベントパブリッシャー
+    this._publisher = EventPublisher.instance;
+    this._publisher.on(EventName.PUBLISH_EVENT, this._onPublishEvent);
 
     // レンダラー
     this._renderer = PIXI.autoDetectRenderer(
@@ -91,20 +92,16 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
     window.removeEventListener('resize', this._resize);
 
     if(this._aButton) {
-      this._aButton.off(EventName.CLICK, this._onClickA);
       this._rightButtons.removeChild(this._aButton);
       this._aButton.dispose();
       this._aButton = null;
     }
     if(this._bButton) {
-      this._bButton.off(EventName.CLICK, this._onClickB);
       this._rightButtons.removeChild(this._bButton);
       this._bButton.dispose();
       this._bButton = null;
     }
     if(this._pad) {
-      this._pad.off(EventName.MOVE_STICK, this._onMoveStick);
-      this._pad.off(EventName.RELEASE_STICK, this._onReleaseStick);
       this._leftButtons.removeChild(this._pad);
       this._pad.dispose();
       this._pad = null;
@@ -123,6 +120,9 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
     this._renderer.view.remove();
     this._renderer.destroy();
     this._renderer = null;
+
+    this._publisher.dispose();
+    this._publisher = null;
 
     this._wrapper = null;
   }
@@ -148,34 +148,9 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
   }
 
   /**
-   * Aボタンクリック時のハンドラーです。
+   * 公開イベントが発火された際のハンドラーです。
    */
-  _onClickA() {
-    // Aボタンクリックイベントを発火
-    this.emit(PublicEvent.CLICK_A);
-  }
-
-  /**
-   * Bボタンクリック時のハンドラーです。
-   */
-  _onClickB() {
-    // Bボタンクリックイベントを発火
-    this.emit(PublicEvent.CLICK_B);
-  }
-
-  /**
-   * スティックが動いた際のハンドラーです。
-   */
-  _onMoveStick(data) {
-    // スティックの変更イベントを発火
-    this.emit(PublicEvent.MOVE_STICK, data);
-  }
-
-  /**
-   * スティックが離された際のハンドラーです。
-   */
-  _onReleaseStick() {
-    // スティックリリースイベントを発火
-    this.emit(PublicEvent.RELEASE_STICK);
+  _onPublishEvent(event) {
+    this.emit(event.name, event.data);
   }
 }
