@@ -91,5 +91,7 @@ Use to dispose zenpad.
   - **angle** : It is the angle where the stick was knocked down.
   - **length** : It is the distance between the stick and the center.
 
+
 - **releaseStick**
-Emit "releaseStick" event when stick is released.
+
+  Emit "releaseStick" event when stick is released.
