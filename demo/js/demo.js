@@ -30,10 +30,18 @@
 
     zenpad.on('touchstartA', function() {
       addCommand('A');
+      console.info('touchstartA');
+    });
+    zenpad.on('touchendA', function() {
+      console.info('touchendA');
     });
 
     zenpad.on('touchstartB', function() {
       addCommand('B');
+      console.info('touchstartB');
+    });
+    zenpad.on('touchendB', function() {
+      console.info('touchendB');
     });
 
     zenpad.on('moveStick', function(event) {

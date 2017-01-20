@@ -73,9 +73,7 @@ export default class Button extends PIXI.Container {
    * タッチ終了時のハンドラーです。
    */
   _onTouchEnd(event) {
-    // ボタンを戻す
-    this._shape.y = 0;
-    this._isPushed = false;
+    this._resetByTouchEnd();
   }
 
   /**
@@ -100,11 +98,21 @@ export default class Button extends PIXI.Container {
    * タッチが枠を外れた際のハンドラーです。
    */
   _onTouchEndOutside(event) {
+    this._resetByTouchEnd();
+  }
+
+  /**
+   * タッチエンドによるリセットをします。
+   */
+  _resetByTouchEnd() {
     // ボタンを戻す
     this._shape.y = 0;
     this._isPushed = false;
     // 公開クリックイベントを発火
     let clickEventName = PublicEventName.CLICK + this._type;
     EventPublisher.instance.publish(clickEventName);
+    // 公開タッチエンドイベントを発火
+    let touchEndEventName = PublicEventName.TOUCH_END + this._type;
+    EventPublisher.instance.publish(touchEndEventName);
   }
 }
