@@ -33,8 +33,8 @@ window.addEventListener('load', init);
 function init() {
   var zenpad = new Zenpad('myZenpad');
 
-  zenpad.on('clickA', function() {
-    console.info('clickA');
+  zenpad.on('touchstartA', function() {
+    console.info('touchstartA');
   });
 
   zenpad.on('moveStick', function(event) {
