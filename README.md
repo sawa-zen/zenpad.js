@@ -57,14 +57,33 @@ Use to dispose zenpad.
 
 ### Event
 
+- **touchstartA**
+
+  Emit "touchstartA" event when push "A" button.
+
+- **touchendA**
+
+  Emit "touchendA" event when pull "A" button.
+
 - **clickA**
-Emit "clickA" event when push "A" button.
+
+  This is "touchendA" alias event.
+
+- **touchstartB**
+
+  Emit "touchstartB" event when push "B" button.
+
+- **touchendB**
+
+  Emit "touchendB" event when pull "B" button.
 
 - **clickB**
-Emit "clickB" event when push "B" button.
+
+  This is "touchendB" alias event.
 
 - **moveStick**
-Emit "moveStick" event when move stick.
+
+  Emit "moveStick" event when move stick.
 
   **Property**
   - **x** : It is "x" position of stick.
