@@ -91,9 +91,9 @@ export default class Button extends PIXI.Container {
     this._isPushed = true;
     this._shape.y = 5;
 
-    // 公開クリックイベントを発火
-    let eventName = PublicEventName.CLICK + this._type;
-    EventPublisher.instance.publish(eventName);
+    // 公開タッチスタートイベントを発火
+    let touchstartEventName = PublicEventName.TOUCH_START + this._type;
+    EventPublisher.instance.publish(touchstartEventName);
   }
 
   /**
@@ -103,5 +103,8 @@ export default class Button extends PIXI.Container {
     // ボタンを戻す
     this._shape.y = 0;
     this._isPushed = false;
+    // 公開クリックイベントを発火
+    let clickEventName = PublicEventName.CLICK + this._type;
+    EventPublisher.instance.publish(clickEventName);
   }
 }

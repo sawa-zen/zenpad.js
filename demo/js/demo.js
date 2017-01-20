@@ -28,11 +28,11 @@
   function setup() {
     zenpad = new Zenpad('myZenpad');
 
-    zenpad.on('clickA', function() {
+    zenpad.on('touchstartA', function() {
       addCommand('A');
     });
 
-    zenpad.on('clickB', function() {
+    zenpad.on('touchstartB', function() {
       addCommand('B');
     });
 
