@@ -92,8 +92,8 @@ export default class Pad extends PIXI.Container {
     this._stick.x = 0;
     this._stick.y = 0;
 
-    // スティックリリースイベント発火
-    this.emit(EventName.RELEASE_STICK);
+    // 公開リリースイベントを発火
+    EventPublisher.instance.publish(PublicEventName.RELEASE_STICK);
   }
 
   /**

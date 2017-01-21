@@ -45,10 +45,12 @@
     });
 
     zenpad.on('moveStick', function(event) {
+      console.info('moveStick');
       displayStickData(event.x, event.y, event.angle, event.length);
     });
 
     zenpad.on('releaseStick', function() {
+      console.info('releaseStick');
       displayStickData(0, 0, 0, 0);
     });
   }
