@@ -49,13 +49,16 @@ function init() {
 ### Method
 
 - **on(eventName:String, handler:Function)**
-Use to add events.
+
+  Use to add events.
 
 - **off(eventName:String, handler:Function)**
-Use to remove events.
+
+  Use to remove events.
 
 - **dispose()**
-Use to dispose zenpad.
+
+  Use to dispose zenpad.
 
 ### Event
 
