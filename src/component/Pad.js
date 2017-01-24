@@ -21,6 +21,9 @@ export default class Pad extends PIXI.Container {
     this._stickRadius = 30;
     // ドラッグ中かどうか
     this._isDragging = false;
+    // スタートポジション
+    this._startPosX = 0;
+    this._startPosY = 0;
 
     this.width = 300;
     this.height = 300;
@@ -105,6 +108,10 @@ export default class Pad extends PIXI.Container {
     // イベントのIDを保持
     this._touchId = event.data.identifier;
     this._isDragging = true;
+
+    let touchPos = event.data.getLocalPosition(this);
+    this._startPosX = touchPos.x;
+    this._startPosY = touchPos.y;
   }
 
   /**
@@ -121,8 +128,8 @@ export default class Pad extends PIXI.Container {
     }
 
     let posision = event.data.getLocalPosition(this);
-    let x = posision.x,
-        y = posision.y;
+    let x = posision.x - this._startPosX,
+        y = posision.y - this._startPosY;
     let vec = new Victor(x, y);
     let angle = vec.angle() * 180 / Math.PI;
 
