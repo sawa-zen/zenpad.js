@@ -26,10 +26,10 @@ export default class Pad extends PIXI.Container {
     this.height = 300;
     this.interactive = true;
 
-    this._onClick = this._onClick.bind(this);
+    this._onTouchStart = this._onTouchStart.bind(this);
     this._onTouchMove = this._onTouchMove.bind(this);
     this._onTouchEndOutside = this._onTouchEndOutside.bind(this);
-    this._onMouseUp = this._onMouseUp.bind(this);
+    this._onTouchEnd = this._onTouchEnd.bind(this);
 
     // タップエリア
     this._tapArea = new PIXI.Graphics();
@@ -58,10 +58,10 @@ export default class Pad extends PIXI.Container {
     this._stick.buttonMode = true;
     this.addChild(this._stick);
 
-    this.on(EventName.MOUSE_DOWN,  this._onClick);
-    this.on(EventName.TOUCH_START, this._onClick);
-    this.on(EventName.MOUSE_UP,  this._onMouseUp);
-    this.on(EventName.TOUCH_END, this._onMouseUp);
+    this.on(EventName.MOUSE_DOWN,  this._onTouchStart);
+    this.on(EventName.TOUCH_START, this._onTouchStart);
+    this.on(EventName.MOUSE_UP,  this._onTouchEnd);
+    this.on(EventName.TOUCH_END, this._onTouchEnd);
     this.on(EventName.MOUSE_MOVE, this._onTouchMove);
     this.on(EventName.TOUCH_MOVE, this._onTouchMove);
     this.on(EventName.MOUSE_UP_OUTSIDE,  this._onTouchEndOutside);
@@ -99,9 +99,9 @@ export default class Pad extends PIXI.Container {
   }
 
   /**
-   * クリック時のハンドラーです。
+   * タッチスタート時のハンドラーです。
    */
-  _onClick(event) {
+  _onTouchStart(event) {
     // イベントのIDを保持
     this._touchId = event.data.identifier;
     this._isDragging = true;
@@ -146,9 +146,9 @@ export default class Pad extends PIXI.Container {
   }
 
   /**
-   * マウスアップ時のハンドラーです。
+   * タッチエンド時のハンドラーです。
    */
-  _onMouseUp(event) {
+  _onTouchEnd(event) {
     event.stopPropagation();
 
     // 有効なイベントでなければ処理しない
