@@ -6,7 +6,7 @@
  *   license: MIT (http://opensource.org/licenses/MIT)
  *   author: sawa-zen
  *   maintainers: Takayoshi Sawada <sawadasuiren@gmail.com>
- *   version: 0.1.9
+ *   version: 0.1.10
  *
  * bit-twiddle:
  *   license: MIT (http://opensource.org/licenses/MIT)
@@ -38225,8 +38225,10 @@ var Pad = function (_PIXI$Container) {
     _this._stick.buttonMode = true;
     _this.addChild(_this._stick);
 
-    _this.on(_EventName2.default.MOUSE_DOWN, _this._onTouchStart);
-    _this.on(_EventName2.default.TOUCH_START, _this._onTouchStart);
+    _this._stick.on(_EventName2.default.MOUSE_DOWN, _this._onTouchStart);
+    _this._stick.on(_EventName2.default.TOUCH_START, _this._onTouchStart);
+    _this._bg.on(_EventName2.default.MOUSE_DOWN, _this._onTouchStart);
+    _this._bg.on(_EventName2.default.TOUCH_START, _this._onTouchStart);
     _this.on(_EventName2.default.MOUSE_UP, _this._onTouchEnd);
     _this.on(_EventName2.default.TOUCH_END, _this._onTouchEnd);
     _this.on(_EventName2.default.MOUSE_MOVE, _this._onTouchMove);
@@ -38246,7 +38248,9 @@ var Pad = function (_PIXI$Container) {
     value: function dispose() {
       if (this._stick) {
         this._stick.removeAllListeners();
+        this._bg.removeAllListeners();
         this.removeChild(this._stick);
+        this.removeChild(this._bg);
         this._stick.destroy();
         this._stick = null;
       }
