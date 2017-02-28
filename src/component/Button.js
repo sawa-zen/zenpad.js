@@ -11,13 +11,13 @@ export default class Button extends PIXI.Container {
    * コンストラクター
    * @constructor
    */
-  constructor(type, color) {
+  constructor(type = 'A', color = 0x8c3568) {
     super();
 
     // テキスト
-    this._type = type || 'A';
+    this._type = type;
     // カラー
-    this._color = color || 0x8c3568;
+    this._color = color;
     // 幅
     this._width = 55;
     // 押し込まれているかどうか
