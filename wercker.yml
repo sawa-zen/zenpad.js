@@ -6,3 +6,8 @@ build:
     - script:
         name: build
         code: npm run build:production
+  after-steps:
+    - slack-notifier:
+      url: $SLACK_URL
+      channel: test
+      username: werckerbot
