@@ -30,7 +30,7 @@
   "author": "sawa-zen",
   "license": "MIT",
   "dependencies": {
-    "pixi.js": "^4.5.1",
+    "pixi.js": "^4.5.3",
     "victor": "^1.1.0"
   },
   "devDependencies": {
@@ -42,7 +42,7 @@
     "derequire": "^2.0.6",
     "licensify": "^3.1.3",
     "lite-server": "^2.3.0",
-    "uglify-js": "^2.8.22",
+    "uglify-js": "^2.8.29",
     "versionup": "^2.1.2",
     "watch": "^1.0.2"
   }
