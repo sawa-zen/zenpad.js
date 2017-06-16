@@ -1,8 +1,7 @@
-box: node:6.9.1
+box: node:8.1.1
 build:
   steps:
     - npm-install
-
     - script:
         name: build
         code: npm run build:production
