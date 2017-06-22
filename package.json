@@ -18,7 +18,7 @@
     "minify": "uglifyjs build/zenpad.js --mangle --compress --comments --output build/zenpad.min.js",
     "watch": "watch 'npm run build:develop' src/ --ignoreDotFiles",
     "versionup": "versionup -p './' -l 'micro' -a '1'",
-    "release": "npm run build:production && npm run minify && npm run versionup && npm publish"
+    "prepublish": "npm run build:production && npm run minify && npm run versionup"
   },
   "repository": {
     "type": "git",
