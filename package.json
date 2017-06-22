@@ -13,11 +13,10 @@
   "scripts": {
     "start": "npm run watch & npm run lite",
     "lite": "lite-server",
-    "build:production": "mkdirp build && browserify src/Zenpad.js --standalone Zenpad -t babelify -p licensify | derequire > build/zenpad.js",
-    "build:develop": "mkdirp build && browserify src/Zenpad.js --standalone Zenpad -t babelify -d -p licensify | derequire > build/zenpad.js",
+    "build": "mkdirp build && browserify src/Zenpad.js --standalone Zenpad -t babelify -p licensify --outfile build/zenpad.js",
+    "watch": "mkdirp build && watchify src/Zenpad.js --standalone Zenpad -t babelify -d --outfile build/zenpad.js",
     "minify": "uglifyjs build/zenpad.js --mangle --compress --comments --output build/zenpad.min.js",
-    "watch": "watch 'npm run build:develop' src/ --ignoreDotFiles",
-    "prepublish": "npm run build:production && npm run minify"
+    "prepublish": "npm run build && npm run minify"
   },
   "repository": {
     "type": "git",
@@ -38,7 +37,6 @@
     "babel-preset-es2015": "^6.24.1",
     "babelify": "^7.3.0",
     "browserify": "^13.3.0",
-    "derequire": "^2.0.6",
     "licensify": "^3.1.3",
     "lite-server": "^2.3.0",
     "mkdirp": "^0.5.1",
