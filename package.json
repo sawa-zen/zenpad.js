@@ -17,8 +17,7 @@
     "build:develop": "mkdirp build && browserify src/Zenpad.js --standalone Zenpad -t babelify -d -p licensify | derequire > build/zenpad.js",
     "minify": "uglifyjs build/zenpad.js --mangle --compress --comments --output build/zenpad.min.js",
     "watch": "watch 'npm run build:develop' src/ --ignoreDotFiles",
-    "versionup": "versionup -p './' -l 'micro' -a '1'",
-    "prepublish": "npm run build:production && npm run minify && npm run versionup"
+    "prepublish": "npm run build:production && npm run minify"
   },
   "repository": {
     "type": "git",
@@ -44,7 +43,6 @@
     "lite-server": "^2.3.0",
     "mkdirp": "^0.5.1",
     "uglify-js": "^2.8.29",
-    "versionup": "^2.1.2",
     "watch": "^1.0.2"
   }
 }
