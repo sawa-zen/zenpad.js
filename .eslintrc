@@ -6,12 +6,11 @@
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
-      "modules": true,
-      "jsx": true
+      "modules": true
     }
   },
   "rules": {
-    "quotes": 0,
+    "quotes": ["error", "single"],
     "no-underscore-dangle": 0
   }
 }
