@@ -4,7 +4,7 @@ build:
     - npm-install
     - script:
         name: build
-        code: npm run build:production
+        code: npm run build
   after-steps:
     - slack-notifier:
       url: $SLACK_URL
