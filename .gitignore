@@ -1,4 +1,3 @@
-build/zenpad.js
-build/zenpad.min.js
+build
 node_modules
 npm-debug.log
