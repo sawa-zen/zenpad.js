@@ -2,6 +2,7 @@ html, body {
   margin: 0;
   background-color: #6c1521;
   overflow: hidden;
+  user-select: none;
 }
 
 #myZenpad {
