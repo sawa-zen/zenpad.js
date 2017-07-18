@@ -14,8 +14,8 @@
     "start": "npm run watch & npm run lite",
     "lite": "lite-server",
     "lint": "eslint ./src",
-    "build": "mkdirp build && browserify src/Zenpad.js --standalone Zenpad -t babelify -p licensify --outfile build/zenpad.js",
-    "watch": "mkdirp build && watchify src/Zenpad.js --standalone Zenpad -t babelify -d --outfile build/zenpad.js",
+    "build": "mkdirp build && browserify src/Zenpad.js --standalone Zenpad -t babelify -p licensify | derequire > build/zenpad.js",
+    "watch": "mkdirp build && watch 'npm run build' src/ --ignoreDotFiles --interval=1",
     "minify": "uglifyjs build/zenpad.js --mangle --compress --comments --output build/zenpad.min.js",
     "prepublish": "npm run build && npm run minify"
   },
@@ -32,13 +32,14 @@
     "babel-preset-es2015": "^6.24.1",
     "babelify": "^7.3.0",
     "browserify": "^13.3.0",
-    "eslint": "^4.0.0",
+    "derequire": "^2.0.6",
+    "eslint": "^4.2.0",
     "licensify": "^3.1.3",
     "lite-server": "^2.3.0",
     "mkdirp": "^0.5.1",
     "pixi.js": "^4.5.3",
     "uglify-js": "^2.8.29",
     "victor": "^1.1.0",
-    "watchify": "^3.9.0"
+    "watch": "^1.0.2"
   }
 }
