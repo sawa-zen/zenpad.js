@@ -1,49 +1,53 @@
-# Zenpad.js — GamePad for canvas
+# Zenpad.js — GamePad for canvas game.
 
-![](https://github.com/sawa-zen/zenpad.js/wiki/images/zenpad_readme.png)
+![](zenpad_demo.gif)
 
 [![wercker status](https://app.wercker.com/status/6764b7988a279822959e792434e70223/s/master "wercker status")](https://app.wercker.com/project/byKey/6764b7988a279822959e792434e70223)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 The aim of the project is to create an easy to use gamepad library for `<canvas>`.
 
-### Setup
-
-#### NPM Install
-
-```bash
-$ npm install zenpad.js
-```
-
-#### Script Install
-
-```html
-<script src="zenpad.js"></script>
-```
-
 ### Demo
 
 - [http://zendash.sawa-zen.com/](http://zendash.sawa-zen.com/)
 - [http://zenpad.sawa-zen.com/demo/](http://zenpad.sawa-zen.com/demo/)
 
-### Basic Usage Example
+### Usage
+
+Prepare DOM for Zenpad.js.
 
 ```html
 <div id="myZenpad"></div>
+```
+
+#### Install from script
+
+```html
+<script src="zenpad.js"></script>
 <script>
-window.addEventListener('load', init);
-function init() {
-  var zenpad = new Zenpad('myZenpad');
-
-  zenpad.on('touchstartA', function() {
-    console.info('touchstartA');
-  });
-
-  zenpad.on('moveStick', function(event) {
-    console.info('moveStick', event.x);
-  });
-}
+var zenpad = new Zenpad('myZenpad');
+// ... see below
 </script>
+```
+
+#### Install from require
+
+```javascript
+var Zenpad = require('zenpad.js');
+var zenpad = new Zenpad('myZenpad');
+// ... see below
+```
+
+#### General
+
+```javascript
+zenpad.on('touchstartA', function() {
+  console.info('touchstartA');
+});
+
+zenpad.on('moveStick', function(event) {
+  console.info('moveStick', event.x);
+});
 ```
 
 ### Method
