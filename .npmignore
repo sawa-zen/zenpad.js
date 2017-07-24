@@ -4,3 +4,4 @@ src/
 .eslintrc
 bs-config.json
 wercker.yml
+zenpad_demo.gif
