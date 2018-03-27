@@ -3,5 +3,6 @@ src/
 .babelrc
 .eslintrc
 bs-config.json
+README.md
 wercker.yml
 zenpad_demo.gif
