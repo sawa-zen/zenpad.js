@@ -13,7 +13,7 @@ module.exports = class Zenpad extends PIXI.utils.EventEmitter {
    * コンストラクター
    * @constructor
    */
-  constructor(wrapperId, width, height) {
+  constructor(wrapperId) {
     super();
 
     this._tick = this._tick.bind(this);
